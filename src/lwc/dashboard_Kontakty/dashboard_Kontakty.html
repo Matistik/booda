@@ -1,0 +1,80 @@
+<!--
+ - Created by matistikoff on 21. 7. 2022.
+ -->
+
+<!-- Dashboard Kontakty -->
+<template>
+    <div class="container">
+
+        <div class="rows">
+            <h2 class="row1">Kontakty</h2>
+        </div>
+
+        <div class="rows">
+            <h2 class="text1">Primárny</h2>
+            <span class="image " title="Description of icon when needed">
+                <svg class="slds-icon slds-icon_large" aria-hidden="true">
+                <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#image"></use>
+                </svg>
+                <span class="slds-assistive-text">Description of icon when needed</span>
+            </span>
+            <h2 class="text2">Filip Juráň</h2>
+            <h2 class="text3">Partner</h2>
+            <a class="text3" href="mailto:fjuran@parallaxis.io">fjuran@parallaxis.io</a>
+            <h2 class="text3 gap">0902 584 486</h2>
+        </div>
+
+        <div class="rows">
+            <h2 class="row1 small">Všetky kontakty:</h2>
+            <button class="button2" onclick={openNKModal}>+ Nový kontakt</button>
+            <template if:true={openModal}>
+                <c-custom-modal onclose={closeNKModal}>
+
+                    <c-dashboard_-kontakty_-novy>
+
+                    </c-dashboard_-kontakty_-novy>
+
+                </c-custom-modal>
+            </template>
+        </div>
+
+
+
+
+
+        <div class="contacts">
+             <span class="image-small " title="Description of icon when needed">
+                  <svg class="slds-icon" aria-hidden="true">
+                  <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#image"></use>
+                  </svg>
+             </span>
+            <h2 class="meno">Rasto Mičík</h2>
+            <h2 class="role">Majiteľ bytu</h2>
+        </div>
+
+        <div class="empty">
+
+        </div>
+
+        <div class="rows">
+            <button class="button1">Link pre klienta</button>
+            <button class="button2" onclick={openIEModal}>Inicializačný email ></button>
+            <template if:true={openieModal}>
+                <c-custom-modal onclose={closeIEModal}>
+
+                    <c-dashboard_-kontakty_-email ></c-dashboard_-kontakty_-email>
+
+                </c-custom-modal>
+            </template>
+        </div>
+
+        <div class="empty1">
+
+        </div>
+
+        <div class="rows">
+            <p2 class="last">Inicializačný email nebol poslaný</p2>
+        </div>
+
+    </div>
+</template>

@@ -1,0 +1,51 @@
+<!--
+ - Created by Maind on 20. 7. 2022.
+ -->
+
+<!-- Standard -->
+<template>
+    <template if:true={renderDruhy}>
+        <div class="container">
+
+            <h2 class="header">Štandardy</h2>
+            <button class="slds-button button-klient-app slds-button_brand">
+                <svg class=" button1 slds-button__icon slds-button__icon_left " aria-hidden="true">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#add"></use>
+                </svg>Klient App</button>
+
+            <button class="slds-button button-pdf slds-button_brand">
+                <svg class=" button1 slds-button__icon slds-button__icon_left " aria-hidden="true">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#pdf_ext"></use>
+                </svg>PDF výstup</button>
+
+            <div class="rows">
+                <button class={button1}>Druhy Prvkov</button>
+                <button class={button2} onclick={goTo}>Jednotlivé prvky</button>
+            </div>
+
+            <div class="rows">
+                <h2 class="texts text1">Obrázok</h2>
+                <h2 class="texts text2">Názov druhu</h2>
+                <h2 class="texts text3"></h2>
+                <h2 class="texts text4">Vybratých</h2>
+            </div>
+
+            <div class="rows-text">
+            <span class="image-small ">
+                  <svg class="slds-icon text" aria-hidden="true">
+                  <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#image"></use>
+                  </svg>
+             </span>
+                <h2 class="text text2">Dvere</h2>
+                <h2 class="text text3"></h2>
+                <h2 class="text green text4">2/2</h2>
+            </div>
+
+        </div>
+    </template>
+
+    <template if:true={renderPrvky}>
+        <c-tab-navigation_-standard-prvky ></c-tab-navigation_-standard-prvky>
+    </template>
+
+</template>

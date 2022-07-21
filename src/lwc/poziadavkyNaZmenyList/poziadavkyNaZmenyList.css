@@ -1,0 +1,105 @@
+/**
+ * Created by matistikoff on 21. 7. 2022.
+ */
+/**
+ * Created by Maind on 21. 7. 2022.
+ */
+.container{
+    display: grid;
+    background: #efeff5;
+    border-radius: 8px;
+    padding: 5px;
+
+}
+.container > div{
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+}
+
+.search-bar{
+    grid-column: 2/6;
+    padding-bottom: 90px;
+}
+.searchBox {
+    grid-column: 1/11;
+    position: absolute;
+    transform:  translate(-50%,50%);
+    background: lightgray;
+    border-radius: 40px;
+}
+
+.searchBox:hover > .searchInput {
+    width: 240px;
+    padding: 0 6px;
+}
+
+.searchBox:hover > .searchButton {
+    background: white;
+}
+
+.searchButton {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: lightgray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.4s;
+}
+
+.searchInput {
+    border:none;
+    background: none;
+    outline:none;
+    float:left;
+    color: black;
+    font-size: 16px;
+    transition: 0.4s;
+    line-height: 40px;
+    width: 0px;
+    padding: 0px;
+}
+.rows{
+    grid-column: 1/11;
+    border-bottom: darkgray 1px solid;
+}
+.rows-text{
+    grid-column: 1/11;
+    border-bottom: darkgray 1px solid;
+}
+.rows-text:hover{
+    cursor: pointer;
+    background: white;
+}
+.texts{
+    color: darkgray;
+    font-size: small;
+    align-self: center;
+}
+.text{
+    color: black;
+    align-self: center;
+    font-size: small;
+}
+.text1{
+    grid-column: 1/2;
+}
+.text2{
+    grid-column: 2/3;
+}
+.text3{
+    grid-column: 3/5;
+}
+.text4{
+    grid-column: 5/6;
+}
+.text5{
+    grid-column: 6/9;
+}
+.text6{
+    grid-column: 9/10;
+}
+.text7{
+    grid-column: 10/11;
+}

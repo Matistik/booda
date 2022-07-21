@@ -1,0 +1,49 @@
+<!--
+ - Created by matistikoff on 21. 7. 2022.
+ -->
+
+<!-- Dashboard Byt -->
+<template>
+    <template if:true={bytData}>
+        <div class="container">
+
+            <div class="rows">
+                <h2 class="row1">byt Name: {bytData.Name}</h2>
+                <button class="button2">Klietn App</button>
+            </div>
+
+            <div class="rows">
+                <h2 class="text">Typ</h2>
+                <h2 class="text">Vchod</h2>
+                <h2 class="text">Označenie</h2>
+                <h2 class="text">Posch.</h2>
+                <h2 class="text">Izbovosť</h2>
+            </div>
+
+            <div class="rows">
+                <h2 class="text1">{bytData.Typ__c}</h2>
+                <h2 class="text1">{bytData.Vchod__c}</h2>
+                <h2 class="text1">{bytData.Ozna_enie__c}</h2>
+                <h2 class="text1">1</h2>
+                <h2 class="text1">{bytData.Izbovos__c}</h2>
+            </div>
+
+            <div class="area1-nadpis">
+                <label class="label1">Číslo ZoBKZ / KZ</label>
+            </div>
+
+            <div class="rows">
+                <textarea class="area1">{bytData.slo_ZoBKZ_KZ__c}</textarea>
+            </div>
+
+            <div class="area1-nadpis">
+                <label>Poznámky:</label>
+            </div>
+
+            <div class="rows">
+                <textarea class="area2" rows="4"></textarea>
+            </div>
+
+        </div>
+    </template>
+</template>

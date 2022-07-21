@@ -1,0 +1,66 @@
+.container{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    background: #efeff5;
+    padding: 15px;
+    gap: 10px;
+}
+.container >div{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+
+}
+
+
+
+.text{
+    font-size: x-small;
+    grid-column: 1/6;
+    padding-bottom: 0px;
+    color: darkgray;
+    padding-top: 5px;
+}
+.nazov{
+    grid-column: 1/6;
+    align-self: center;
+    resize: none;
+    max-height: 35px;
+    border-radius: 8px;
+
+}
+.dropdown{
+    grid-column: 1/6;
+    align-self: center;
+    resize: none;
+    height: 35px;
+    border-radius: 8px;
+}
+.box-non-moved{
+    padding-top: 5px;
+    grid-column: 1/6;
+    align-self: center;
+}
+.box-moved{
+    grid-column: 2/6;
+    align-self: center;
+}
+.text-big{
+    grid-column: 1/6;
+    align-self: center;
+    resize: none;
+    height: 10em;
+    border-radius: 8px;
+
+}
+.slds-button{
+    align-self: center;
+    height: 35px;
+    width: 100%;
+
+}
+.button{
+    grid-column: 1/6;
+    padding-top: 30px;
+    padding-bottom:5px;
+
+}

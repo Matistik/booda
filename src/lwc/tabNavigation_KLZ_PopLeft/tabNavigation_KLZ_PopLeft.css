@@ -1,0 +1,87 @@
+.container{
+    display: grid;
+    background: #efeff5;
+    border-radius: 8px;
+    max-width: 270px;
+}
+.container > div{
+    display: grid;
+    grid-template-columns: repeat(16, 1fr);
+    padding-top: 10px;
+    padding-left: 15px;
+}
+.header {
+    grid-column: 1/15;
+    font-size: 20px;
+    font-weight: bold;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    grid-row: 1/2;
+
+}
+
+.rows{
+    grid-column: 1/16;
+
+    padding-bottom: 5px;
+}
+.rows-buttons{
+    grid-column: 1/16;
+
+    padding-bottom: 5px;
+    padding-left: 10px;
+
+}
+.rows-headers{
+    grid-column: 1/17;
+    padding-bottom: 15px;
+}
+.textRow{
+    padding-left: 5px;
+    align-self: center;
+    font-size: small;
+}
+.text1{
+    grid-column: 1/13;
+}
+
+.button1{
+    grid-column: 1/8;
+    border:none;
+    align-self: center;
+    border-radius: 15px 0px 0px 15px;
+    font-size: small;
+    line-height: 20px;
+
+
+}
+.button2{
+    grid-column: 8/16;
+    border:none;
+    align-self: center;
+    border-radius: 0px 15px 15px 0px;
+    font-size: small;
+    line-height: 20px;
+
+}
+.rows-info{
+    border-bottom: darkgray 1px solid;
+    grid-column: 1/16;
+
+
+}
+.textUp{
+    font-size: x-small;
+}
+.textDown{
+    color: black;
+}
+.rows-yellow{
+    color: orange;
+}
+.rows-green{
+    color: green;
+}
+.rows-red{
+    color: red;
+}

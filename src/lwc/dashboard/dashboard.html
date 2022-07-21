@@ -1,0 +1,28 @@
+<!--
+ - Created by matistikoff on 21. 7. 2022.
+ -->
+
+<!-- Dashboard -->
+<template>
+    <div class="wrapper">
+        <div>
+
+            <c-dashboard_byt flat-i-d={flatID}></c-dashboard_byt>
+        </div>
+        <div>
+            <c-dashboard_-standardy onstandards={renderToStandards}></c-dashboard_-standardy>
+        </div>
+        <div>
+            <c-dashboard_-k-l-z onklz={renderToKLZ}></c-dashboard_-k-l-z>
+        </div>
+        <div>
+            <c-dashboard_-kontakty></c-dashboard_-kontakty>
+        </div>
+        <div>
+            <c-dashboard_stav-spracovania ></c-dashboard_stav-spracovania>
+        </div>
+        <div>
+            <c-dashboard_-terminy ></c-dashboard_-terminy>
+        </div>
+    </div>
+</template>

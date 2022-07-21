@@ -1,0 +1,43 @@
+<!--
+ - Created by Maind on 15. 7. 2022.
+ -->
+
+<!-- Stretnutia -->
+<template>
+    <div class="container">
+
+        <div class="header">Stretnutia</div>
+
+        <button class="slds-button slds-button_brand" onclick={opennsModal}>
+            <svg class=" button1 slds-button__icon slds-button__icon_left " aria-hidden="true">
+                <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#add"></use>
+            </svg>Nove Stretnutie</button>
+        <template if:true={openModal}>
+            <c-custom-modal onclose={closensModal}>
+                <c-tab-navigation_-stretnutia-pop-up ></c-tab-navigation_-stretnutia-pop-up>
+            </c-custom-modal>
+        </template>
+
+        <div class="rows">
+            <h2 class="text text1">Dátum</h2>
+            <h2 class="text text2">Názov </h2>
+            <h2 class="text text3">Trvanie</h2>
+            <h2 class="text text4">Klient</h2>
+            <h2 class="text text5">Developer</h2>
+            <h2 class="text text6">Zapis zo stretnutia</h2>
+        </div>
+        <div class="rows">
+            <h2 class="textRow text1">M-A101-01</h2>
+            <h2 class="textRow text2">Chodba</h2>
+            <h2 class="textRow text3">01</h2>
+            <h2 class="textRow text4">6,85</h2>
+            <h2 class="textRow text5"></h2>
+            <h2 class="textRow text6"></h2>
+            <button class="button1 row-button-open"><svg class="slds-icon_xx-small slds-input__icon icon-search-input__icon slds-input__icon_left " aria-hidden="true">
+                <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#arrow_right"></use></svg></button>
+            <button class="button2 row-button-open"><svg class="slds-icon_xx-small slds-input__icon icon-search-input__icon slds-input__icon_left " aria-hidden="true">
+                <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#delete"></use></svg></button>
+        </div>
+
+    </div>
+</template>

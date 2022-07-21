@@ -1,0 +1,57 @@
+<template>
+
+
+    <div class="container">
+
+
+        <div class="rows-header">
+            <div class="header">Súbory:</div>
+
+            <button class="slds-button button1 slds-button_stretch" onclick={openppmModal}>
+                <svg class=" button1 slds-button__icon slds-button__icon_left " aria-hidden="true">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#chevrondown"></use>
+                </svg>Premenovať priečinok</button>
+            <template if:true={openppModal}>
+                <c-custom-modal onclose={closeppmModal}>
+
+
+
+                </c-custom-modal>
+            </template>
+
+
+            <button class="slds-button slds-button_brand button2 slds-button_stretch" onclick={openpsModal}>
+                <svg class=" button1 slds-button__icon slds-button__icon_left " aria-hidden="true">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#add"></use>
+                </svg>Pridať súbor</button>
+            <template if:true={openModal}>
+                <c-custom-modal onclose={closepsModal}>
+
+                    <c-tab-navigation_-subory-pop-up ></c-tab-navigation_-subory-pop-up>
+
+                </c-custom-modal>
+            </template>
+        </div>
+
+
+        <div class="rows">
+            <h2 class="text text-header1">Názov súboru</h2>
+            <h2 class="text text-header2">Poznámky/Popis </h2>
+
+        </div>
+
+        <div class="rows-text">
+            <h2 class="textRow image"></h2>
+            <h2 class="textRow text1">Pôdorys dispozícia</h2>
+            <div class="textRow green">verejné</div>
+            <div class="textRow orange">pôdorys</div>
+            <div class="textRow red">passport</div>
+            <h2 class="textRow text2">Základný pôdorys celého bytu</h2>
+            <button class="button row-button-open"><svg class="slds-icon_xx-small slds-input__icon icon-search-input__icon slds-input__icon_left " aria-hidden="true">
+                <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#arrow_right"></use></svg></button>
+
+        </div>
+
+
+    </div>
+</template>

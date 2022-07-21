@@ -1,0 +1,27 @@
+.container{
+    display: grid;
+    background: #efeff5;
+    border-radius: 8px;
+    width: 300px;
+    padding:10px;
+}
+.container > div{
+    display: grid;
+    border-bottom: darkgray 1px solid;
+}
+.header {
+
+    font-size: 20px;
+    font-weight: bold;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    border-bottom: darkgray 1px solid;
+}
+
+.button{
+    background-color:transparent;
+    border: none ;
+    text-align: left;
+    min-height: 40px;
+
+}

@@ -1,0 +1,82 @@
+<!--
+ - Created by Maind on 18. 7. 2022.
+ -->
+
+<!-- Klz -->
+<template>
+
+    <div class="container">
+        <div class="rows-help">
+            <div class="label label-date">Dátum zaplatenia Paušálneho polpalku KLZ</div>
+            <div class="label label-poplatok">Paušálny poplatok KLZ</div>
+            <div class="label label-rozsah">Rozsah klienskych zmien</div>
+        </div>
+        <div class="rows-headers">
+            <div class="header">Klientske zmeny</div>
+
+            <!--div class="slds-form-element is-required" >
+             <label class="slds-form-element__label" >
+                 <span class="" >How many tickets?</span>
+             </label>
+             <div class="slds-form-element__control slds-grow" >
+                 <div class="slds-select_container" >
+                     <select aria-invalid="false" class="slds-select"  name="select1" required="">
+                         <option value="" >choose one...</option>
+                         <option value="1">one</option>
+                         <option value="2">two</option>
+                         <option value="3" >three</option>
+                     </select></div></div></div-->
+
+            <select class="select" >
+                <option >Bez zmeny</option>
+                <option >Male zmneny</option>
+                <option >Velke zmeny</option>
+            </select>
+
+            <textarea  class="poplatok" cols="1" readonly>
+        </textarea>
+
+
+            <input class="calendar" type="date" >
+
+
+
+            <button onclick={renderToKlzWrapper} class="slds-button button-nova slds-button_brand">
+                <svg class=" button1 slds-button__icon slds-button__icon_left " aria-hidden="true">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#add"></use>
+                </svg>Nová KLZ</button>
+
+            <button class="slds-button button-pdf slds-button_brand">
+                <svg class=" button1 slds-button__icon slds-button__icon_left " aria-hidden="true">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#pdf_ext"></use>
+                </svg>PDF výstup</button>
+        </div>
+        <div class="rows">
+            <h2 class="text text1">Stav</h2>
+            <h2 class="text text2">Popis požiadavky </h2>
+            <h2 class="text text3">Rozpočty</h2>
+            <h2 class="text text4">Vytvorené</h2>
+            <h2 class="text text5">Termín uzávierky</h2>
+            <h2 class="text text6">Dátum uzávierky</h2>
+            <h2 class="text text7">Nacenené</h2>
+            <h2 class="text text8">Schválené</h2>
+        </div>
+        <div class="rows-text">
+            <h2 class="textRow text0">M-A101-01</h2>
+            <h2 class="textRow text1">Rozpracované</h2>
+            <h2 class="textRow text2">vyhodit pec</h2>
+            <h2 class="textRow text3">Rozpocty</h2>
+            <h2 class="textRow text4">6.7.2022 10:00</h2>
+            <h2 class="textRow text5">1 uzávierka štandardov</h2>
+            <h2 class="textRow text6">Dátum</h2>
+            <h2 class="textRow text7">330$</h2>
+            <h2 class="textRow text8">Ano</h2>
+            <button class=" button button1 row-button-open"><svg class="slds-icon_xx-small slds-input__icon icon-search-input__icon slds-input__icon_left " aria-hidden="true">
+                <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#arrow_right"></use></svg></button>
+
+            <button class="button button2 row-button-open"><svg class="slds-icon_xx-small slds-input__icon icon-search-input__icon slds-input__icon_left " aria-hidden="true">
+                <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#delete"></use></svg></button>
+        </div>
+
+    </div>
+</template>

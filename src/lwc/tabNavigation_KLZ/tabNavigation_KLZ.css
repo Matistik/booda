@@ -1,0 +1,177 @@
+/**
+ * Created by Maind on 18. 7. 2022.
+ */
+.container{
+    display: grid;
+    background: #efeff5;
+    border-radius: 8px;
+    padding: 5px;
+}
+.container > div{
+    display: grid;
+    grid-template-columns: repeat(16, 1fr);
+    padding-top: 10px;
+}
+.header {
+    grid-column: 1/4;
+    font-size: 20px;
+    font-weight: bold;
+    grid-row: 1/2;
+}
+.button-nova{
+    grid-column: 13/15;
+    grid-row: 1/2;
+    align-self: center;
+    height: 35px;
+    background: #3889fd;
+    border: none;
+}
+.button-pdf{
+    grid-column: 15/17;
+    grid-row: 1/2;
+    align-self: center;
+    height: 35px;
+    background: #3889fd;
+    border: none;
+}
+.button-pdf:hover{
+    text-decoration: underline;
+}
+.button-nova:hover{
+    text-decoration: underline;
+}
+.rows{
+    grid-column: 1/15;
+    border-bottom: darkgray 1px solid;
+    padding-bottom: 5px;
+    padding-right: 5px;
+
+}
+.rows-text{
+    grid-column: 1/15;
+    border-bottom: darkgray 1px solid;
+    padding-bottom: 5px;
+    padding-right: 5px;
+
+}
+.rows-headers{
+    grid-column: 1/15;
+    padding-bottom: 5px;
+    padding-right: 5px;
+
+}
+.rows-help{
+    grid-column: 1/15;
+    max-height: 10px;
+}
+.text{
+    font-size: small;
+    color: darkgray;
+    align-self: center;
+}
+.text0{
+    grid-column: 1/2;
+}
+.text1{
+    grid-column: 2/4;
+}
+.text2{
+    grid-column: 4/6;
+}
+.text3{
+    grid-column: 6/7;
+}
+.text4{
+    grid-column: 7/9;
+}
+.text5{
+    grid-column: 9/11;
+}
+.text6{
+    grid-column: 11/13;
+
+}
+.text7{
+    grid-column: 13/14;
+
+}
+.text8{
+    grid-column: 14/15;
+
+}
+.button1{
+    grid-column: 15/16;
+    background:transparent;
+    border:none;
+    align-self: center;
+
+}
+.button2{
+    grid-column: 16/17;
+    background:transparent;
+    border:none;
+    align-self: center;
+    border-radius: 50%;
+
+
+}
+.button1:hover{
+
+    cursor: pointer;
+    background-color: rgb(173, 224, 96);
+}
+.button2:hover{
+    cursor: pointer;
+    background-color: rgb(223, 65, 65);
+}
+.rows-text:hover{
+    cursor: pointer;
+    background-color: white;
+
+
+}
+.textRow{
+    color: black;
+    align-self: center;
+    font-size: small;
+}
+.select{
+    grid-column: 4/7;
+    align-self: center;
+    min-height: 35px;
+    border-radius: 8px;
+
+}
+.poplatok{
+    grid-column: 7/9;
+    align-self: center;
+    resize: none;
+    max-height: 35px;
+    border-radius: 8px;
+}
+.calendar{
+    grid-column: 9/11;
+    align-self: center;
+    min-height: 35px !important;
+    border-radius: 8px;
+
+}
+.label-rozsah{
+    font-size: xx-small;
+    grid-column: 9/11;
+    align-self: end;
+    grid-row: 1/2;
+
+}
+.label-poplatok{
+    font-size: xx-small;
+    grid-column: 7/9;
+    align-self: end;
+    grid-row: 1/2;
+}
+.label-date{
+    font-size: xx-small;
+    grid-column: 4/7;
+    align-self: end;
+    grid-row: 1/2;
+}

@@ -1,0 +1,149 @@
+<!--
+ - Created by Maind on 15. 7. 2022.
+ -->
+
+<!-- Prehlad Bytov -->
+
+<template >
+
+    <template if:true={renderFlats}>
+        <div class="navigation">
+            <button class="button butt0" onclick={handleRenderToHome}>⇦</button>
+            <button class="button butt1" onclick={handleRenderToHome}>/   Domov</button>
+            <button class ="button butt2" onclick={handleRenderToHome}>/   Byty</button>
+        </div>
+        <div class = "wrapper">
+            <div class ="left-side">
+                <div class="box up">
+                    <div class="header"> Vchod:</div>
+                    <button class= "button buttVchod   slds-button_stretch">Všetky</button>
+                    <button class= "button buttVchod   slds-button_stretch">A</button>
+                    <button class= "button buttVchod   slds-button_stretch">B</button>
+                    <h1></h1>
+                </div>
+                <div class="box down">
+                    <div class="header">Etapy:</div>
+                    <button class= "button buttVchod   slds-button_stretch"> Všetky</button>
+                    <button class= "button buttVchod   slds-button_stretch">poschodie 1</button>
+                    <button class= "button buttVchod   slds-button_stretch">poschodie 2</button>
+                    <button class= "button buttVchod   slds-button_stretch">poschodie 3</button>
+                    <button class= "button buttVchod   slds-button_stretch">poschodie 4</button>
+                    <button class= "button buttVchod   slds-button_stretch">poschodie 5</button>
+                    <button class= "button buttVchod   slds-button_stretch">poschodie 6</button>
+                </div>
+
+            </div>
+
+            <div class="box top">
+                <div class="box top-top">
+                    <div class ="middle-side">
+                        <div class="box search-bar">
+
+
+                            <div class="searchBox">
+
+                                <input class="searchInput" type="text" name="" placeholder="Search">
+                                <button class="searchButton" href="#" >
+                                    <svg class="slds-icon slds-input__icon icon-search-input__icon slds-input__icon_left slds-icon-text-default" aria-hidden="true">
+                                        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#search"></use></svg>
+                                </button>
+                            </div>
+                        </div >
+
+                        <div class="box text">
+                            <div class="box title">Vchod</div>
+                            <div class="box title">Etapa</div>
+                            <div class="box title">Označenie</div>
+                            <div class="box title">Posch.</div>
+                            <div class="box title">Typ</div>
+                            <div class="box title">Izb.</div>
+                            <div class="box title">Štandardy</div>
+                            <div class="box title">Zmeny</div>
+
+                        </div>
+
+                    </div>
+                </div>
+                <div class ="right-side">
+
+                    <div class="box vertical-text">
+                        <div class="box title-vertical">Dispozícia</div>
+                        <div class="box title-vertical">Podlahy</div>
+                        <div class="box title-vertical">Dvere</div>
+                        <div class="box title-vertical">Obklady</div>
+                        <div class="box title-vertical">Sanita</div>
+                        <div class="box title-vertical">Kuchyňa</div>
+                        <div class="box title-vertical">STA</div>
+                        <div class="box title-vertical">EI</div>
+                        <div class="box title-vertical">SLAB</div>
+                        <div class="box title-vertical">ZTI</div>
+                        <div class="box title-vertical">VZT</div>
+                        <div class="box title-vertical">UK+CHL</div>
+                        <div class="box title-vertical">Kúpeľňové</div>
+                        <div class="box title-vertical">TECHNICKÁ</div>
+                        <div class="box title-vertical">Zaplatenie</div>
+                    </div>
+                    <div class="box help">
+                        <div class="box title">Hlavný kontakt</div>
+                    </div>
+                </div>
+                <div class="box bottom">
+
+
+
+
+                    <template if:true={byty.data}>
+                        <template for:each={byty.data} for:item="byt">
+
+                            <div class="row" key={byt.Id} onclick = "{handleRenderToDashboardOrFlats}" data-id={byt.Id}>
+                                <div class="box row-info-box" key={byt.Id}>
+                                    <div class="box row-info" key={byt.Id}>{byt.Vchod__c}</div>
+                                    <div class="box row-info" key={byt.Id}>{byt.Etapa__c}</div>
+                                    <div class="box row-info" key={byt.Id}>{byt.Ozna_enie__c}</div>
+                                    <div class="box row-info" key={byt.Id}></div>
+                                    <div class="box row-info" key={byt.Id}>{byt.Typ__c}</div>
+                                    <div class="box row-info" key={byt.Id}>{byt.Izbovos__c}</div>
+                                    <div class="box row-info" key={byt.Id}></div>
+                                    <div class="box row-info" key={byt.Id}></div>
+                                </div>
+                                <div class="box row-button-box" key={byt.Id}>
+                                    <button class="button row-button" key={byt.Id}></button>
+                                    <button class="button row-button" key={byt.Id}></button>
+                                    <button class="button row-button" key={byt.Id}></button>
+                                    <button class="button row-button" key={byt.Id}></button>
+                                    <button class="button row-button" key={byt.Id}></button>
+                                    <button class="button row-button" key={byt.Id}></button>
+                                    <button class="button row-button" key={byt.Id}></button>
+                                    <button class="button row-button" key={byt.Id}></button>
+                                    <button class="button row-button" key={byt.Id}></button>
+                                    <button class="button row-button" key={byt.Id}></button>
+                                    <button class="button row-button" key={byt.Id}></button>
+                                    <button class="button row-button" key={byt.Id}></button>
+                                    <button class="button row-button" key={byt.Id}></button>
+                                    <button class="button row-button" key={byt.Id}></button>
+                                    <button class="button row-button" key={byt.Id}></button>
+                                </div>
+                                <div class="box row-kontakt" key={byt.Id}>{byt.Account__c}</div>
+                            </div>
+                        </template>
+                    </template>
+
+                </div>
+            </div>
+        </div>
+
+    </template>
+
+    <template if:true={renderDashboard}>
+
+
+        <c-tab-navigation  flat-i-d= {flatID} onflat= {handleRenderToDashboardOrFlats} onhome={handleRenderToHome}>
+
+        </c-tab-navigation>
+    </template>
+
+
+
+
+
+</template>

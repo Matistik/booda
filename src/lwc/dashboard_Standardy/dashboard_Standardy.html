@@ -1,0 +1,51 @@
+<!--
+ - Created by matistikoff on 21. 7. 2022.
+ -->
+
+<!-- Dashboard Standardy -->
+<template>
+    <div class="container">
+
+        <div class="rows">
+            <h2 class="row1">Standardy</h2>
+            <button class="button2" onclick={openpdfModal}>PDF výstup v </button>
+            <template if:true={openModal}>
+                <c-custom-modal onclose={closepdfModal}>
+
+
+
+                </c-custom-modal>
+            </template>
+        </div>
+
+        <div class="rows">
+            <button class="button2 white" onclick={renderToStandards}>Zobrazit standardy ></button>
+        </div>
+
+        <div class="space"></div>
+
+        <div class="rows">
+            <h2 class="text1">Celkovo na výber</h2>
+            <h2 class="text2">Vybrané</h2>
+            <h2 class="text3">Potrebné vybrať</h2>
+        </div>
+
+        <div class="rows">
+            <h2 class="text1">14</h2>
+            <h2 class="text2">14</h2>
+            <h2 class="text3 green">0</h2>
+        </div>
+
+        <div class="rows">
+            <label class="form-control">
+                <input type="checkbox" name="checkbox" />
+                Uzavriet štandardy predčasne
+            </label>
+        </div>
+
+        <div class="rows">
+            <p2 class="last">Štandardy boli uzavreté</p2>
+        </div>
+
+    </div>
+</template>

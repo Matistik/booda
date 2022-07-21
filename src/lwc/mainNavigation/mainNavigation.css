@@ -1,0 +1,54 @@
+/**
+ * Created by matistikoff on 21. 7. 2022.
+ */
+.navigation{
+    background: #3889fd;
+    height: 50px;
+}
+.navigation > button{
+    background: transparent;
+    color: white;
+    height: 50px;
+    border: 0px ;
+}
+.navigation > button:hover{
+    cursor: pointer;
+    text-decoration: underline;
+    background: dodgerblue;
+}
+
+.navigation2{
+    background: white;
+    height: 30px;
+    border-bottom: #3889fd 2px solid;
+}
+.navigation2 > button {
+    background: transparent;
+    color: gray;
+    border: none;
+    width: auto;
+    height: auto;
+    font-size: 15px;
+    line-height: 25px;
+    transition-duration: 0.4s;
+}
+.navigation2 > button:hover{
+    cursor: pointer;
+}
+
+.empty{
+    height: 10px;
+}
+
+.butt0{
+    font-size: 20px;
+    padding-top:10px;
+}
+
+.butt1{
+    font-size: 20px;
+    padding-top:10px;
+}
+.butt2{
+    font-size: 30px;
+}

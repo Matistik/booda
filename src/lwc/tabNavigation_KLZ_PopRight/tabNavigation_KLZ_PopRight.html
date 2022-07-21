@@ -1,0 +1,102 @@
+<template>
+
+
+    <div class="container">
+
+        <div class="body">
+
+            <div class="box first-box">
+                <div class="header">Zmena</div>
+                <div class="text">Názov KLZ
+                </div>
+                <textarea  class="nazov" cols="1" >
+            </textarea>
+                <div class="text">Stav
+                </div>
+                <select class="dropdown stav" >
+                    <option >Rozpracovaná</option>
+                    <option >Zadaná klientom</option>
+                    <option >Nacenená</option>
+                    <option >Odsúhlasená klientom</option>
+                    <option >Zamietnutá stavbou</option>
+                    <option >Zamietnutá klientom</option>
+                    <option >Odovzdané k realizácii</option>
+                </select>
+                <div class="text">Prvok
+                </div>
+                <select class="dropdown prvok" >
+                    <option >IDK here comes data</option>
+
+                </select>
+                <div class="text">Platný termín pre zmenu
+                </div>
+                <div class="text text-diff">Termín
+                </div>
+                <select class="dropdown termin" >
+                    <option >1. Uzávierka štandardov</option>
+                    <option >2. Uzávierka KLZ</option>
+                    <option >3. Fixnutie profesií</option>
+                    <option >4. Fixnutie statiky</option>
+                    <option >5. Fixnutie murovačiek</option>
+                    <option >6. Definitívna uzávierka</option>
+
+                </select>
+
+                <input class="calendar" type="date" >
+                <div class="text">Interné poznámky
+                </div>
+                <textarea  class="poznamky" cols="1" >
+            </textarea>
+            </div>
+
+
+            <div class="box second-box">
+                <div class="header">Poznámky</div>
+                <div class="text poznamky-od">Popis požiadavky od klienta</div>
+                <div class="text poznamky-pre">Poznámka pre klienta</div>
+                <textarea  class="poznamky-od1" cols="1" readonly>
+            </textarea>
+                <textarea  class="poznamky-pre1" cols="1" >
+            </textarea>
+            </div>
+            <div class="box third-box">
+                <div class="header">Kalkulácie</div>
+                <button class="slds-button button-nova slds-button_brand">
+                    <svg class=" button1 slds-button__icon slds-button__icon_left " aria-hidden="true">
+                        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#add"></use>
+                    </svg>Nová kalkulácia</button>
+
+                <div class="rows">
+                    <h2 class="textR text1">Aktivácia</h2>
+                    <h2 class="textR text2">Názov Kalkulácie </h2>
+                    <h2 class="textR text3">Stav</h2>
+                    <h2 class="textR text4">Cena celkom</h2>
+                </div>
+
+
+                <div class="rows-text">
+                    <h2 class="textRow text1">M-A101-01</h2>
+                    <h2 class="textRow text2">Chodba</h2>
+                    <h2 class="textRow text3">01</h2>
+                    <h2 class="textRow text4">6,85</h2>
+
+
+                    <button class="button1 row-button-open"><svg class="slds-icon_xx-small slds-input__icon icon-search-input__icon slds-input__icon_left " aria-hidden="true">
+                        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#arrow_right"></use></svg></button>
+                    <button class="button2 row-button-open"><svg class="slds-icon_xx-small slds-input__icon icon-search-input__icon slds-input__icon_left " aria-hidden="true">
+                        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#delete"></use></svg></button>
+                </div>
+
+            </div>
+
+
+
+
+
+
+
+        </div>
+
+
+    </div>
+</template>

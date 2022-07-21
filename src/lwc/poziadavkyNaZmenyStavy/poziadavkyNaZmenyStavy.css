@@ -1,0 +1,27 @@
+/**
+ * Created by Maind on 21. 7. 2022.
+ */
+.container{
+    display: grid;
+}
+.container > div{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 5px;
+    padding-left: 10px;
+}
+.rows1{
+    color: blue;
+    padding-top: 10px;
+    padding-bottom: 15px;
+}
+
+.h1{
+    justify-self: left;
+    padding-bottom: 5px;
+    color: gray;
+}
+.h1:hover{
+    cursor: pointer;
+    color: white;
+}

@@ -1,0 +1,60 @@
+/**
+ * Created by Maind on 14. 7. 2022.
+ */
+.container{
+    display: grid;
+    padding: 5px;
+}
+.container > div{
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    border-bottom: darkgray 1px solid;
+    grid-gap: 5px;
+}
+.row1 {
+    grid-column: 1/9;
+    font-size: 20px;
+    font-weight: bold;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    border-bottom: darkgray 1px solid;
+}
+.rows{
+    grid-column: 1/9;
+}
+.texts{
+    grid-column: 3/6;
+    font-weight: normal;
+    font-size: 15px;
+    justify-self: end;
+    align-self: center;
+}
+.button1{
+    grid-column: 6/7;
+    background: #d15650;
+    border: darkgray 1px solid;
+    border-radius: 5px;
+}
+.button2{
+    grid-column: 7/8;
+    border: darkgray 1px solid;
+    border-radius: 5px;
+}
+.button3{
+    grid-column: 8/9;
+    border-radius: 5px;
+    border: darkgray 1px solid;
+}
+
+.default{
+
+}
+.orange {
+    background: orange;
+}
+.red{
+    background: #d15650;
+}
+.green{
+    background: green;
+}

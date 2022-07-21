@@ -1,0 +1,70 @@
+<!-- Third Box -->
+<template>
+    <div class="container">
+
+        <div class="rows">
+            <h2 class="row1">Klientské zmeny</h2>
+            <button class="button2" onclick={openpdfModal}>PDF výstup</button>
+            <template if:true={openModal}>
+                <c-custom-modal onclose={closepdfModal}>
+
+                </c-custom-modal>
+            </template>
+        </div>
+
+        <div class="rows">
+            <h2 class="text1">Uzavreté</h2>
+            <h2 class="text2">Rozpracované</h2>
+            <button class="button2" onclick={renderToKLZ} >Zobrazit zmeny ></button>
+        </div>
+
+        <div class="rows">
+            <h2 class="text1">0</h2>
+            <h2 class="text2 red">45</h2>
+        </div>
+
+        <div class="area1-nadpis area">
+            <label class="label1">Rozsah klientských zmien</label>
+            <label class="label2">Paušálny poplatok KLZ</label>
+        </div>
+
+        <div class="rows">
+            <select class="area1" >
+                <option >Bez zmeny</option>
+                <option >Male zmneny</option>
+                <option >Velke zmeny</option>
+            </select>
+            <textarea disabled class="area2">0</textarea>
+        </div>
+
+        <div class="area1-nadpis">
+            <label class="label1">Zasielanie výzvy KLZ najneskôr do</label>
+            <label class="label3">Nh nárok</label>
+            <label class="label4">Nh vypočítané</label>
+        </div>
+
+        <div class="rows">
+            <input class="area1 date" type="date">
+            <textarea rows="2" class="area3">0</textarea>
+            <textarea rows="2" class="area4">0</textarea>
+        </div>
+
+        <div class="area1-nadpis">
+            <label class="label4">Nh nad rámec</label>
+        </div>
+
+        <div class="rows">
+            <lightning-input class="form-control" type="checkbox" label="Uzavriet KLZ predčasne" onclick={handleChange}></lightning-input>
+            <template if:false={areButtonVisible}>
+                <button class="odomknute">Odomknuté v</button>
+            </template>
+
+            <textarea class="area4">0</textarea>
+        </div>
+
+        <div class="rows">
+            <p2 class="last">Klientské zmeny boli uzavreté</p2>
+        </div>
+
+    </div>
+</template>

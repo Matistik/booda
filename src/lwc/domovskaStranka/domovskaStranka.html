@@ -1,0 +1,66 @@
+<!--
+ - Created by matistikoff on 21. 7. 2022.
+ -->
+
+<!-- Domovska Stranka -->
+<template>
+    <template if:true={renderHomePage}>
+
+        <div class = "container">
+            <div class="container1"></div>
+            <div class="container2">
+                <div class = "box1"> Manažér klientských zmien</div>
+                <div class = "nested">
+                    <lightning-button
+                            class="button butt" onclick={handleRenderToFlatsOrHome} label="Byty" title="Byty"  icon-name="utility:home">
+                    </lightning-button >
+                    <lightning-button class="button butt" onclick={navigateToPoziadavky} label="Požiadavky na zmeny" title=" Požiadavky na zmeny" icon-name="utility:multi_picklist" >
+                    </lightning-button >
+                    <lightning-button class="button butt"  onclick={navigateToEtapy}  label="Etapy a termíny" title="Etapy a termíny" icon-name="utility:event" >
+                    </lightning-button >
+
+                </div >
+                <div class="box2">
+                    <lightning-button class="button butt" label="Admin" title="Admin" icon-name="utility:settings" >
+                    </lightning-button >
+                </div>
+            </div>
+            <div class="container3"></div>
+        </div>
+
+    </template>
+
+    <template if:true={renderFlats}>
+
+
+        <c-prehlad-bytov onhome= {handleRenderToFlatsOrHome}>
+
+        </c-prehlad-bytov>
+
+    </template>
+
+    <template if:true={renderEtapy}>
+
+        <c-etapy>
+
+
+        </c-etapy>
+
+
+
+
+    </template>
+
+    <template if:true={renderPoziadavky}>
+
+        <c-poziadavky-na-zmeny>
+
+
+        </c-poziadavky-na-zmeny>
+
+
+
+
+    </template>
+
+</template>
