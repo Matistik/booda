@@ -1,0 +1,43 @@
+<!--
+ - Created by Maind on 21. 7. 2022.
+ -->
+
+<!-- Prehlad Bytov Vchody -->
+<template>
+    <div class="container">
+
+        <div class="rows1">
+            <h2 class="h3">Vchod:</h2>
+        </div>
+
+        <div class="rows">
+            <h2 class="h1" onclick={handleRenderVsetkyVchody}>Všetky</h2>
+        </div>
+
+        <template if:true={vchodyData}>
+        <template for:each={vchodyData} for:item="vchod">
+        <div class="rows" key={vchod.Id}>
+            <h2 class="h1" onclick={handleRenderSpecVchod} data-id={vchod.Vchod__c} >{vchod.Vchod__c}</h2>
+        </div>
+        </template>
+        </template>
+
+        <div class="rows2">
+            <h2 class="h3">Etapy:</h2>
+        </div>
+        <div class="rows">
+            <h2 class="h1" onclick={handleRenderVsetkyVchody}>Všetky</h2>
+        </div>
+
+        <template if:true={etapyData}>
+            <template for:each={etapyData} for:item="etapa">
+
+        <div class="rows" key={etapa.Id}>
+            <h2 class="h1" onclick={handleRenderVsetkyEtapy} data-id={etapa.Etapa__c} >{etapa.Etapa__c}</h2>
+        </div>
+
+            </template>
+        </template>
+
+    </div>
+</template>

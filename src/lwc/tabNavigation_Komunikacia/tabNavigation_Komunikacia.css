@@ -1,24 +1,27 @@
 /**
  * Created by Maind on 18. 7. 2022.
  */
-.container{
-    display: grid;
+.wrapper{
     background: #efeff5;
     border-radius: 8px;
+    height: 88vh;
     max-width: 400px;
+}
+.container{
+    display: grid;
+    max-width: 400px;
+    padding: 5px;
 }
 .container > div{
     display: grid;
     grid-template-columns: repeat(16, 1fr);
     padding-bottom: 5px;
-    padding-top: 10px;
 }
 .header {
     grid-column: 1/5;
     font-size: 20px;
     font-weight: bold;
     padding-bottom: 5px;
-    padding-left: 5px;
     grid-row: 1/2;
 
 }
@@ -37,7 +40,6 @@
     border-bottom: darkgray 1px solid;
 }
 .textRow{
-    padding-left: 5px;
     align-self: center;
     font-size: small;
 }
@@ -53,7 +55,7 @@
 .rows:hover{
 
     cursor: pointer;
-    background-color: rgb(160, 160, 160);
+    background-color: white;
     text-decoration: underline;
 
 
@@ -62,4 +64,16 @@
 
     cursor: pointer;
     background-color: rgb(173, 224, 96);
+}
+.slds-scrollable_y{
+    display: grid;
+    grid-template-columns: repeat(16, 1fr);
+    grid-column: 1/17;
+    max-height: 75vh;
+}
+
+.slds-scrollable_y >div{
+    display: grid;
+    grid-template-columns: repeat(16, 1fr);
+    grid-column: 1/17;
 }

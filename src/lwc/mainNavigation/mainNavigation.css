@@ -1,54 +1,27 @@
-/**
- * Created by matistikoff on 21. 7. 2022.
- */
 .navigation{
     background: #3889fd;
-    height: 50px;
+    height: 5vh;
 }
-.navigation > button{
-    background: transparent;
+.button{
+    background: #3889fd;
+    font-size: medium;
     color: white;
-    height: 50px;
-    border: 0px ;
-}
-.navigation > button:hover{
-    cursor: pointer;
-    text-decoration: underline;
-    background: dodgerblue;
-}
-
-.navigation2{
-    background: white;
-    height: 30px;
-    border-bottom: #3889fd 2px solid;
-}
-.navigation2 > button {
-    background: transparent;
-    color: gray;
     border: none;
-    width: auto;
-    height: auto;
-    font-size: 15px;
-    line-height: 25px;
-    transition-duration: 0.4s;
+    height: 5vh;
 }
-.navigation2 > button:hover{
-    cursor: pointer;
+.hover:hover{
+    text-decoration: underline;
 }
-
-.empty{
-    height: 10px;
+.bolder{
+    font-weight: bold;
 }
-
-.butt0{
-    font-size: 20px;
-    padding-top:10px;
+.arrow {
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    display: inline-block;
+    padding: 4px;
 }
-
-.butt1{
-    font-size: 20px;
-    padding-top:10px;
-}
-.butt2{
-    font-size: 30px;
+.right {
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
 }

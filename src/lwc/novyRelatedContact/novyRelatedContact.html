@@ -1,0 +1,38 @@
+<!--
+ - Created by juraj on 05/08/2022.
+ -->
+
+<!-- Novy Related Contact -->
+<template>
+    <lightning-card title="Create Contact Record" icon-name="standard:contact">
+        <div style="margin-left: 6%" if:true={error}>
+            <lightning-badge label={error} style="color: red;"></lightning-badge>
+        </div>
+
+        <template if:true={accRecord}>
+            <div class="slds-m-around--xx-large">
+                <div class="container-fluid">
+                    <div class="form-group">
+                        <lightning-input label="Enter Title" name="accTitle" type="text" value={accRecord.Title} onchange={handleTitleChange}></lightning-input>
+                    </div>
+                    <div class="form-group">
+                        <lightning-input label="Enter FirstName" name="accFirstName" required="required" type="text" value={accRecord.FirstName} onchange={handleFirstNameChange}></lightning-input>
+                    </div>
+                    <div class="form-group">
+                        <lightning-input label="Enter LastName" name="accLastName" required="required" type="text" value={accRecord.LastName} onchange={handleLastNameChange}></lightning-input>
+                    </div>
+                    <div class="form-group">
+                        <lightning-input label="Enter Phone Number" name="accPhone" type="phone" value={accRecord.Phone} onchange={handlePhoneChange}></lightning-input>
+                    </div>
+                    <div class="form-group">
+                        <lightning-input label="Enter Email" name="accEmail" type="email" value={accRecord.Email} onchange={handleEmailChange}></lightning-input>
+                    </div>
+
+
+                </div>
+                <br/>
+                <lightning-button label="Submit" onclick={handleConSave} variant="brand"></lightning-button>
+            </div>
+        </template>
+    </lightning-card>
+</template>

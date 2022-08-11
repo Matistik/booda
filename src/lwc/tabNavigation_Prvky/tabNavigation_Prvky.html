@@ -1,34 +1,36 @@
 <template>
+    <template if:true={PrvkyData}>
+    <div class="wrapper">
+        <div class="container">
+
+            <div class="header">Prvky</div>
+
+            <div class="rows">
+                <h2 class="text text1">ID Prvku</h2>
+                <h2 class="text text2">Prvok </h2>
+                <h2 class="text text3">Miestnosť </h2>
+                <h2 class="text text4">Špecifikácia pre stavbu</h2>
+                <h2 class="text text5">Stav výberu štandardu</h2>
+            </div>
 
 
-    <div class="container">
+                <div class="slds-scrollable_y"  style="height: 72vh">
+                <template for:each={PrvkyData} for:item="prvok">
 
+            <div class="rows-text" key={prvok.Id}>
+                <h2 class="textRow text1">{prvok.Name}</h2>
+                <h2 class="textRow text2">{prvok.Prvok__c}</h2>
+                <h2 class="textRow text3">{prvok.Miestnost__r.NazovMiestnosti__c}->{prvok.Miestnost__r.Name}</h2>
+                <h2 class="textRow text4">{prvok.SpecifikaciaPreStavbu__c}</h2>
+                <h2 class="textRow text-green"></h2>
 
+            </div>
 
-        <div class="header">Prvky</div>
+                    </template>
+                </div>
 
-
-
-
-        <div class="rows">
-            <h2 class="text text1">ID Prvku</h2>
-            <h2 class="text text2">Prvok </h2>
-            <h2 class="text text3">Miestnosť </h2>
-            <h2 class="text text4">Špecifikácia pre stavbu</h2>
-            <h2 class="text text5">Stav výberu štandardu</h2>
 
         </div>
-
-        <div class="rows-text">
-            <h2 class="textRow text1">A101-01-STS-57</h2>
-            <h2 class="textRow text2">Stropné svietidlo</h2>
-            <h2 class="textRow text3">Chodba</h2>
-            <h2 class="textRow text4">Na stred miestnosti</h2>
-            <h2 class="textRow text-green">Vybraný klientom</h2>
-
-
-        </div>
-
-
     </div>
+</template>
 </template>

@@ -66,7 +66,7 @@
     grid-column: 1/5;
     overflow-y: scroll;
     scroll-behavior: smooth;
-    height: 150px;
+
 }
 .image-small{
     grid-column: 1/2;
@@ -85,6 +85,7 @@
     height: 34px;
     border-bottom: darkgray 1px solid;
     border-top: darkgray 1px solid;
+    align-self: center;
 }
 .role {
     grid-column: 4/6;

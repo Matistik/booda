@@ -14,6 +14,13 @@ export default class PrehladBytov extends LightningElement {
     @track renderDashboard = false;
     @track data;
     @track flatID;
+    @track bytA;
+    @track bytVchod;
+
+    renderaparent(event){
+        this.bytA = event.detail;
+        console.log("BYT A" + this.bytA);
+    }
 
 
     renderedCallback() {
@@ -22,31 +29,48 @@ export default class PrehladBytov extends LightningElement {
         console.log(this.renderDashboard);
     }
 
-
     handleRenderToDashboardOrFlats(event){
-
-        let caseId = event.currentTarget.dataset.id;
-        this.flatID = caseId;
-
-        console.log('IDcko::: ' + caseId);
-
-        let eventToDispatch = new CustomEvent('gotorecord', {
-            detail: {
-                id: caseId,
-
-            }
-        });
-        this.dispatchEvent(eventToDispatch)
-
-
-        this.renderFlats=!this.renderFlats;
-        this.renderDashboard=!this.renderDashboard;
+        let caseId = event.detail.id;
+        if(caseId == null){
+            this.renderFlats=true;
+            this.renderDashboard=false;
+        }
+        else{
+            this.flatID = caseId;
+            console.log('IDcko::: ' + caseId);
+            this.renderFlats=!this.renderFlats;
+            this.renderDashboard=!this.renderDashboard;
+        }
     }
 
     handleRenderToHome(){
         this.dispatchEvent(new CustomEvent('home'));
         this.renderFlats=false;
         this.renderDashboard=false;
+    }
+    handleRenderToFlats(){
+        this.dispatchEvent(new CustomEvent('flat'));
+        this.renderFlats=true;
+        this.renderDashboard=false;
+    }
+    handleRenderToKlz(){
+        this.dispatchEvent(new CustomEvent('flat'));
+        this.renderFlats=false;
+        this.renderDashboard=false;
+    }
+
+    handleVchodValue(event){
+        this.bytVchod = event.detail.id;
+        console.log("Parent vchod "+this.bytVchod);
+        this.template.querySelector("c-prehlad-bytov-list").getVchodData(this.bytVchod);
+    }
+
+    handleVsetkyVchodyValue(event){
+        this.template.querySelector("c-prehlad-bytov-list").getBytyList();
+    }
+    handleVsetkyEtapyValue(event){
+        this.bytVchod = event.detail.id;
+        this.template.querySelector("c-prehlad-bytov-list").getEtapyData(this.bytVchod);
     }
 
 }

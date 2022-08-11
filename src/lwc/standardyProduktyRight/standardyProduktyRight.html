@@ -1,0 +1,35 @@
+<!--
+ - Created by mgons on 8/3/2022.
+ -->
+
+<!-- Standardy Produkty Right -->
+<template>
+
+
+
+    <div class="container" id="container">
+
+
+        <div class="rows-headers">
+            <div class="header">Produkty</div>
+        </div>
+        <div class="slds-scrollable_y"  >
+            <template if:true={StandardyData}>
+            <template for:each={StandardyData} for:item="standard" >
+
+            <div class="rows " key={standard.Id} >
+                <img src={standard.productOption.Product_Image_Link__c} class="img" alt="">
+                <h2 class="textRow text1" if:true={standard.productOption.SBQQ__OptionalSKU__r.Name}>{standard.productOption.SBQQ__OptionalSKU__r.Name}</h2>
+                <div class="slds-checkbox">
+                    <lightning-input class="slds-p-left_xx-large" type="checkbox" checked={standard.selected} data-id={standard.Id} onchange={handleChange} label=""></lightning-input>
+
+                </div>
+
+            </div>
+            </template>
+            </template>
+        </div>
+        </div>
+
+
+</template>

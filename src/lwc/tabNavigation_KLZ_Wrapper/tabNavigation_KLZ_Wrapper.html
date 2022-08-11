@@ -4,20 +4,30 @@
 
 <!-- Klz Pop Up Wrapper -->
 <template>
+<template if:true={ConcreteKLZData}>
+    <template if:true={bytData}>
+    <div class="navigation">
+        <button class="button" onclick={handleRenderToKlz}>&nbsp;<i class="arrow right"></i></button>
+        <button class="button hover" onclick={handleRenderToHome}>/   Domov</button>
+        <button class ="button hover" onclick={handleRenderToFlat}>/   Byt {bytData.Name} </button>
+        <button class ="button hover" onclick={handleRenderToKlz}>/   Klientské zmeny</button>
+        <button class ="button bolder">/   Klientská zmena {ConcreteKLZData.CaseNumber}</button>
+    </div>
 
     <div class="container">
-        <div class="nav">
-            <c-main-navigation onklz={handleRenderToKlz} onhome={handleRenderToHome} onflat={handleRenderToFlat}>
-
-
-
-            </c-main-navigation>
+<!--        <div class="nav">-->
+<!--            <c-main-navigation-->
+<!--                    onklz={handleRenderToKlz} onhome={handleRenderToHome} onflat={handleRenderToFlat}>-->
+<!--            </c-main-navigation>-->
+<!--        </div>-->
+        <div>
+            <c-tab-navigation_-k-l-z_-pop-left flat-i-d={flatID} klz-i-d={klzID} onklz={renderPopRight} ></c-tab-navigation_-k-l-z_-pop-left>
         </div>
-        <div class="left">
-            <c-tab-navigation_-k-l-z_-pop-left ></c-tab-navigation_-k-l-z_-pop-left>
-        </div>
-        <div class="right">
-            <c-tab-navigation_-k-l-z_-pop-right ></c-tab-navigation_-k-l-z_-pop-right>
+        <div>
+<!--            <c-tab-navigation_-k-l-z_-tab-navigation klz-i-d={klzID} flat-i-d={flatID}></c-tab-navigation_-k-l-z_-tab-navigation>-->
+            <c-tab-navigation_-k-l-z_-pop-right klz-i-d={klzID} flat-i-d={flatID}  ></c-tab-navigation_-k-l-z_-pop-right>
         </div>
     </div>
+</template>
+</template>
 </template>

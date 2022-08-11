@@ -1,0 +1,27 @@
+<!--
+ - Created by mgons on 8/3/2022.
+ -->
+
+<!-- Standardy Miestnosti -->
+<template>
+
+
+    <div class="container">
+
+
+
+        <div class="rows-headers">
+            <h2 class="header">Miestnosti:</h2>
+        </div>
+        <template if:true={rooms}>
+            <template for:each={rooms} for:item="room">
+        <div class="rows" key={room.Id} onclick={renderDruhyProduktov} data-id={room.SBQQ__OptionalSKU__r.Id}>
+            <h2 class="textRow text1">{room.SBQQ__OptionalSKU__r.Name}</h2>
+        </div>
+
+                </template>
+        </template>
+
+
+    </div>
+</template>

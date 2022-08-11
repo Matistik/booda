@@ -4,7 +4,7 @@
 
 <!-- Standard Jednotlive Prvky -->
 <template>
-    <template if:true={renderprvky}>
+    <template if:true={renderPrvky}>
         <div class="container">
 
             <h2 class="header">Štandardy</h2>
@@ -23,25 +23,37 @@
                 <button class={button2}>Jednotlivé prvky</button>
             </div>
 
-            <div class="rows">
-                <h2 class="texts text1">Miestnosť</h2>
-                <h2 class="texts text2">Prvok</h2>
-                <h2 class="texts text3">Časť prvku</h2>
-                <h2 class="texts text4">Stav výberu štandardu</h2>
-                <h2 class="texts text5">Vybraný produkt</h2>
-            </div>
 
-            <div class="rows-text">
-                <h2 class="text text1">M-A101-02 - WC</h2>
-                <h2 class="text text2">Dvere</h2>
-                <h2 class="text text3">Klucka</h2>
-                <h2 class="text-green text4">Vybrany klientom</h2>
-                <h2 class="text text5">Klucka PAOLA 2 HR</h2>
-            </div>
+
+                <div class="rows">
+                    <h2 class="texts text1">Miestnosť</h2>
+                    <h2 class="texts text2">Druhy</h2>
+                    <h2 class="texts text3">Časť prvku</h2>
+                    <h2 class="texts text4">Stav výberu štandardu</h2>
+                    <h2 class="texts text5">Vybraný produkt</h2>
+                </div>
+
+                    <template if:true={StandardyData}>
+                        <template for:each={StandardyData} for:item="standard">
+                        <div class="rows-text" key={standard.Id}>
+                            <h2 class="text text1" key={standard.Id}>{standard.Miestnos__c}</h2>
+                            <h2 class="text text2" key={standard.Id}>{standard.SBQQ__ProductFamily__c}</h2>
+                            <h2 class="text text3" key={standard.Id}>--</h2>
+                            <h2 class="text-green text4" key={standard.Id}>--</h2>
+                            <h2 class="text text5" key={standard.Id}>{standard.SBQQ__Product__r.Name}</h2>
+                        </div>
+                    </template>
+                </template>
+
+
+
+
+
+
 
         </div>
     </template>
-    <template if:true={renderdruhy}>
-        <c-tab-navigation_-standard></c-tab-navigation_-standard>
+    <template if:true={renderDruhy}>
+        <c-tab-navigation_-standard flat-i-d={flatID}></c-tab-navigation_-standard>
     </template>
-</template>
+    </template>

@@ -1,8 +1,5 @@
 .container{
     display: grid;
-    background: #efeff5;
-    border-radius: 8px;
-    width: 300px;
     padding:10px;
 }
 .container > div{
@@ -10,7 +7,6 @@
     border-bottom: darkgray 1px solid;
 }
 .header {
-
     font-size: 20px;
     font-weight: bold;
     padding-bottom: 5px;
@@ -23,5 +19,9 @@
     border: none ;
     text-align: left;
     min-height: 40px;
+}
 
+.rows:hover{
+    cursor: pointer;
+    color: white;
 }

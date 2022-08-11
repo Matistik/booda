@@ -1,0 +1,64 @@
+/**
+ * Created by Maind on 9. 8. 2022.
+ */
+.wrapper{
+    /*background: #efeff5;*/
+    border-radius: 8px;
+    height: 88vh;
+}
+.container{
+    display: grid;
+    padding: 5px;
+}
+.container > div{
+    display: grid;
+    grid-template-columns: repeat(16, 1fr);
+    padding-bottom: 5px;
+}
+.header {
+    grid-column: 1/14;
+    font-size: 20px;
+    font-weight: bold;
+    padding-bottom: 5px;
+}
+.rows{
+    grid-column: 1/17;
+    border-bottom: darkgray 1px solid;
+}
+.rows-headers{
+    grid-column: 1/17;
+    border-bottom: darkgray 1px solid;
+}
+.textRow{
+    align-self: center;
+    font-size: small;
+}
+.text1{
+    grid-column: 1/13;
+}
+.button1{
+    grid-column: 14/17;
+    background-color: white;
+    color: #3889fd;
+    border-radius: 8px;
+    cursor: pointer;
+    border: #efeff5 1px solid;
+    align-self: center;
+}
+.button1:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+.podorys{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+.button2{
+    background-color: white;
+    color: #3889fd;
+    border-radius: 8px;
+    cursor: pointer;
+    border: #efeff5 1px solid;
+}

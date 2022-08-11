@@ -1,0 +1,26 @@
+/**
+ * Created by mgons on 8/3/2022.
+ */
+.wrapper{
+    display: grid;
+    grid-template-columns: repeat(8,1fr);
+    grid-template-rows: 3fr;
+    gap: 5px;
+
+}
+.main{
+    grid-column: 1/9;
+    grid-row: 2/3;
+}
+.top{
+    grid-column: 1/9;
+    grid-row: 1/2;
+}
+.left{
+    grid-column: 1/5;
+    grid-row: 3/4;
+}
+.right{
+    grid-column: 5/9;
+    grid-row: 3/4;
+}

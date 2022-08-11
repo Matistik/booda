@@ -11,14 +11,14 @@
         </div>
 
         <div class="rows">
-            <h2 class="h1">Všetky</h2>
-            <h2 class="h1">Rozpracovaná</h2>
-            <h2 class="h1">Zadaná klientom</h2>
-            <h2 class="h1">Nacenená</h2>
-            <h2 class="h1">Odsúhlasená klientom</h2>
-            <h2 class="h1">Zamietnutá stavbou</h2>
-            <h2 class="h1">Zamietnutá klientom</h2>
-            <h2 class="h1">Odovzdané k realizácii</h2>
+            <h2 class="h1" onclick={handleRenderVsetkyKLZ}>Všetky</h2>
+
+            <template if:true={stavyData}>
+                <template for:each={stavyData} for:item="stav">
+            <h2 class="h1" onclick={handleRenderSpecStav} data-id={stav.Status} key={stav.Id}>{stav.Status}</h2>
+                </template>
+            </template>
+
         </div>
 
     </div>

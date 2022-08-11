@@ -9,20 +9,21 @@
 
             <c-dashboard_byt flat-i-d={flatID}></c-dashboard_byt>
         </div>
+<!--        //flat-i-d={flatID}-->
         <div>
-            <c-dashboard_-standardy onstandards={renderToStandards}></c-dashboard_-standardy>
+            <c-dashboard_-standardy flat-i-d={flatID} onstandards={renderToStandards}></c-dashboard_-standardy>
         </div>
         <div>
-            <c-dashboard_-k-l-z onklz={renderToKLZ}></c-dashboard_-k-l-z>
+            <c-dashboard_-k-l-z flat-i-d={flatID} onklz={renderToKLZ}></c-dashboard_-k-l-z>
         </div>
         <div>
-            <c-dashboard_-kontakty></c-dashboard_-kontakty>
+            <c-dashboard_-kontakty flat-i-d={flatID}></c-dashboard_-kontakty>
         </div>
         <div>
             <c-dashboard_stav-spracovania ></c-dashboard_stav-spracovania>
         </div>
         <div>
-            <c-dashboard_-terminy ></c-dashboard_-terminy>
+            <c-dashboard_-terminy flat-i-d={flatID}></c-dashboard_-terminy>
         </div>
     </div>
 </template>

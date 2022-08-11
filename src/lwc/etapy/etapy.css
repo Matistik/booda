@@ -1,14 +1,38 @@
+.navigation{
+    background: #3889fd;
+    height: 5vh;
+}
+.button{
+    background: #3889fd;
+    font-size: medium;
+    color: white;
+    border: none;
+    height: 5vh;
+}
+.hover:hover{
+    text-decoration: underline;
+}
+.bolder{
+    font-weight: bold;
+}
 .wrapper{
     display: grid;
     grid-template-columns: 2fr 2fr 5fr;
     gap: 5px;
+    grid-column-gap: 10px;
+    height: 95vh;
 }
-.left{
-    grid-column: 1;
+.wrapper > div {
+    background: #efeff5;
+    border-radius: 8px;
 }
-.mid{
-    grid-column: 2;
+.arrow {
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    display: inline-block;
+    padding: 4px;
 }
-.right{
-    grid-column: 3;
+.right {
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
 }

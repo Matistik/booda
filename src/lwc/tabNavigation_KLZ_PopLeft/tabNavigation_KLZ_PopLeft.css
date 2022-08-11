@@ -2,7 +2,7 @@
     display: grid;
     background: #efeff5;
     border-radius: 8px;
-    max-width: 270px;
+    height: 95vh;
 }
 .container > div{
     display: grid;
@@ -11,23 +11,21 @@
     padding-left: 15px;
 }
 .header {
-    grid-column: 1/15;
+    grid-column: 1/16;
     font-size: 20px;
     font-weight: bold;
     padding-bottom: 5px;
     padding-left: 5px;
-    grid-row: 1/2;
+
 
 }
 
 .rows{
     grid-column: 1/16;
-
     padding-bottom: 5px;
 }
 .rows-buttons{
     grid-column: 1/16;
-
     padding-bottom: 5px;
     padding-left: 10px;
 
@@ -62,13 +60,12 @@
     border-radius: 0px 15px 15px 0px;
     font-size: small;
     line-height: 20px;
-
 }
 .rows-info{
-    border-bottom: darkgray 1px solid;
     grid-column: 1/16;
-
-
+}
+.rows-info > div {
+    border-bottom: darkgray 1px solid;
 }
 .textUp{
     font-size: x-small;
@@ -84,4 +81,19 @@
 }
 .rows-red{
     color: red;
+}
+
+.rows-text:hover{
+    cursor: pointer;
+    background-color: white;
+}
+.slds-scrollable_y >div{
+    display: grid;
+    grid-template-columns: repeat(16, 1fr);
+    grid-column: 1/16;
+}
+.slds-scrollable_y{
+    display: grid;
+    grid-template-columns: repeat(16, 1fr);
+    grid-column: 1/17;
 }

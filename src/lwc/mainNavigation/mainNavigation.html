@@ -4,9 +4,12 @@
 
 <!-- Main Navigation -->
 <template>
+<template if:true={bytData}>
     <div class="navigation">
-        <button class="butt0" onclick={handleRenderToKlz}>⇦</button>
-        <button  class="butt1" onclick={handleRenderToHome}>/   Domov</button>
-        <button class="butt2" onclick={handleRenderToFlats}>/   Byty</button>
+        <button class="button" onclick={handleRenderToKlz}>&nbsp;<i class="arrow right"></i></button>
+        <button class="button hover" onclick={handleRenderToHome}>/   Domov</button>
+        <button class="button hover" onclick={handleRenderToFlats}>/   Byty</button>
+        <button class ="button bolder">/   Byt {bytData.Name}</button>
     </div>
+</template>
 </template>

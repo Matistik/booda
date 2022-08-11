@@ -14,14 +14,10 @@ export default class Dashboard extends LightningElement {
     }
 
     renderToStandards(){
-
         this.dispatchEvent(new CustomEvent('standard'));
-
-
     }
 
     renderToKLZ(){
         this.dispatchEvent(new CustomEvent('klz'));
     }
-
 }

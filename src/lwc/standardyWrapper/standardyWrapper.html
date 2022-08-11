@@ -1,0 +1,22 @@
+<!--
+ - Created by mgons on 8/3/2022.
+ -->
+
+<!-- Standardy Wrapper -->
+<template>
+
+    <div class="wrapper">
+        <div class="main">
+            <c-standardy-miestnosti flat-i-d={flatID} ondruh={renderDruhyProduktov}></c-standardy-miestnosti>
+        </div>
+        <div class="top">
+            <c-standardy-vyber-standardov flat-i-d={flatID} onhopacity={handleOpacity} onstandard={renderMiestnosti}></c-standardy-vyber-standardov>
+        </div>
+        <div class="left">
+            <c-standardy-produkty-left flat-i-d={flatID} onprodukt={renderProdukty} ></c-standardy-produkty-left>
+        </div>
+        <div class="right">
+            <c-standardy-produkty-right flat-i-d={flatID} standard-i-d={standardID}></c-standardy-produkty-right>
+        </div>
+    </div>
+</template>

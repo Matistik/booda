@@ -1,0 +1,82 @@
+/**
+ * Created by Maind on 18. 7. 2022.
+ */
+.wrapper{
+    /*background: #efeff5;*/
+    border-radius: 8px;
+    height: 88vh;
+}
+.container{
+    display: grid;
+    padding: 5px;
+}
+.container > div{
+    display: grid;
+    grid-template-columns: repeat(16, 1fr);
+    padding-bottom: 5px;
+}
+.comment{
+    grid-column: 1/17;
+    padding-bottom: 5px;
+}
+.comment-line{
+    grid-column: 1/17;
+}
+.header {
+    grid-column: 1/17;
+    font-size: 20px;
+    font-weight: bold;
+    padding-bottom: 5px;
+
+}
+.rows{
+    grid-column: 1/17;
+    border-bottom: darkgray 1px solid;
+}
+.rows-headers{
+    grid-column: 1/17;
+    border-bottom: darkgray 1px solid;
+}
+.textRow{
+    align-self: center;
+    font-size: small;
+
+}
+.text1{
+    grid-column: 1/15;
+}
+.text2{
+    grid-column: 15/17;
+    justify-self: end;
+}
+.button1{
+    grid-column: 14/17;
+    background:transparent;
+    border:none;
+    align-self: center;
+}
+.rows:hover{
+
+    cursor: pointer;
+    background-color: white;
+    text-decoration: underline;
+
+
+}
+.button1:hover{
+
+    cursor: pointer;
+    background-color: rgb(173, 224, 96);
+}
+.slds-scrollable_y{
+    display: grid;
+    grid-template-columns: repeat(16, 1fr);
+    grid-column: 1/17;
+    max-height: 55vh;
+}
+
+.slds-scrollable_y >div{
+    display: grid;
+    grid-template-columns: repeat(16, 1fr);
+    grid-column: 1/17;
+}

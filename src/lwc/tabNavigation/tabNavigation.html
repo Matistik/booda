@@ -7,60 +7,71 @@
 
     <template if:true={showTabs}>
         <div>
-
-            <c-main-navigation onklz= {handleRenderToFlats} onflat={handleRenderToFlats} onhome={handleRenderToHome}>
-
+            <c-main-navigation
+                    onklz= {handleRenderToFlats} onflat={handleRenderToFlats} flat-i-d={flatID} onhome={handleRenderToHome}>
             </c-main-navigation>
         </div>
+
         <lightning-tabset>
+
             <lightning-tab label="Byt" if:true={template}>
-
-                <c-dashboard  flat-i-d={flatID} onstandard={showTemplateOrStandard} onklz={showTemplateOrKLZ}></c-dashboard>
+                <c-dashboard
+                        flat-i-d={flatID} onstandard={showTemplateOrStandard} onklz={showTemplateOrKLZ}>
+                </c-dashboard>
             </lightning-tab>
-
-
 
             <lightning-tab label="Súbory" if:true={subory}>
-                <c-tab-navigation_-subory ></c-tab-navigation_-subory>
+                <c-tab-navigation_-subory >
+
+                </c-tab-navigation_-subory>
             </lightning-tab>
 
-            <lightning-tab label="Štandardy" if:true={standard}>
-                <c-tab-navigation_-standard >
-
-                </c-tab-navigation_-standard>
+            <lightning-tab label="Vyber Štandardov" if:true={standard}>
+                <c-standardy-wrapper flat-i-d={flatID}> </c-standardy-wrapper>>
             </lightning-tab>
 
+            <lightning-tab label="KLZ" if:true={klz} >
+                <c-tab-navigation_-k-l-z
+                        onnewklz={renderToNewKLZ} flat-i-d={flatID}>
+                </c-tab-navigation_-k-l-z>
+            </lightning-tab>
 
-
-            <lightning-tab label="KLZ" >
-                <c-tab-navigation_-k-l-z onnewklz={renderToNewKLZ}></c-tab-navigation_-k-l-z>
+            <lightning-tab label="Štandardy" >
+                <c-tab-navigation_-standard flat-i-d={flatID}> </c-tab-navigation_-standard>>
             </lightning-tab>
 
             <lightning-tab label="Miestnosti">
-                <c-tab-navigation_-miestnosti ></c-tab-navigation_-miestnosti>
+                <c-tab-navigation_-miestnosti flat-i-d={flatID}>
+
+                </c-tab-navigation_-miestnosti>
             </lightning-tab>
 
             <lightning-tab label="Prvky">
-                <c-tab-navigation_-prvky ></c-tab-navigation_-prvky>
+                <c-tab-navigation_-prvky
+                        flat-i-d={flatID}>
+                </c-tab-navigation_-prvky>
             </lightning-tab>
 
             <lightning-tab label="Stretnutia">
-                <c-tab-navigation_-stretnutia ></c-tab-navigation_-stretnutia>
+                <c-tab-navigation_-stretnutia >
+
+                </c-tab-navigation_-stretnutia>
             </lightning-tab>
 
             <lightning-tab label="Komunikácia">
-                <c-tab-navigation_-komunikacia ></c-tab-navigation_-komunikacia>
+                <c-tab-navigation_-komunikacia-wrapper flat-i-d={flatID} klz-i-d={klzID}>
+
+                </c-tab-navigation_-komunikacia-wrapper>
             </lightning-tab>
 
         </lightning-tabset>
     </template>
 
     <template if:true={showNewKlz}>
-
-        <c-tab-navigation_-k-l-z_-wrapper onklz={handleRenderToKlz} onhome={handleRenderToHome} onflat={handleRenderToFlats}>
-
+        <c-tab-navigation_-k-l-z_-wrapper
+                 onhome={handleRenderToHome} onflat={handleRenderToFlats} onklz={showTabOrKLZ} klz-i-d={klzID}  flat-i-d={flatID}>
         </c-tab-navigation_-k-l-z_-wrapper>
-
     </template>
+
 
 </template>

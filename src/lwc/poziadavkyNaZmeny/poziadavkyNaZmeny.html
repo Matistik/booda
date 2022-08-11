@@ -4,24 +4,30 @@
 
 <!-- Poziadavky Na Zmeny -->
 <template>
+<template if:true={renderPoziadavkyNaZmeny}>
+
+    <div class="navigation">
+        <button class="button" onclick={handleRenderToHome}>&nbsp;<i class="arrow right"></i></button>
+        <button class="button hover" onclick={handleRenderToHome}>/   Domov</button>
+        <button class ="button bolder">/   Klientské zmeny</button>
+    </div>
 
     <div class="wrapper">
 
-        <div class="navigation">
-            <!--            <div class="buttons">-->
-            <!--                <button class="butt0" onclick={handleRenderToFlats}>⇦</button>-->
-            <!--                <button  class="butt1" onclick={handleRenderToHome}>/   Domov</button>-->
-            <!--                <button class="butt2">/   Klientské zmeny</button>-->
-            <!--            </div>-->
+        <div>
+            <c-poziadavky-na-zmeny-stavy onvsetkyklz={handleVsetkyStavyValue} onstav={handleStavValue}></c-poziadavky-na-zmeny-stavy>
         </div>
 
         <div>
-            <c-poziadavky-na-zmeny-stavy></c-poziadavky-na-zmeny-stavy>
-        </div>
-
-        <div>
-            <c-poziadavky-na-zmeny-list></c-poziadavky-na-zmeny-list>
+            <c-poziadavky-na-zmeny-list onnewklz={renderToKlz}></c-poziadavky-na-zmeny-list>
         </div>
 
     </div>
+</template>
+
+
+
+
+
+
 </template>

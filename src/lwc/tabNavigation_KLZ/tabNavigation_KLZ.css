@@ -1,10 +1,13 @@
 /**
  * Created by Maind on 18. 7. 2022.
  */
-.container{
-    display: grid;
+.wrapper{
+    height: 88vh;
     background: #efeff5;
     border-radius: 8px;
+}
+.container{
+    display: grid;
     padding: 5px;
 }
 .container > div{

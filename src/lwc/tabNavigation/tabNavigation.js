@@ -19,6 +19,8 @@ export default class TabNavigation extends LightningElement {
         this.template=true;
         this.subory=true;
         this.standard=true;
+
+
     }
 
 
@@ -37,6 +39,7 @@ export default class TabNavigation extends LightningElement {
     }
 
     showTemplateOrStandard(){
+        console.log('prosiel som')
         this.template=false;
         this.standard=true;
         this.subory=false;
@@ -48,15 +51,11 @@ export default class TabNavigation extends LightningElement {
         this.subory=false;
         this.klz=true;
         this.standard=false;
-
-
     }
 
     renderToNewKLZ(){
-
         this.showTabs = false;
         this.showNewKlz = true;
-
     }
 
 }

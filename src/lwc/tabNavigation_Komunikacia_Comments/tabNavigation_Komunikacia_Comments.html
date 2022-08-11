@@ -1,0 +1,39 @@
+<!--
+ - Created by Maind on 3. 8. 2022.
+ -->
+
+<!-- Tab Navigation Komunikacia Comments -->
+<template>
+    <div class="wrapper">
+        <div class="container">
+
+                <div class="comment">
+                    <div class="comment-line">
+                        <lightning-input label="Napíš komentár" name="comment" type="text" value={comments.CommentBody} onchange={handleCommentBodyChange}></lightning-input>
+                    </div>
+<!--                    <br/>-->
+                    <div>
+                        <lightning-button label="Poslať" onclick={handleSave} variant="brand"></lightning-button>
+                    </div>
+
+                </div>
+
+
+            <div class="rows-headers">
+                <div class="header">Komunikacia ku klientskej zmene</div>
+
+            </div>
+            <div class="slds-scrollable_y"  >
+            <template if:true={caseCommentsData}>
+                <template for:each={caseCommentsData} for:item="comments">
+                    <div class="rows" key={comments.Id}>
+                        <h2 class="textRow text1" key={comments.Id}>{comments.CommentBody}</h2>
+                        <h2 class="textRow text2" key={comments.Id}>{comments.CreatedBy.FirstName} {comments.CreatedBy.LastName}</h2>
+                    </div>
+                </template>
+            </template>
+
+            </div>
+        </div>
+    </div>
+</template>

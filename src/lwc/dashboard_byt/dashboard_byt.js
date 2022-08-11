@@ -3,7 +3,7 @@
  */
 
 import {api, LightningElement, track} from 'lwc';
-import getByt from '@salesforce/apex/PrehladBytovController.getByt';
+import getByt from '@salesforce/apex/DashboardController.getByt';
 
 export default class DashboardByt extends LightningElement {
 
@@ -15,15 +15,21 @@ export default class DashboardByt extends LightningElement {
     }
 
     getBytData() {
-        getByt({ bytId: this.flatID })
+        console.log("flatid;;;;"+this.flatID);
+
+            getByt({ bytId: this.flatID })
             .then(response => {
                 this.bytData = response;
 
-                // console.log(this.images = getImageURLFromRichText({url: this.caseData.Body__c}));
             })
-            .catch(error => {
-                console.error(error);
-            })
+                .catch(error => {
+                    console.error(error);
+                })
+
+
+
+
+
     }
 
 }

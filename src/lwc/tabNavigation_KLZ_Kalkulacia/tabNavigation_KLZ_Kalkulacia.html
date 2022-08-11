@@ -4,4 +4,37 @@
 
 <!-- Tab Navigation Klz Kalkulacia -->
 <template>
+    <lightning-card title="Create Kalkulacia Record" >
+        <div style="margin-left: 6%" if:true={error}>
+            <lightning-badge label={error} style="color: red;"></lightning-badge>
+        </div>
+
+        <template if:true={kalkulaciaRecord}>
+            <div class="slds-m-around--xx-large">
+                <div class="container-fluid">
+
+                    <div class="form-group">
+                        <lightning-input label="Zadaj Nazov" required="required" name="objName" type="text" value={kalkulaciaRecord.Name} onchange={handleNameChange}></lightning-input>
+                    </div>
+                    <div class="form-group">
+                        <lightning-input label="Zadaj Cenu" name="objCena" type="text" value={kalkulaciaRecord.Cena__c} onchange={handleCenaChange}></lightning-input>
+                    </div>
+                    <div class="form-group">
+                        <lightning-combobox class="dropdown stav"
+                                            name="progress"
+                                            label="Status"
+                                            value=""
+                                            placeholder={value}
+                                            options={options}
+                                            onchange={handleStavChange}
+                        ></lightning-combobox>
+                    </div>
+
+
+                </div>
+                <br/>
+                <lightning-button label="Submit" onclick={handleSaveKal} variant="brand"></lightning-button>
+            </div>
+        </template>
+    </lightning-card>
 </template>

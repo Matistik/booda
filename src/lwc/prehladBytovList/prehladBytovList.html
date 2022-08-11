@@ -1,0 +1,90 @@
+<!--
+ - Created by Maind on 21. 7. 2022.
+ -->
+
+<!-- Prehlad Bytov List -->
+<template>
+    <div class="container">
+
+        <div class="box search-bar">
+            <div class="searchBox">
+                <input class="searchInput" type="text" name="" placeholder="Search">
+                <button class="searchButton" href="#" >
+                    <svg class="slds-icon slds-input__icon icon-search-input__icon slds-input__icon_left slds-icon-text-default" aria-hidden="true">
+                        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#search"></use></svg>
+                </button>
+            </div>
+        </div >
+
+        <div class="rows">
+            <h2 class="texts text1">Vchod</h2>
+            <h2 class="texts text2">Etapa</h2>
+            <h2 class="texts text3">Označenie</h2>
+            <h2 class="texts text4">Posch.</h2>
+            <h2 class="texts text5">Typ</h2>
+            <h2 class="texts text6">Izb.</h2>
+            <h2 class="texts text7">Štandardy</h2>
+            <h2 class="texts text8">Zmeny</h2>
+
+            <h2 class="vert vertical1">Dispozicia</h2>
+            <h2 class="vert vertical2">Podlahy</h2>
+            <h2 class="vert vertical3">Dvere</h2>
+            <h2 class="vert vertical4">Obklady</h2>
+            <h2 class="vert vertical5">Sanita</h2>
+            <h2 class="vert vertical6">Kúchyňa</h2>
+            <h2 class="vert vertical7">STA</h2>
+            <h2 class="vert vertical8">EI</h2>
+            <h2 class="vert vertical9">SLAB</h2>
+            <h2 class="vert vertical10">ZTI</h2>
+            <h2 class="vert vertical11">VZT</h2>
+            <h2 class="vert vertical12">UK+CHL</h2>
+            <h2 class="vert vertical13">Kúpeľňové</h2>
+            <h2 class="vert vertical14">Technická</h2>
+            <h2 class="vert vertical15">Zaplatenie</h2>
+
+            <h2 class="texts text9">Hlavný kontakt</h2>
+
+        </div>
+
+        <template if:true={byty}>
+            <template for:each={byty} for:item="byt">
+
+        <div class="rows-text" key={byt.Id} onclick = "{handleRenderToFlats}" data-id={byt.Id}>
+            <h2 class="text text1" key={byt.Id}>{byt.Vchod__c}</h2>
+            <h2 class="text text2" key={byt.Id}>{byt.Etapa__c}</h2>
+            <h2 class="text text3" key={byt.Id}>{byt.Ozna_enie__c}</h2>
+            <h2 class="text text4" key={byt.Id}>{byt.Poschodie__c}</h2>
+            <h2 class="text text5" key={byt.Id}>{byt.Typ__c}</h2>
+            <h2 class="text text6" key={byt.Id}>{byt.Izbovos__c}</h2>
+            <h2 class="text text7">14/14</h2>
+            <h2 class="text text8">0/103</h2>
+
+            <p2 class="vert1 vertical1">-</p2>
+            <h2 class="vert1 vertical2">-</h2>
+            <h2 class="vert1 vertical3">-</h2>
+            <h2 class="vert1 vertical4">-</h2>
+            <h2 class="vert1 vertical5">-</h2>
+            <h2 class="vert1 vertical6">-</h2>
+            <h2 class="vert1 vertical7">-</h2>
+            <h2 class="vert1 vertical8">-</h2>
+            <h2 class="vert1 vertical9">-</h2>
+            <h2 class="vert1 vertical10">-</h2>
+            <h2 class="vert1 vertical11">-</h2>
+            <h2 class="vert1 vertical12">-</h2>
+            <h2 class="vert1 vertical13">-</h2>
+            <h2 class="vert1 vertical14">-</h2>
+            <h2 class="vert1 vertical15">-</h2>
+
+            <h2 class="text text9">Filip Juran</h2>
+
+        </div>
+
+            </template>
+        </template>
+
+
+
+
+
+    </div>
+</template>

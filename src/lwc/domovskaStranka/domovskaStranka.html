@@ -32,34 +32,20 @@
 
     <template if:true={renderFlats}>
 
-
-        <c-prehlad-bytov onhome= {handleRenderToFlatsOrHome}>
-
-        </c-prehlad-bytov>
+        <c-prehlad-bytov onhome= {handleRenderToFlatsOrHome}></c-prehlad-bytov>
 
     </template>
+
 
     <template if:true={renderEtapy}>
 
-        <c-etapy>
-
-
-        </c-etapy>
-
-
-
+        <c-etapy onhome={navigateToEtapy}></c-etapy>
 
     </template>
 
-    <template if:true={renderPoziadavky}>
+    <template if:true={renderPoziadavkyNaZmeny}>
 
-        <c-poziadavky-na-zmeny>
-
-
-        </c-poziadavky-na-zmeny>
-
-
-
+        <c-poziadavky-na-zmeny onhome={navigateToPoziadavky}></c-poziadavky-na-zmeny>
 
     </template>
 

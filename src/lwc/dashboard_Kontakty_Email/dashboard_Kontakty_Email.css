@@ -1,82 +1,8 @@
-.container{
-    display: grid;
-    background: #efeff5;
-    padding: 15px;
-    gap: 10px;
-    max-width: 750px;
-}
-.container >div{
-    display: grid;
-    grid-template-columns: repeat(8, 1fr);
-
-}
-.box-mid >div{
-    display: grid;
-    grid-template-columns: repeat(16, 1fr);
-    grid-column: 1/9;
-
+.form {
+    background: white;
 }
 
-.box-up >div{
-    display: grid;
-    grid-template-columns: repeat(16, 1fr);
-    grid-template-rows: repeat(2,1fr);
-    grid-column: 1/9;
-    column-gap:5px;
-}
-
-.butt-field{
-    grid-column: 16/17;
-}
-.text{
-    font-size: x-small;
-    padding-bottom: 0px;
-    color: darkgray;
-
-}
-.prijemca{
-    grid-column: 1/8;
-    grid-row: 1/2;
-}
-.email{
-    grid-column: 8/16;
-    grid-row: 1/3;
-}
-.predmet{
-    grid-column: 1/8;
-    grid-row: 2/3;
-}
-.text-box{
-    align-self: center;
-    resize: none;
-    border-radius: 8px;
-    width: 100%;
-}
-.text-box-email{
-    height: 86%;
-}
-.sprava{
-    grid-column: 1/16;
-}
-.text-box-sprava{
-    height: 10em;
-}
-
-.slds-button{
-    align-self: center;
-    height: 35px;
-    width: 100%;
-
-}
-.button{
-    grid-column: 1/4;
-    padding-top: 20px;
-    padding-bottom:5px;
-    text-align: center;
-}
-.button1{
-    grid-column: 6/8;
-    padding-top: 20px;
-    padding-bottom:5px;
-    text-align: center;
+.popover {
+    left: -145px;
+    bottom: 52px;
 }

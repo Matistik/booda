@@ -1,33 +1,26 @@
 .container{
     display: grid;
-    background: #efeff5;
-    border-radius: 8px;
     padding: 5px;
 }
 .container > div{
     display: grid;
     grid-template-columns: repeat(17, 1fr);
     padding-top: 10px;
-
 }
 .header {
     grid-column: 1/10;
     font-size: 20px;
     font-weight: bold;
     padding-bottom: 5px;
-
-
 }
 .rows{
     grid-column: 1/18;
     padding-bottom: 5px;
     border-bottom: darkgray 1px solid;
-
 }
 .rows-text{
     grid-column: 1/18;
     padding-bottom: 5px;
-    padding-right: 5px;
     border-bottom: darkgray 1px solid;
 
 }
@@ -79,11 +72,9 @@
 .rows-text:hover{
 
     cursor: pointer;
-    background-color: rgb(160, 160, 160);
-
+    background-color: white;
 }
 .button1:hover{
-
     cursor: pointer;
     background-color: rgb(173, 224, 96);
 }

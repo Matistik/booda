@@ -1,0 +1,42 @@
+/**
+ * Created by mgons on 8/3/2022.
+ */
+.container{
+    display: grid;
+    background: #efeff5;
+    border-radius: 8px;
+    padding: 5px;
+    height: 30vh;
+}
+.container > div{
+    display: grid;
+    grid-template-columns: repeat(16, 1fr);
+    padding-top: 10px;
+}
+.header {
+    grid-column: 1/16;
+    font-size: 20px;
+    font-weight: bold;
+    padding-bottom: 5px;
+}
+
+.rows{
+    padding-bottom: 5px;
+}
+.rows-headers{
+    grid-column: 1/16;
+    padding-bottom: 15px;
+}
+
+.slds-button{
+    text-align: center;
+    grid-column: 1/16;
+}
+.slds-button:hover{
+    text-decoration:underline;
+}
+.text{
+    grid-column: 14/17;
+    text-align: right;
+    padding-top: 6px;
+}

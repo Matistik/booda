@@ -1,0 +1,37 @@
+<!--
+ - Created by mgons on 8/3/2022.
+ -->
+
+<!-- Standardy Vyber Standardov -->
+<template>
+
+
+    <div class="container">
+
+
+        <div class="rows-headers">
+            <div class="header">Výber štandardov</div>
+        </div>
+        <template if:true={standards}>
+        <template for:each={standards} for:item="standard">
+        <div class="rows" key={standard.Id} onclick={renderMiestnosti} data-id={standard.Id}>
+            <button class="slds-button slds-button buttonSt1" onclick={handleOpacity} >
+                {standard.Name}</button>
+        </div>
+
+        </template>
+        </template>
+
+
+    <div>
+            <button class="slds-button slds-button_brand buttonObjednat">
+                <svg class=" button1 slds-button__icon slds-button__icon_left " aria-hidden="true">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#fulfillment_order"></use>
+                </svg>Záväzne objednat</button>
+
+        </div>
+
+
+
+    </div>
+</template>

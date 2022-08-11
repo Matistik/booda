@@ -4,56 +4,34 @@
 
 <!-- Byty Byt Kontakty Novy Kontakt -->
 <template>
-    <div class="container">
-
-        <div class="text1">Nahrat fotku
-        </div>
-        <textarea  class="fotka" cols="1" >
-            </textarea>
-        <div class="text2">Titul
-        </div>
-        <textarea  class="titul" cols="1" >
-            </textarea>
-        <div class="text3">Meno
-        </div>
-        <textarea  class="meno" cols="1" >
-            </textarea>
-        <div class="text4">Priezvisko
-        </div>
-        <textarea  class="priezvisko" cols="1" >
-            </textarea>
-        <div class="text5">Rola
-        </div>
-        <textarea  class="rola" cols="1" >
-            </textarea>
-        <div class="text6">Telefon
-        </div>
-        <textarea  class="telefon" cols="1" >
-            </textarea>
-
-        <div class="slds-checkbox">
-            <input type="checkbox" name="options" id="checkbox-unique-id-81" value="checkbox-unique-id-81"  />
-            <label class="slds-checkbox__label" for="checkbox-unique-id-81">
-                <span class="slds-checkbox_faux"></span>
-                <span class="slds-form-element__label"> Primarny kontakt</span>
-            </label>
+    <lightning-card title="Create Person Account Record" icon-name="standard:account">
+        <div style="margin-left: 6%" if:true={error}>
+            <lightning-badge label={error} style="color: red;"></lightning-badge>
         </div>
 
-        <div class="text7">Email
-        </div>
-        <textarea  class="email" cols="1" >
-            </textarea>
+        <template if:true={accRecord}>
+            <div class="slds-m-around--xx-large">
+                <div class="container-fluid">
+                    <div class="form-group">
+                        <lightning-input label="Enter Title" name="accTitle" type="text" value={accRecord.Title} onchange={handleTitleChange}></lightning-input>
+                    </div>
+                    <div class="form-group">
+                        <lightning-input label="Enter FirstName" name="accFirstName" required="required" type="text" value={accRecord.FirstName} onchange={handleFirstNameChange}></lightning-input>
+                    </div>
+                    <div class="form-group">
+                        <lightning-input label="Enter LastName" name="accLastName" required="required" type="text" value={accRecord.LastName} onchange={handleLastNameChange}></lightning-input>
+                    </div>
+                    <div class="form-group">
+                        <lightning-input label="Enter Phone Number" name="accPhone" type="phone" value={accRecord.Phone} onchange={handlePhoneChange}></lightning-input>
+                    </div>
+                    <div class="form-group">
+                        <lightning-input label="Enter Email" name="accEmail" type="email" value={accRecord.Email} onchange={handleEmailChange}></lightning-input>
+                    </div>
 
-        <div class="text8">Poznamky
-        </div>
-        <textarea  class="poznamky" cols="3" >
-            </textarea>
-
-        <lightning-button class="button2" icon-name="utility:delete"></lightning-button>
-
-        <lightning-button class="button" variant="brand" label="Ulozit" icon-name="utility:success"></lightning-button>
-
-
-
-    </div>
+                </div>
+                <br/>
+                <lightning-button label="Submit" onclick={handleSave} variant="brand"></lightning-button>
+            </div>
+        </template>
+    </lightning-card>
 </template>

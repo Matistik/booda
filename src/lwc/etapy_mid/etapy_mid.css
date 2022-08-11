@@ -1,14 +1,10 @@
 .container{
     display: grid;
-    background: #efeff5;
-    border-radius: 8px;
-    width: 300px;
     padding:10px;
 }
 .container > div{
     display: grid;
     gap: 3px;
-
 }
 .header {
     font-size: 20px;
@@ -16,35 +12,26 @@
     padding-bottom: 5px;
 }
 .header2 {
-
     font-size: 15px;
     font-weight: bold;
     padding-bottom: 5px;
     padding-top: 20px;
 }
-
-
 .text{
     font-size: x-small;
-    padding-bottom: 0px;
     color: darkgray;
-
-
 }
 .text-box{
     align-self: center;
     resize: none;
     border-radius: 8px;
-    width: 100%;
     max-height: 35px;
 }
-
 .row-box > div{
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     background-color: white;
     border-radius: 6px;
-
     font-size: small;
     padding: 5px;
 }

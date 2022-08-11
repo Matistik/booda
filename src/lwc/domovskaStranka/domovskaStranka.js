@@ -9,7 +9,8 @@ export default class DomovskaStranka extends LightningElement {
     @track renderFlats = false;
     @track renderHomePage = true;
     @track renderEtapy = false;
-    @track renderPoziadavky = false;
+    @track renderPoziadavkyNaZmeny = false;
+    @track renderNewKlz = false;
 
     handleRenderToFlatsOrHome(){
         this.renderHomePage=!this.renderHomePage;
@@ -23,10 +24,12 @@ export default class DomovskaStranka extends LightningElement {
     }
 
     navigateToPoziadavky(){
-        this.renderPoziadavky =!this.renderPoziadavky;
+        this.renderPoziadavkyNaZmeny =!this.renderPoziadavkyNaZmeny;
         this.renderHomePage=!this.renderHomePage;
 
     }
+
+
 
 
 }

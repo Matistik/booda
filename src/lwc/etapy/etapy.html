@@ -1,13 +1,22 @@
 <template>
-    <div class="wrapper">
-        <div class="left">
-            <c-etapy_left></c-etapy_left>
+    <template if:true={renderEtapy}>
+        <div class="navigation">
+            <button class="button" onclick={handleRenderToHome}>&nbsp;<i class="arrow right"></i></button>
+            <button class="button hover" onclick={handleRenderToHome}>/   Domov</button>
+            <button class ="button bolder">/   Etapy</button>
         </div>
-        <div class="mid">
-            <c-etapy_mid ></c-etapy_mid>
+
+        <div class="wrapper">
+            <div>
+                <c-etapy_left onetapa={handleEtapaValue}></c-etapy_left>
+            </div>
+            <div>
+                <c-etapy_mid ></c-etapy_mid>
+            </div>
+            <div>
+                <c-etapy_right ></c-etapy_right>
+            </div>
         </div>
-        <div class="right">
-            <c-etapy_right ></c-etapy_right>
-        </div>
-    </div>
+    </template>
+
 </template>

@@ -1,0 +1,55 @@
+/**
+ * Created by mgons on 8/3/2022.
+ */
+.container{
+    display: grid;
+    background: #efeff5;
+    border-radius: 8px;
+    padding: 5px;
+    height: 45vh;
+}
+.container > div{
+    display: grid;
+    grid-template-columns: repeat(16, 1fr);
+
+}
+.header {
+    grid-column: 1/16;
+    font-size: 20px;
+    font-weight: bold;
+    padding-bottom: 5px;
+    grid-row: 1/2;
+
+}
+
+.rows{
+    grid-column: 1/16;
+    border-bottom: darkgray 1px solid;
+    padding-bottom: 7px;
+    padding-top: 8px;
+}
+.rows-headers{
+    grid-column: 1/16;
+    border-bottom: darkgray 1px solid;
+    padding-bottom: 15px;
+    padding-top: 10px;
+}
+.textRow{
+    align-self: center;
+    font-size: small;
+}
+.text1{
+    grid-column: 1/16;
+}
+
+
+.rows:hover{
+    cursor: pointer;
+    background: white;
+    text-decoration: underline;
+}
+.slds-scrollable_y{
+    display: grid;
+    grid-template-columns: repeat(16, 1fr);
+    grid-column: 1/16;
+}

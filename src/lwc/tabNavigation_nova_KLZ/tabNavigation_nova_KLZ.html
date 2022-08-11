@@ -1,0 +1,30 @@
+<!--
+ - Created by juraj on 01/08/2022.
+ -->
+
+<!-- Tab Navigation Nova Klz -->
+<template>
+    <lightning-card title="Create Case Record" icon-name="standard:case">
+        <div style="margin-left: 6%" if:true={error}>
+            <lightning-badge label={error} style="color: red;"></lightning-badge>
+        </div>
+
+        <template if:true={caseRecord}>
+            <div class="slds-m-around--xx-large">
+                <div class="container-fluid">
+
+                    <div class="form-group">
+                        <lightning-input label="Zadaj Predmet" name="objSubject" type="text" value={caseRecord.Subject} onchange={handleSubjectChange}></lightning-input>
+                    </div>
+                    <div class="form-group">
+                        <lightning-input label="Zadaj Popis" name="objDescription" type="text" value={caseRecord.Description} onchange={handleDescriptionChange}></lightning-input>
+                    </div>
+
+
+                </div>
+                <br/>
+                <lightning-button label="Submit" onclick={handleSave} variant="brand"></lightning-button>
+            </div>
+        </template>
+    </lightning-card>
+</template>

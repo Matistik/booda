@@ -11,6 +11,7 @@ export default class CustomModal extends LightningElement {
 
     closeModal() {
         this.dispatchEvent(new CustomEvent('close'));
+
     }
     saveModal() {
         this.dispatchEvent(new CustomEvent('save'));

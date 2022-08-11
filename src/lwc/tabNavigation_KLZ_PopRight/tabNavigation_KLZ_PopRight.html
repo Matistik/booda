@@ -6,28 +6,36 @@
         <div class="body">
 
             <div class="box first-box">
-                <div class="header">Zmena</div>
-                <div class="text">Názov KLZ
-                </div>
-                <textarea  class="nazov" cols="1" >
-            </textarea>
+                <div if:true={ConcreteKLZData} class="header">Zmena {ConcreteKLZData.CaseNumber}</div>
+                <button onclick={handleUpdateKlz} class="slds-button button-save slds-button_brand">
+                    <svg class=" button1 slds-button__icon slds-button__icon_left " aria-hidden="true">
+                        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#save"></use>
+                    </svg>Ulozit</button>
+
                 <div class="text">Stav
                 </div>
-                <select class="dropdown stav" >
-                    <option >Rozpracovaná</option>
-                    <option >Zadaná klientom</option>
-                    <option >Nacenená</option>
-                    <option >Odsúhlasená klientom</option>
-                    <option >Zamietnutá stavbou</option>
-                    <option >Zamietnutá klientom</option>
-                    <option >Odovzdané k realizácii</option>
-                </select>
-                <div class="text">Prvok
-                </div>
-                <select class="dropdown prvok" >
-                    <option >IDK here comes data</option>
+                <template if:true={ConcreteKLZData}>
+                <template for:each={ConcreteKLZData} for:item="data">
+                <lightning-combobox key={data.Id} validity="" class="dropdown stav"
+                        name="progress"
+                        label="Status"
+                        value={data.Status}
+                        placeholder={value}
+                        options={options}
+                        required
+                ></lightning-combobox>
+                </template>
+                </template>
 
-                </select>
+                <div class="text">Predmet
+                </div>
+                <template if:true={ConcreteKLZData}>
+                    <template for:each={ConcreteKLZData} for:item="data">
+                <lightning-textarea key={data.Id} label="" value={data.Subject} class="poznamky-od3" >{data.Subject}
+            </lightning-textarea>
+                </template>
+                </template>
+
                 <div class="text">Platný termín pre zmenu
                 </div>
                 <div class="text text-diff">Termín
@@ -43,10 +51,11 @@
                 </select>
 
                 <input class="calendar" type="date" >
-                <div class="text">Interné poznámky
+                <div  class="text">Interné poznámky
                 </div>
-                <textarea  class="poznamky" cols="1" >
-            </textarea>
+
+                <textarea  class="poznamky" cols="1" ></textarea>
+
             </div>
 
 
@@ -54,17 +63,28 @@
                 <div class="header">Poznámky</div>
                 <div class="text poznamky-od">Popis požiadavky od klienta</div>
                 <div class="text poznamky-pre">Poznámka pre klienta</div>
-                <textarea  class="poznamky-od1" cols="1" readonly>
-            </textarea>
+                <template if:true={ConcreteKLZData}>
+                    <template for:each={ConcreteKLZData} for:item="data">
+                <lightning-textarea key={data.Id} label="" value={data.Description} class="poznamky-od1" >
+            </lightning-textarea>
+                    </template>
+                </template>
                 <textarea  class="poznamky-pre1" cols="1" >
             </textarea>
             </div>
             <div class="box third-box">
                 <div class="header">Kalkulácie</div>
-                <button class="slds-button button-nova slds-button_brand">
+                <button onclick={openKalModal} class="slds-button button-nova slds-button_brand">
                     <svg class=" button1 slds-button__icon slds-button__icon_left " aria-hidden="true">
                         <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#add"></use>
                     </svg>Nová kalkulácia</button>
+                <template if:true={openModal} >
+                    <c-custom-modal onclose={closeKalModal} >
+
+                        <c-tab-navigation_-k-l-z_-kalkulacia klz-i-d={klzID} onclose={closeKalModal} onrenderkalkulacia= {getKalkulacia}></c-tab-navigation_-k-l-z_-kalkulacia>
+
+                    </c-custom-modal>
+                </template>
 
                 <div class="rows">
                     <h2 class="textR text1">Aktivácia</h2>
@@ -74,18 +94,26 @@
                 </div>
 
 
-                <div class="rows-text">
-                    <h2 class="textRow text1">M-A101-01</h2>
-                    <h2 class="textRow text2">Chodba</h2>
-                    <h2 class="textRow text3">01</h2>
-                    <h2 class="textRow text4">6,85</h2>
+                <template if:true={kalkulaciaData}>
+                    <template for:each={kalkulaciaData} for:item="kalkulacia">
+                        <div class="rows-text" key={kalkulacia.Id}>
+                            <h2 class="textRow text1"></h2>
+                            <h2 class="textRow text2">{kalkulacia.Name}</h2>
+                            <h2 class="textRow text3">{kalkulacia.Stav__c}</h2>
+                            <h2 class="textRow text4">{kalkulacia.Cena__c}€</h2>
 
 
-                    <button class="button1 row-button-open"><svg class="slds-icon_xx-small slds-input__icon icon-search-input__icon slds-input__icon_left " aria-hidden="true">
-                        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#arrow_right"></use></svg></button>
-                    <button class="button2 row-button-open"><svg class="slds-icon_xx-small slds-input__icon icon-search-input__icon slds-input__icon_left " aria-hidden="true">
-                        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#delete"></use></svg></button>
-                </div>
+                            <button class="button1 row-button-open"><svg class="slds-icon_xx-small slds-input__icon icon-search-input__icon slds-input__icon_left " aria-hidden="true">
+                                <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#arrow_right"></use></svg></button>
+                            <button class="button2 row-button-open"><svg class="slds-icon_xx-small slds-input__icon icon-search-input__icon slds-input__icon_left " aria-hidden="true">
+                                <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#delete"></use></svg></button>
+                        </div>
+                    </template>
+                </template>
+
+                <template if:true={sumaKalkulacia}>
+                <h1 class="cena">Celkova cena kalkulacie : {sumaKalkulacia.expr0}€</h1>
+                </template>
 
             </div>
 

@@ -4,6 +4,7 @@
 
 <!-- Sixth Box -->
 <template>
+    <template if:true={terminyData}>
     <div class="container">
 
         <div class="row1">
@@ -15,24 +16,24 @@
             <label class="label">Prijaté zadanie KLZ</label>
         </div>
         <div class="row2">
-            <input class="date1" type="date">
-            <input class="date2" type="date">
+            <input class="date1" type="date" value={terminyData.D_tum_podpisu_ZoD_ZoBKZ__c}>
+            <input class="date2" type="date" value={terminyData.Prijat_zadanie_KLZ__c}>
         </div>
         <div class="row22">
             <label class="label">Zaslanie výzvy KLZ najneskôr do</label>
             <label class="label">Dané na rozpočet</label>
         </div>
         <div class="row3">
-            <input class="date1" type="date">
-            <input class="date2" type="date">
+            <input class="date1" type="date" value={terminyData.Zaslanie_v_zvy_KLZ_najnesk_r_do__c}>
+            <input class="date2" type="date" value={terminyData.Dan_na_rozpo_et__c}>
         </div>
         <div class="row22">
             <label class="label">Termín zaslania návrhu na stretnutie</label>
             <label class="label">Uzávierka štandardov</label>
         </div>
         <div class="row4">
-            <input class="date1" type="date">
-            <input class="date2" type="date">
+            <input class="date1" type="date" value={terminyData.Term_n_zaslania_n_vrhu_na_stretnutie__c}>
+            <input class="date2" type="date" value={terminyData.Uz_vierka_tandardov__c}>
         </div>
     </div>
     <div class="container2">
@@ -76,4 +77,5 @@
         </div>
 
     </div>
+</template>
 </template>

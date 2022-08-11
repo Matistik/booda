@@ -4,7 +4,9 @@
 
 <!-- Miestnosti -->
 <template>
-    <div class="container">
+    <template if:true={MiestnostiData}>
+    <div class="wrapper">
+        <div class="container">
         <h2 class="header">Miestnosti</h2>
 
         <div class="rows">
@@ -15,12 +17,16 @@
             <h2 class="texts text5">Poznámka</h2>
         </div>
 
-        <div class="rows-text">
-            <h2 class="text text1">M-A101-01</h2>
-            <h2 class="text text2">Chodba</h2>
-            <h2 class="text text3">01</h2>
-            <h2 class="text text4">6,85</h2>
-            <h2 class="text text5"></h2>
+            <template for:each={MiestnostiData} for:item="miestnost">
+        <div class="rows-text" key={miestnost.Id}>
+            <h2 class="text text1">{miestnost.Name}</h2>
+            <h2 class="text text2">{miestnost.NazovMiestnosti__c}</h2>
+            <h2 class="text text3">{miestnost.Oznacenie__c}</h2>
+            <h2 class="text text4">{miestnost.Plocha__c}</h2>
+            <h2 class="text text5">{miestnost.Poznamka__c}</h2>
         </div>
+    </template>
     </div>
+    </div>
+</template>
 </template>

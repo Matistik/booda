@@ -16,7 +16,6 @@
     font-size: 20px;
     font-weight: bold;
     padding-bottom: 5px;
-    padding-left: 5px;
     border-bottom: darkgray 1px solid;
 }
 .rows{
@@ -47,14 +46,18 @@
 }
 
 .default{
-
+    border-radius: 5px;
+    border: darkgray 1px solid;
 }
 .orange {
     background: orange;
+    border-radius: 5px;
 }
 .red{
     background: #d15650;
+    border-radius: 5px;
 }
 .green{
     background: green;
+    border-radius: 5px;
 }

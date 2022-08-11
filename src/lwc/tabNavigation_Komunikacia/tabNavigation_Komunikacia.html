@@ -4,32 +4,40 @@
 
 <!-- Komunikacia -->
 <template>
-
+    <div class="wrapper">
     <div class="container">
 
         <div class="rows-headers">
             <div class="header">Komunikacia</div>
 
-            <button class="slds-button slds-button_brand" onclick={openpvModal}>
-                <svg class=" button1 slds-button__icon slds-button__icon_left " aria-hidden="true">
-                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#add"></use>
-                </svg>Pridať vlákno</button>
-            <template if:true={openModal}>
-                <c-custom-modal onclose={closepvModal}>
+<!--            <button class="slds-button slds-button_brand" onclick={openpvModal}>-->
+<!--                <svg class=" button1 slds-button__icon slds-button__icon_left " aria-hidden="true">-->
+<!--                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#add"></use>-->
+<!--                </svg>Pridať vlákno</button>-->
+<!--            <template if:true={openModal}>-->
+<!--                <c-custom-modal onclose={closepvModal}>-->
 
 
 
-                </c-custom-modal>
-            </template>
+<!--                </c-custom-modal>-->
+<!--            </template>-->
+        </div>
+        <div class="slds-scrollable_y"  >
+        <template if:true={caseData}>
+            <template for:each={caseData} for:item="cases">
+                <div class="rows" key={cases.Id} data-id={cases.Id} onclick={renderComments}>
+                    <h2 class="textRow text1" key={cases.Id}>{cases.CaseNumber}</h2>
+                    <h2 class="textRow text1" key={cases.Id}>{cases.Subject}</h2>
+<!--                    <h2 class="textRow text1" key={comment.Id}>name{comment.Name}</h2>-->
+<!--                    <h2 class="textRow text1" key={comment.Id}>id{comment.Subject}</h2>-->
+<!--                    <button class="button1 row-button-open">-->
+<!--                        <svg class="slds-icon_xx-small slds-input__icon icon-search-input__icon slds-input__icon_left " aria-hidden="true"><use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#arrow_right"></use></svg>-->
+<!--                    </button>-->
+                </div>
+        </template>
+        </template>
         </div>
 
-        <div class="rows">
-            <h2 class="textRow text1">Nieco neviem co</h2>
-
-            <button class="button1 row-button-open"><svg class="slds-icon_xx-small slds-input__icon icon-search-input__icon slds-input__icon_left " aria-hidden="true">
-                <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#arrow_right"></use></svg></button>
-
-        </div>
-
+    </div>
     </div>
 </template>

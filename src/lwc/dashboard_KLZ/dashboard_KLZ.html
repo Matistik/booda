@@ -1,9 +1,10 @@
 <!-- Third Box -->
 <template>
+    <template if:true={klientskeZmenyData}>
     <div class="container">
 
         <div class="rows">
-            <h2 class="row1">Klientské zmeny</h2>
+            <h2 class="row1">Klientské zmeny <div>{klientskeZmenyData.OwnerId}</div></h2>
             <button class="button2" onclick={openpdfModal}>PDF výstup</button>
             <template if:true={openModal}>
                 <c-custom-modal onclose={closepdfModal}>
@@ -18,10 +19,12 @@
             <button class="button2" onclick={renderToKLZ} >Zobrazit zmeny ></button>
         </div>
 
-        <div class="rows">
-            <h2 class="text1">0</h2>
-            <h2 class="text2 red">45</h2>
+
+        <div  class="rows">
+            <h2 class="text1" if:true={countDataUzavrete}>{countDataUzavrete.expr0}</h2>
+            <h2 class="text2 red" if:true={countData}>{countData.expr0}</h2>
         </div>
+
 
         <div class="area1-nadpis area">
             <label class="label1">Rozsah klientských zmien</label>
@@ -67,4 +70,5 @@
         </div>
 
     </div>
+    </template>
 </template>

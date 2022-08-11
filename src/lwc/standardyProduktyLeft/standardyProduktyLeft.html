@@ -1,0 +1,31 @@
+<!--
+ - Created by mgons on 8/3/2022.
+ -->
+
+<!-- Standardy Produkty Left -->
+<template>
+    <template if:true={StandardyData}>
+
+    <div class="container">
+
+
+        <div class="rows-headers">
+            <div class="header">Druhy Produktov</div>
+        </div>
+
+        <div class="slds-scrollable_y " >
+        <template for:each={StandardyData} for:item="standard" >
+
+        <div class="rows" key={standard.Id} onclick={renderProdukty} data-id={standard.Id}>
+            <h2 class="textRow text1">{standard.Name}     0 / {standard.SBQQ__MaxOptionCount__c}</h2>
+
+        </div>
+
+
+        </template>
+        </div>
+
+
+    </div>
+    </template>
+</template>

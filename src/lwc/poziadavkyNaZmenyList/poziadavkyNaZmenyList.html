@@ -26,14 +26,18 @@
             <h2 class="texts text7">Schválené</h2>
         </div>
 
-        <div class="rows-text">
-            <h2 class="text text1">A.101</h2>
-            <h2 class="text text2">KLZ-A101-1</h2>
-            <h2 class="text text3">Rozpracovaná</h2>
-            <h2 class="text text4">20.10.2022</h2>
-            <h2 class="text text5">Posun sprchy</h2>
-            <h2 class="text text6">0/3</h2>
+        <template if:true={klzData}>
+        <template for:each={klzData} for:item="klzdata">
+        <div class="rows-text" key={klzdata.Id} data-id={klzdata.Id} onclick={renderToKlz}>
+            <h2 class="text text1">{klzdata.Byt__r.Name}</h2>
+            <h2 class="text text2">{klzdata.Id}</h2>
+            <h2 class="text text3"></h2>
+            <h2 class="text text4"></h2>
+            <h2 class="text text5"></h2>
+            <h2 class="text text6"></h2>
             <h2 class="text text7"></h2>
         </div>
+        </template>
+        </template>
     </div>
 </template>

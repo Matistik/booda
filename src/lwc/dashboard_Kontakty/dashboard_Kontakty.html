@@ -4,13 +4,17 @@
 
 <!-- Dashboard Kontakty -->
 <template>
+
+
     <div class="container">
 
         <div class="rows">
             <h2 class="row1">Kontakty</h2>
         </div>
 
+
         <div class="rows">
+
             <h2 class="text1">Primárny</h2>
             <span class="image " title="Description of icon when needed">
                 <svg class="slds-icon slds-icon_large" aria-hidden="true">
@@ -18,21 +22,37 @@
                 </svg>
                 <span class="slds-assistive-text">Description of icon when needed</span>
             </span>
-            <h2 class="text2">Filip Juráň</h2>
-            <h2 class="text3">Partner</h2>
-            <a class="text3" href="mailto:fjuran@parallaxis.io">fjuran@parallaxis.io</a>
-            <h2 class="text3 gap">0902 584 486</h2>
+            <template if:true={mainContactData}>
+                <template for:each={mainContactData} for:item="acc">
+            <h2 class="text2" key={acc.Id}>{acc.Name}</h2>
+            <h2 class="text3" key={acc.Id}>{acc.Type}</h2>
+            <a class="text3" key={acc.Id} href="mailto:fjuran@parallaxis.io">{acc.PersonEmail}</a>
+            <h2 class="text3 gap" key={acc.Id}>{acc.Phone}</h2>
+            </template>
+            </template>
+        </div>
+
+
+        <div class="rows">
+            <button class="button2" onclick={openNKModal}>+ Nový account</button>
+            <template if:true={openModal}>
+                <c-custom-modal onclose={closeNKModal}>
+
+                    <c-dashboard_-kontakty_-novy flat-i-d={flatID} onclosekontakt={closeNKModal}>
+
+                    </c-dashboard_-kontakty_-novy>
+
+                </c-custom-modal>
+            </template>
         </div>
 
         <div class="rows">
             <h2 class="row1 small">Všetky kontakty:</h2>
-            <button class="button2" onclick={openNKModal}>+ Nový kontakt</button>
-            <template if:true={openModal}>
-                <c-custom-modal onclose={closeNKModal}>
+            <button class="button2" onclick={openNModal}>+ Nový kontakt</button>
+            <template if:true={openxModal}>
+                <c-custom-modal onclose={closeNModal}>
 
-                    <c-dashboard_-kontakty_-novy>
-
-                    </c-dashboard_-kontakty_-novy>
+                    <c-novy-related-contact flat-i-d={flatID} oncloserelkontakt={closeNModal}></c-novy-related-contact>
 
                 </c-custom-modal>
             </template>
@@ -43,13 +63,19 @@
 
 
         <div class="contacts">
-             <span class="image-small " title="Description of icon when needed">
+            <template if:true={flatContactsData}>
+                <template for:each={flatContactsData} for:item="contacts">
+             <span class="image-small" key={contacts.Id} title="Description of icon when needed">
                   <svg class="slds-icon" aria-hidden="true">
                   <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#image"></use>
                   </svg>
              </span>
-            <h2 class="meno">Rasto Mičík</h2>
-            <h2 class="role">Majiteľ bytu</h2>
+
+                <h2 class="meno" key={contacts.Id}>{contacts.Name}</h2>
+                <h2 class="role" key={contacts.Id}></h2>
+            </template>
+            </template>
+
         </div>
 
         <div class="empty">
@@ -77,4 +103,4 @@
         </div>
 
     </div>
-</template>
+    </template>

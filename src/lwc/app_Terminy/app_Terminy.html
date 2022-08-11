@@ -1,0 +1,87 @@
+<!--
+ - Created by mgons on 8/10/2022.
+ -->
+
+<!-- App Terminy -->
+<template>
+    <div class="navigation">
+        <button class="button"><i class="arrow left"></i>&nbsp;Môj Byt</button>
+
+    </div>
+    <div class="small-navigation">
+        <h2 class="small-header header1">Byt A.501</h2>
+        <h2 class="small-header header2">Poschodie 5</h2>
+        <h2 class="small-header header3">Izbovosť 3,5i</h2>
+    </div>
+
+    <div class="container">
+        <h2 class="header">Termíny</h2>
+        <div class=" nazov">
+            <template if:true={byty}>
+                <template for:each={byty} for:item="byt">
+                          <textarea  class="text-box text-box-nazov" key={byt.Id}>{byt.Etapa__c}
+                          </textarea>
+                </template>
+            </template>
+
+        </div>
+
+        <h2 class="header-first">Poschodie 1</h2>
+        <h2 class="header-second">Dní</h2>
+        <h2 class="header-third">Termín</h2>
+
+        <div class="row-box">
+
+            <div class="row">
+                <div class="text-field">Uzávierka štandardov
+                </div>
+                <div class="text-field-deadline">125
+                </div>
+                <input class="select date-datum" type="date" >
+            </div>
+            <div class="row">
+                <div class="text-field">Uzávierka KLZ
+                </div>
+                <div class="text-field-deadline">125
+                </div>
+                <input class="select date-datum" type="date" >
+            </div>
+
+            <div class="row">
+                <div class="text-field">Fixnutie profesií
+                </div>
+                <div class="text-field-deadline">125
+                </div>
+                <input class="select date-datum" type="date" >
+            </div>
+
+            <div class="row">
+                <div class="text-field">Fixnutie statiky
+                </div>
+                <div class="text-field-deadline">125
+                </div>
+                <input class="select date-datum" type="date" >
+            </div>
+
+            <div class="row">
+                <div class="text-field">Fixnutie murovačiek
+                </div>
+                <div class="text-field-deadline">125
+                </div>
+                <input class="select date-datum" type="date" >
+            </div>
+
+            <div class="row">
+                <div class="text-field">Definitívna uzávierka
+                </div>
+                <div class="text-field-deadline">125
+                </div>
+                <input class="select date-datum" type="date" >
+            </div>
+
+        </div>
+
+
+
+    </div>
+</template>

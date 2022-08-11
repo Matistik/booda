@@ -5,9 +5,15 @@
         <h2 class="header">Etapa</h2>
         <div class=" nazov">
             <div class="text text-nazov">Názov etapy
-            </div>
-            <textarea  class="text-box text-box-nazov"  >poschodie
-            </textarea>
+            </div >
+
+            <template if:true={byty}>
+                <template for:each={byty} for:item="byt">
+                          <textarea  class="text-box text-box-nazov" key={byt.Id}>{byt.Etapa__c}
+                          </textarea>
+            </template>
+            </template>
+
         </div>
         <h2 class="header2">Termíny:</h2>
 
