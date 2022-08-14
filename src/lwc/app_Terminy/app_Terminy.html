@@ -4,15 +4,18 @@
 
 <!-- App Terminy -->
 <template>
+    <template if:true={terminy}>
     <div class="navigation">
-        <button class="button"><i class="arrow left"></i>&nbsp;Môj Byt</button>
+        <button onclick={goToMOjByt} class="button"><i class="arrow left"></i>&nbsp;Môj Byt</button>
 
     </div>
-    <div class="small-navigation">
-        <h2 class="small-header header1">Byt A.501</h2>
-        <h2 class="small-header header2">Poschodie 5</h2>
-        <h2 class="small-header header3">Izbovosť 3,5i</h2>
-    </div>
+        <template if:true={bytData}>
+            <div class="small-navigation" key={bytData.Id}>
+                <h2 class="small-header header1">Byt {bytData.Ozna_enie__c}</h2>
+                <h2 class="small-header header2">Poschodie {bytData.Poschodie__c}</h2>
+                <h2 class="small-header header3">Izbovosť {bytData.Izbovos__c}</h2>
+            </div>
+        </template>
 
     <div class="container">
         <h2 class="header">Termíny</h2>
@@ -84,4 +87,9 @@
 
 
     </div>
+    </template>
+
+    <template if:true={mojByt}>
+        <c-app_-moj-byt flat-i-d={flatID}></c-app_-moj-byt>
+    </template>
 </template>

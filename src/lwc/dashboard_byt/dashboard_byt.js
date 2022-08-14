@@ -8,7 +8,17 @@ import getByt from '@salesforce/apex/DashboardController.getByt';
 export default class DashboardByt extends LightningElement {
 
     @api flatID;
+    @api caseID;
     @track bytData;
+    @track openModal = false;
+
+    openKAModal() {
+        this.openModal = true;
+    }
+
+    closeKAModal() {
+        this.openModal = false;
+    }
 
     renderedCallback() {
         this.getBytData();

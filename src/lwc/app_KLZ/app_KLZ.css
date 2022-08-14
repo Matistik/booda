@@ -47,3 +47,22 @@ h2.small-header{
 .header3{
     grid-column: 4/5;
 }
+.container{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+}
+.header{
+    grid-column: 1/4;
+    font-size: 25px;
+    font-weight: bold;
+    padding-top: 10px;
+    padding-left: 20px;
+
+}
+.button-box{
+    grid-column: 4/5;
+    justify-self: right;
+    padding-right: 10px;
+    padding-top: 10px;
+    padding-left: 20px;
+}

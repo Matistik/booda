@@ -8,9 +8,16 @@
         <div class="container">
 
             <div class="rows">
-                <h2 class="row1">Byt {bytData.Name}</h2>
-                <button class="button2">Klietn App</button>
+                <h2 class="row1">byt Name: {bytData.Name}</h2>
+                <button onclick={openKAModal} class="button2">Klietn App</button>
             </div>
+            <template if:true={openModal}>
+                <c-custom-modal onclose={closeKAModal}>
+
+                    <c-app_-moj-byt flat-i-d={flatID} case-i-d={caseID}></c-app_-moj-byt>
+
+                </c-custom-modal>
+            </template>
 
             <div class="rows">
                 <h2 class="text">Typ</h2>

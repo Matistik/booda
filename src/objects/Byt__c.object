@@ -184,6 +184,18 @@
         <type>Date</type>
     </fields>
     <fields>
+        <fullName>Etapa2__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Etapa</label>
+        <referenceTo>Etapa__c</referenceTo>
+        <relationshipLabel>Byty</relationshipLabel>
+        <relationshipName>Byty</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>Etapa__c</fullName>
         <externalId>false</externalId>
         <label>Etapa</label>
@@ -195,34 +207,34 @@
             <valueSetDefinition>
                 <sorted>false</sorted>
                 <value>
-                    <fullName>Poschodie 1</fullName>
+                    <fullName>Etapa 1</fullName>
                     <default>false</default>
-                    <label>Poschodie 1</label>
+                    <label>Etapa 1</label>
                 </value>
                 <value>
-                    <fullName>Poschodie 2</fullName>
+                    <fullName>Etapa 2</fullName>
                     <default>false</default>
-                    <label>Poschodie 2</label>
+                    <label>Etapa 2</label>
                 </value>
                 <value>
-                    <fullName>Poschodie 3</fullName>
+                    <fullName>Etapa 3</fullName>
                     <default>false</default>
-                    <label>Poschodie 3</label>
+                    <label>Etapa 3</label>
                 </value>
                 <value>
-                    <fullName>Poschodie 4</fullName>
+                    <fullName>Etapa 4</fullName>
                     <default>false</default>
-                    <label>Poschodie 4</label>
+                    <label>Etapa 4</label>
                 </value>
                 <value>
-                    <fullName>Poschodie 5</fullName>
+                    <fullName>Etapa 5</fullName>
                     <default>false</default>
-                    <label>Poschodie 5</label>
+                    <label>Etapa 5</label>
                 </value>
                 <value>
-                    <fullName>Poschodie 6</fullName>
+                    <fullName>Etapa 6</fullName>
                     <default>false</default>
-                    <label>Poschodie 6</label>
+                    <label>Etapa 6</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -297,6 +309,50 @@
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Poschodie__c</fullName>
+        <externalId>false</externalId>
+        <label>Poschodie</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>1</fullName>
+                    <default>false</default>
+                    <label>1</label>
+                </value>
+                <value>
+                    <fullName>2</fullName>
+                    <default>false</default>
+                    <label>2</label>
+                </value>
+                <value>
+                    <fullName>3</fullName>
+                    <default>false</default>
+                    <label>3</label>
+                </value>
+                <value>
+                    <fullName>4</fullName>
+                    <default>false</default>
+                    <label>4</label>
+                </value>
+                <value>
+                    <fullName>5</fullName>
+                    <default>false</default>
+                    <label>5</label>
+                </value>
+                <value>
+                    <fullName>6</fullName>
+                    <default>false</default>
+                    <label>6</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Pozn_mky__c</fullName>

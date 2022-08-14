@@ -22,8 +22,8 @@ export default class DashboardKontakty extends LightningElement {
         this.getContacts()
     }
 
-    getMainContact(){
-        console.log("flatid+++ "+this.flatID);
+    getMainContact() {
+        console.log("flatid+++ " + this.flatID);
 
         getMainContact({bytId: this.flatID})
             .then(response => {
@@ -35,12 +35,14 @@ export default class DashboardKontakty extends LightningElement {
             })
     }
 
-    getContacts(){
-        console.log("flatid+++ "+this.flatID);
+    getContacts() {
+        console.log("flatid+++ " + this.flatID);
         getContacts({bytId: this.flatID})
             .then(response => {
 
-                if (response.Name === undefined){return}
+                if (response.Name === undefined) {
+                    return
+                }
                 this.flatContactsData = response;
             })
             .catch(error => {
@@ -64,6 +66,7 @@ export default class DashboardKontakty extends LightningElement {
     closeIEModal() {
         this.openieModal = false;
     }
+
     openNModal() {
         this.openxModal = true;
     }

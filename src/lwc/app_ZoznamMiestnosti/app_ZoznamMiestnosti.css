@@ -53,13 +53,7 @@ h2.small-header{
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 5px;
 }
-.wrapper > div{
-    display: grid;
-    border-radius: 8px;
-    margin-left: 20px;
-    margin-right: 20px;
-    grid-column: 1/4;
-}
+
 .header{
     grid-column: 1/4;
     font-size: 20px;
@@ -67,10 +61,25 @@ h2.small-header{
     padding-top: 10px;
     padding-left: 20px;
 }
+.slds-scrollable_y{
+    display: grid;
+    grid-column: 1/4;
+    max-height: 70vh;
+}
 .rows{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    border-radius: 8px;
+    margin-left: 20px;
+    margin-right: 20px;
     grid-column: 1/3;
     padding: 10px 0;
     padding-left: 10px;
+}
+.miestnost{
+    grid-column: 1/4;
+    align-self: start;
+    font-weight: bold;
 }
 .label{
     font-size: small;
@@ -82,9 +91,4 @@ h2.small-header{
     padding-right: 10px;
     justify-self: end;
     align-self: center;
-}
-.slds-scrollable_y{
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-column: 1/3;
 }

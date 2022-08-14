@@ -24,11 +24,11 @@
             </span>
             <template if:true={mainContactData}>
                 <template for:each={mainContactData} for:item="acc">
-            <h2 class="text2" key={acc.Id}>{acc.Name}</h2>
-            <h2 class="text3" key={acc.Id}>{acc.Type}</h2>
-            <a class="text3" key={acc.Id} href="mailto:fjuran@parallaxis.io">{acc.PersonEmail}</a>
-            <h2 class="text3 gap" key={acc.Id}>{acc.Phone}</h2>
-            </template>
+                    <h2 class="text2" key={acc.Id}>{acc.Name}</h2>
+                    <h2 class="text3" key={acc.Id}>{acc.Type}</h2>
+                    <a class="text3" key={acc.Id} href="mailto:fjuran@parallaxis.io">{acc.PersonEmail}</a>
+                    <h2 class="text3 gap" key={acc.Id}>{acc.Phone}</h2>
+                </template>
             </template>
         </div>
 
@@ -59,9 +59,6 @@
         </div>
 
 
-
-
-
         <div class="contacts">
             <template if:true={flatContactsData}>
                 <template for:each={flatContactsData} for:item="contacts">
@@ -71,9 +68,9 @@
                   </svg>
              </span>
 
-                <h2 class="meno" key={contacts.Id}>{contacts.Name}</h2>
-                <h2 class="role" key={contacts.Id}></h2>
-            </template>
+                    <h2 class="meno" key={contacts.Id}>{contacts.Name}</h2>
+                    <h2 class="role" key={contacts.Id}></h2>
+                </template>
             </template>
 
         </div>
@@ -88,7 +85,7 @@
             <template if:true={openieModal}>
                 <c-custom-modal onclose={closeIEModal}>
 
-                    <c-dashboard_-kontakty_-email ></c-dashboard_-kontakty_-email>
+                    <c-dashboard_-kontakty_-email></c-dashboard_-kontakty_-email>
 
                 </c-custom-modal>
             </template>
@@ -103,4 +100,4 @@
         </div>
 
     </div>
-    </template>
+</template>

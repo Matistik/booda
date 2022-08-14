@@ -7,6 +7,7 @@ import {api, LightningElement, track} from 'lwc';
 export default class Dashboard extends LightningElement {
 
     @api flatID;
+    @api caseID;
 
     @track showSearchComponent = false;
     showSearch(){

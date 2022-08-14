@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableLicensing>false</enableLicensing>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ControlledByParent</externalSharingModel>
+    <fieldSets>
+        <fullName>CPQ_Lookup</fullName>
+        <description>ktoré fieldy sa zobrazujú pri vyhľadávaní prvku pri CPQ konfigurácii</description>
+        <displayedFields>
+            <field>Name</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Prvok__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Miestnost__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Miestnost__r.NazovMiestnosti__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Miestnost__r.Byt__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>CPQ_Lookup</label>
+    </fieldSets>
+    <fields>
+        <fullName>Miestnost__c</fullName>
+        <externalId>false</externalId>
+        <label>Miestnosť</label>
+        <referenceTo>Miestnost__c</referenceTo>
+        <relationshipLabel>Prvky</relationshipLabel>
+        <relationshipName>Prvky</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Prvok__c</fullName>
+        <description>názov prvku</description>
+        <externalId>false</externalId>
+        <label>Prvok</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Bytový rozdelovač</fullName>
+                    <default>false</default>
+                    <label>Bytový rozdelovač</label>
+                </value>
+                <value>
+                    <fullName>Chladiaca jednotka</fullName>
+                    <default>false</default>
+                    <label>Chladiaca jednotka</label>
+                </value>
+                <value>
+                    <fullName>Dátová zásuvka</fullName>
+                    <default>false</default>
+                    <label>Dátová zásuvka</label>
+                </value>
+                <value>
+                    <fullName>Domáci telefón</fullName>
+                    <default>false</default>
+                    <label>Domáci telefón</label>
+                </value>
+                <value>
+                    <fullName>Doplnkové pospájanie</fullName>
+                    <default>false</default>
+                    <label>Doplnkové pospájanie</label>
+                </value>
+                <value>
+                    <fullName>Elektrická zásuvka</fullName>
+                    <default>false</default>
+                    <label>Elektrická zásuvka</label>
+                </value>
+                <value>
+                    <fullName>Elektrická zásuvka s krytom v zateplení</fullName>
+                    <default>false</default>
+                    <label>Elektrická zásuvka s krytom v zateplení</label>
+                </value>
+                <value>
+                    <fullName>Elektrický vývod zo steny</fullName>
+                    <default>false</default>
+                    <label>Elektrický vývod zo steny</label>
+                </value>
+                <value>
+                    <fullName>Interiérové dvere</fullName>
+                    <default>false</default>
+                    <label>Interiérové dvere</label>
+                </value>
+                <value>
+                    <fullName>Keramický obklad</fullName>
+                    <default>false</default>
+                    <label>Keramický obklad</label>
+                </value>
+                <value>
+                    <fullName>Kúpeľňové umývadlo</fullName>
+                    <default>false</default>
+                    <label>Kúpeľňové umývadlo</label>
+                </value>
+                <value>
+                    <fullName>Ovládanie žaluzii</fullName>
+                    <default>false</default>
+                    <label>Ovládanie žaluzii</label>
+                </value>
+                <value>
+                    <fullName>Práčkový vývod</fullName>
+                    <default>false</default>
+                    <label>Práčkový vývod</label>
+                </value>
+                <value>
+                    <fullName>Radiátor</fullName>
+                    <default>false</default>
+                    <label>Radiátor</label>
+                </value>
+                <value>
+                    <fullName>Rebríkový radiátor</fullName>
+                    <default>false</default>
+                    <label>Rebríkový radiátor</label>
+                </value>
+                <value>
+                    <fullName>Rohový ventil</fullName>
+                    <default>false</default>
+                    <label>Rohový ventil</label>
+                </value>
+                <value>
+                    <fullName>Spínač jednopólový</fullName>
+                    <default>false</default>
+                    <label>Spínač jednopólový</label>
+                </value>
+                <value>
+                    <fullName>Spínač sériový</fullName>
+                    <default>false</default>
+                    <label>Spínač sériový</label>
+                </value>
+                <value>
+                    <fullName>Spínač striedavý</fullName>
+                    <default>false</default>
+                    <label>Spínač striedavý</label>
+                </value>
+                <value>
+                    <fullName>Sprchová/Vaňová zmiešavacia batéria</fullName>
+                    <default>false</default>
+                    <label>Sprchová/Vaňová zmiešavacia batéria</label>
+                </value>
+                <value>
+                    <fullName>Stropné svietdilo</fullName>
+                    <default>false</default>
+                    <label>Stropné svietdilo</label>
+                </value>
+                <value>
+                    <fullName>Stropné svietidlo</fullName>
+                    <default>false</default>
+                    <label>Stropné svietidlo</label>
+                </value>
+                <value>
+                    <fullName>Umývadlo</fullName>
+                    <default>false</default>
+                    <label>Umývadlo</label>
+                </value>
+                <value>
+                    <fullName>Vchodové dvere</fullName>
+                    <default>false</default>
+                    <label>Vchodové dvere</label>
+                </value>
+                <value>
+                    <fullName>WC komplet</fullName>
+                    <default>false</default>
+                    <label>WC komplet</label>
+                </value>
+                <value>
+                    <fullName>Zásuvka 2-rámik</fullName>
+                    <default>false</default>
+                    <label>Zásuvka 2-rámik</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>SpecifikaciaPreStavbu__c</fullName>
+        <externalId>false</externalId>
+        <label>Špecifikácia pre stavbu</label>
+        <length>100</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Prvok</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Prvok__c</columns>
+        <columns>Miestnost__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <label>Prvok ID</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Prvky</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+    <visibility>Public</visibility>
+</CustomObject>

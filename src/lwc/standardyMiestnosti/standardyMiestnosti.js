@@ -7,6 +7,7 @@ import getLineItem from '@salesforce/apex/StandardyController.getLineItems';
 import getRooms from '@salesforce/apex/StandardyController.getDistinctRooms';
 import getStandardsForRooms from '@salesforce/apex/StandardyController.getStandardsForRooms';
 import getFlatIdAsProduct from '@salesforce/apex/StandardyController.getFlatIdAsProduct';
+import getMiestnosti from '@salesforce/apex/StandardyController.getMiestnosti';
 
 export default class StandardyMiestnosti extends LightningElement {
 
@@ -15,16 +16,19 @@ export default class StandardyMiestnosti extends LightningElement {
     @track rooms;
     @track flatIdAsProduct;
 
+
     connectedCallback() {
-        this.getFlatIdAsProduct();
+        this.getMiestnosti()
     }
 
 
 
-    getFlatIdAsProduct(){
-        getFlatIdAsProduct({flatID: this.flatID})
-            .then(response => {this.flatIdAsProduct = response})
-            .catch(error => {console.log(error)})
+
+
+    getMiestnosti(){
+        getMiestnosti({flatID: this.flatID})
+            .then(response => {this.rooms = response})
+            .catch(error => (console.log(error)))
     }
 
 
@@ -43,7 +47,7 @@ export default class StandardyMiestnosti extends LightningElement {
             })
     }
 
-     renderDruhyProduktov(event){
+     renderPrvky(event){
         let caseId = event.currentTarget.dataset.id;
 
         let eventToDispatch = new CustomEvent('druh', {

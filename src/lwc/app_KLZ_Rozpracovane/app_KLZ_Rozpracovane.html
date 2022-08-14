@@ -1,0 +1,61 @@
+<!--
+ - Created by mgons on 8/11/2022.
+ -->
+
+<!-- App Klz -->
+<template>
+    <template if:true={klz}>
+<div class="navigation">
+    <button onclick={goToMojByt} class="button"><i class="arrow left"></i>&nbsp;Môj Byt</button>
+
+</div>
+        <template if:true={bytData}>
+<div class="small-navigation" key={bytData.Id}>
+    <h2 class="small-header header1">Byt {bytData.Ozna_enie__c}</h2>
+    <h2 class="small-header header2">Poschodie {bytData.Poschodie__c}</h2>
+    <h2 class="small-header header3">Izbovosť {bytData.Izbovos__c}</h2>
+</div>
+        </template>
+    <div class="container">
+        <div class="header">Klientské zmeny:</div>
+        <div class="button-box">
+            <button class="slds-button ">Cenník
+                <svg class="slds-button__icon slds-button__icon_right" aria-hidden="true">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#arrow_right"></use>
+                </svg>
+            </button>
+        </div>
+        <button class="slds-button slds-button_brand button-left">Rozpracované</button>
+        <button class="slds-button slds-button_neutral button-left" onclick={goToOdoslane}>Odoslané</button>
+
+        <div class="slds-scrollable_y">
+            <h2 class="red">Rozpracované</h2>
+            <h2 class="grey">Čaká sa na odoslanie zmeny</h2>
+
+            <template if:true={getRozpracovaneData}>
+                <template for:each={getRozpracovaneData} for:item="rozpracovane">
+                    <div onclick={goToRozpracovaneInside} class="rows" key={rozpracovane.Id}>
+                        <p1 class="header-row">{rozpracovane.CaseNumber}</p1>
+                        <label class="label">{rozpracovane.Description}</label>
+                        <p1 class="end"><i class="arrowBlack right"></i></p1>
+                    </div>
+                </template>
+            </template>
+
+
+        </div>
+    </div>
+    </template>
+    <template if:true={mojByt}>
+        <c-app_-moj-byt flat-i-d={flatID}></c-app_-moj-byt>
+    </template>
+
+    <template if:true={klzOdoslane}>
+        <c-app_-k-l-z_-odoslane flat-i-d={flatID}></c-app_-k-l-z_-odoslane>
+    </template>
+
+    <template if:true={klzRozpracovaneInside}>
+        <c-app_-k-l-z_-rozpracovane_inside flat-i-d={flatID}></c-app_-k-l-z_-rozpracovane_inside>
+    </template>
+
+</template>

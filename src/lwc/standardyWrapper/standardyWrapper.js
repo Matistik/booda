@@ -25,21 +25,17 @@ export default class StandardyWrapper extends LightningElement {
             })
     }
 
-    renderDruhyProduktov(event){
+    renderPrvky(event){
 
         this.standardID = event.detail.id;
-        this.template.querySelector("c-standardy-produkty-left").getProductsFromStandard(event.detail.id);
+        this.template.querySelector("c-standardy-produkty-left").getPrvky(event.detail.id);
 
     }
 
     renderProdukty(event){
-
+        this.template.querySelector("c-standardy-produkty-right").handleOpacity();
         this.template.querySelector("c-standardy-produkty-right").getFeaturesFromProducts(event.detail.id)
 
-    }
-
-    handleOpacity(event){
-        this.template.querySelector("c-standardy-produkty-right").handleOpacity();
     }
 
     renderMiestnosti(event){

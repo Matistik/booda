@@ -4,7 +4,7 @@
 
 <!-- Standardy Produkty Left -->
 <template>
-    <template if:true={StandardyData}>
+    <template if:true={prvky}>
 
     <div class="container">
 
@@ -14,10 +14,10 @@
         </div>
 
         <div class="slds-scrollable_y " >
-        <template for:each={StandardyData} for:item="standard" >
+        <template for:each={prvky} for:item="prvok" >
 
-        <div class="rows" key={standard.Id} onclick={renderProdukty} data-id={standard.Id}>
-            <h2 class="textRow text1">{standard.Name}     0 / {standard.SBQQ__MaxOptionCount__c}</h2>
+        <div class="rows" key={prvok.Id} onclick={renderProdukty} data-id={prvok.Id}>
+            <h2 class="textRow text1">{prvok.Name} - {prvok.Prvok__c} </h2>
 
         </div>
 

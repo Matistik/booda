@@ -11,6 +11,8 @@
 
 }
 
+
+
 .img{
     height: 40px;
     width: 40px;
@@ -73,5 +75,10 @@
     grid-column: 1/16;
 }
 .slds-checkbox{
-     grid-column: 14/16;
+
  }
+
+.button20{
+    grid-column: 10/16;
+    height: 40px;
+}

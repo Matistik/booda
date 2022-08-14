@@ -6,11 +6,12 @@ import {api, LightningElement, track} from 'lwc';
 import getLineItem from '@salesforce/apex/StandardyController.getLineItems';
 import getLineItemMiestnost from '@salesforce/apex/StandardyController.getLineItemsMiestnost';
 import getProductsFromStandard from '@salesforce/apex/StandardyController.getProductsFromStandard';
+import getPrvky from '@salesforce/apex/StandardyController.getPrvky';
 
 export default class StandardyProduktyLeft extends LightningElement {
 
     @api flatID;
-    @track StandardyData;
+    @track prvky;
 
 
 
@@ -22,20 +23,20 @@ export default class StandardyProduktyLeft extends LightningElement {
     getLineItem(){
         getLineItem({lineId: this.flatID})
             .then(response => {
-                this.StandardyData = response;
+                this.prvky = response;
             })
             .catch(error => {
                 console.log(error);
             })
     }
 
-    @api getProductsFromStandard(miestnost){
+    @api getPrvky(miestnost){
         console.log(miestnost)
-        getProductsFromStandard({standardID: miestnost})
+        getPrvky({MiestnostID: miestnost})
             .then(response => {
 
-                this.StandardyData = response;
-                console.log(JSON.stringify(this.StandardyData))
+                this.prvky = response;
+                console.log(JSON.stringify(this.prvky))
             })
             .catch(error => {
                 console.log(error);

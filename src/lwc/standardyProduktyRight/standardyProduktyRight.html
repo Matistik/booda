@@ -10,18 +10,40 @@
     <div class="container" id="container">
 
 
-        <div class="rows-headers">
-            <div class="header">Produkty</div>
-        </div>
-        <div class="slds-scrollable_y"  >
-            <template if:true={StandardyData}>
-            <template for:each={StandardyData} for:item="standard" >
 
-            <div class="rows " key={standard.Id} >
-                <img src={standard.productOption.Product_Image_Link__c} class="img" alt="">
-                <h2 class="textRow text1" if:true={standard.productOption.SBQQ__OptionalSKU__r.Name}>{standard.productOption.SBQQ__OptionalSKU__r.Name}</h2>
+
+        <div class="rows-headers">
+            <div class="header">Produkty           </div>
+            <button class="slds-button slds-button_brand button20 slds-button_stretch" onclick={openModal}>
+                <svg class=" button1 slds-button__icon slds-button__icon_left " aria-hidden="true">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#add"></use>
+                </svg>Potrvdit Vyber</button>
+            <template if:true={modal}>
+                <c-custom-modal onclose={closeModal}>
+
+                    <h1>Naozaj chcete vybrat tento produkt?</h1>
+
+                    <lightning-button label='hej' onclick={saveProduct} ></lightning-button>
+                    <lightning-button label='ne' onclick={closeModal}></lightning-button>
+
+                    <div if:true={saved}>PRODUKT BOL USPESNE ULOZENY!</div>
+
+                </c-custom-modal>
+            </template>
+
+        </div>
+
+
+
+        <div class="slds-scrollable_y"  >
+            <template if:true={prvky}>
+            <template for:each={prvky} for:item="prvok" >
+
+            <div class="rows " key={prvok.Id} >
+                <img src={prvok.Product__r.Product_Image_Link__c} class="img" alt="">
+                <h2 class="textRow text1" if:true={prvok.Product__r.Name}>{prvok.Uroven__c} - {prvok.Product__r.Name}</h2>
                 <div class="slds-checkbox">
-                    <lightning-input class="slds-p-left_xx-large" type="checkbox" checked={standard.selected} data-id={standard.Id} onchange={handleChange} label=""></lightning-input>
+                    <lightning-input class="slds-p-left_xx-large" type="checkbox" checked={prvok.Vybrany__c} data-id={prvok.Id} onchange={handleChange} label=""></lightning-input>
 
                 </div>
 

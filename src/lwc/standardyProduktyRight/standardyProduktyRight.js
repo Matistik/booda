@@ -1,5 +1,5 @@
 /**
- * Created by mgons on 8/3/2022.
+ * Created by matistikoff on 8/3/2022.
  */
 
 import {api, LightningElement, track, wire} from 'lwc';
@@ -7,33 +7,29 @@ import getLineItem from '@salesforce/apex/StandardyController.getLineItems';
 import getLineItemProdukt from '@salesforce/apex/StandardyController.getLineItemsProdukt';
 import getFeaturesFromProducts from '@salesforce/apex/StandardyController.getFeaturesFromProducts';
 import insertProduct from '@salesforce/apex/StandardyController.insertProduct';
+import getProduktPrvky from '@salesforce/apex/StandardyController.getProduktPrvky';
+import updateProduktPrvku from '@salesforce/apex/StandardyController.updateProduktPrvku';
+import getActivatedPrvokID from '@salesforce/apex/StandardyController.getActivatedPrvokID';
+import {ShowToastEvent} from "lightning/platformShowToastEvent";
 
 
 export default class StandardyProduktyRight extends LightningElement {
 
     @api flatID;
-    @track StandardyData;
+    @track prvky;
     @api standardID;
     @track value = '';
-    @track selectedProduct = null
+    @track selectedProductId = null
     @track showBool;
+    @track modal = false
+    @track activatedProductID = null;
+    @track saved = false;
 
     connectedCallback() {
       //  this.getLineItem()
     }
 
     renderedCallback() {
-
-        let i;
-        let checkboxes = this.template.querySelectorAll('[data-id="a0o1q000002yfrJAAQ"]')
-        for(i=0; i<checkboxes.length; i++) {
-            checkboxes[i].checked = true;
-        }
-
-        if (this.selectedProduct != null){
-            console.log(('insert before'))
-            this.insertProduct();
-        }
 
 
 
@@ -50,20 +46,35 @@ export default class StandardyProduktyRight extends LightningElement {
 
     @api getFeaturesFromProducts(ProductFamily){
 
-        getFeaturesFromProducts({standardID: this.standardID, featureID: ProductFamily, flatID: this.flatID})
+        this.selectedProductId = null
+        this.saved = false;
+
+        getProduktPrvky({prvokID: ProductFamily})
             .then(response => {
 
-                this.StandardyData = response;
-                console.log(JSON.stringify(this.StandardyData))
+                this.prvky = response;
 
             })
             .catch(error => {
                 console.log(error);
             })
+
+        getActivatedPrvokID({prvokID: ProductFamily})
+            .then(response => {
+
+                this.activatedProductID = response;
+
+            })
+            .catch(error => {
+                console.log(error);
+            })
+
+
+
     }
 
     insertProduct(){
-        insertProduct({featureID: this.selectedProduct, flatID: this.flatID})
+        insertProduct({featureID: this.selectedProductId, flatID: this.flatID})
             .then(response => {
                 console.log(('insert ' + response))
 
@@ -74,15 +85,45 @@ export default class StandardyProduktyRight extends LightningElement {
     }
 
     handleChange(event) {
-        this.selectedProduct = event.currentTarget.dataset.id;
-        let id = event.currentTarget.dataset.id
 
-        let arrayLength = this.StandardyData.length;
-        for (let i = 0; i < arrayLength; i++) {
-            console.log(this.StandardyData[i]);
-            //Do something
+        if (this.activatedProductID != null && this.selectedProductId === null){
+            this.selectedProductId = this.activatedProductID;
         }
 
+        if (this.selectedProductId == null){
+            this.selectedProductId = event.currentTarget.dataset.id;
+        }
+
+        else if (event.currentTarget.dataset.id === this.selectedProductId){
+            this.selectedProductId = null;
+        }
+
+        else {
+            let currentId = event.currentTarget.dataset.id
+            const theDiv = this.template.querySelector('[data-id="' +this.selectedProductId+ '"]');
+            theDiv.checked = false
+            this.selectedProductId = currentId;
+        }
+    }
+
+
+
+    saveProduct(){
+
+        this.saved = true;
+
+        updateProduktPrvku({prvokID: this.selectedProductId})
+            .then(response => {})
+            .catch(error => {console.log(error)})
+
+        setTimeout(this.closeModal, 3000)
+    }
+
+    getActivatedPrvokID(){
+
+        getActivatedPrvokID()
+            .then(response => {})
+            .catch(error => {console.log(error)})
     }
 
 
@@ -92,6 +133,13 @@ export default class StandardyProduktyRight extends LightningElement {
             this.template.querySelector(".slds-scrollable_y").style="pointer-events:all"
 
 
+    }
+
+    openModal(){
+        this.modal = true
+    }
+    closeModal(){
+        this.modal = false
     }
 
 

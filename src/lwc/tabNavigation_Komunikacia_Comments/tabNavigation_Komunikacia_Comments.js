@@ -67,11 +67,13 @@ export default class TabNavigationKomunikaciaComments extends LightningElement {
                             message: 'Account Created Successfully!!',
                             variant: 'success'
                         }),);
+                        this.getCaseCommentApi(this.commentID); 
                     })
+
                     .catch(error => {
                         this.error = error.message;
                     });
-                this.getCaseCommentApi(this.commentID);
+
         }
 
 }

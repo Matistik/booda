@@ -4,20 +4,21 @@
 
 <!-- App Subory -->
 <template>
+    <template if:true={subory}>
     <div class="navigation">
-        <button class="button"><i class="arrow left"></i>&nbsp;Môj Byt</button>
+        <button onclick={goToMojByt} class="button"><i class="arrow left"></i>&nbsp;Môj Byt</button>
 
     </div>
-    <div class="small-navigation">
-        <h2 class="small-header header1">Byt A.501</h2>
-        <h2 class="small-header header2">Poschodie 5</h2>
-        <h2 class="small-header header3">Izbovosť 3,5i</h2>
-    </div>
+        <template if:true={bytData}>
+            <div class="small-navigation" key={bytData.Id}>
+                <h2 class="small-header header1">Byt {bytData.Ozna_enie__c}</h2>
+                <h2 class="small-header header2">Poschodie {bytData.Poschodie__c}</h2>
+                <h2 class="small-header header3">Izbovosť {bytData.Izbovos__c}</h2>
+            </div>
+        </template>
 
     <div class="wrapper">
         <p1 class="header-top">Súbory:</p1>
-
-
         <p1 class="header">Pôdorysy:</p1>
 
         <div class="rows ">
@@ -26,15 +27,12 @@
             <p1 class="end"><i class="arrowBlack right"></i></p1>
         </div>
 
-        <p1 class="header">Súbory ku kalkuláciám:</p1>
-
-        <div class="rows ">
-            <p1>Príloha pre klienta nebo neco</p1>
-            <label class="label">popis</label>
-            <p1 class="end"><i class="arrowBlack right"></i></p1>
-        </div>
-
 
 
     </div>
+    </template>
+
+    <template if:true={mojByt}>
+        <c-app_-moj-byt flat-i-d={flatID}></c-app_-moj-byt>
+    </template>
 </template>

@@ -4,28 +4,43 @@
 
 <!-- App Zoznam Miestnosti -->
 <template>
-    <div class="navigation">
-        <button class="button"><i class="arrow left"></i>&nbsp;Môj Byt</button>
+    <template if:true={miestnosti}>
+        <div class="navigation">
+            <button onclick={goToMojByt} class="button"><i class="arrow left"></i>&nbsp;Môj Byt</button>
 
-    </div>
-    <div class="small-navigation">
-        <h2 class="small-header header1">Byt A.501</h2>
-        <h2 class="small-header header2">Poschodie 5</h2>
-        <h2 class="small-header header3">Izbovosť 3,5i</h2>
-    </div>
+        </div>
+        <template if:true={bytData}>
+            <div class="small-navigation" key={bytData.Id}>
+                <h2 class="small-header header1">Byt {bytData.Ozna_enie__c}</h2>
+                <h2 class="small-header header2">Poschodie {bytData.Poschodie__c}</h2>
+                <h2 class="small-header header3">Izbovosť {bytData.Izbovos__c}</h2>
+            </div>
+        </template>
 
-    <div class="wrapper">
+        <div class="wrapper">
 
-        <p1 class="header">Miestnosti:</p1>
+            <p1 class="header">Miestnosti:</p1>
 
+            <div class="slds-scrollable_y" >
+            <template if:true={miestnostiData}>
+                <template for:each={miestnostiData} for:item="miestnost">
 
-            <div class="rows">
-                <p1>Chodba</p1>
-                <label class="label">M-A101-01</label>
-                <p1 class="end">6,82 m2</p1>
+            <div class="rows" key={miestnost.Id}>
+                <p1 class="miestnost">{miestnost.NazovMiestnosti__c}</p1>
+                <label class="label">{miestnost.Name}</label>
+                <p1 class="end">{miestnost.Plocha__c}</p1>
+            </div>
+                </template>
+            </template>
             </div>
 
 
+        </div>
+    </template>
 
-    </div>
+    <template if:true={mojByt}>
+        <c-app_-moj-byt flat-i-d={flatID}></c-app_-moj-byt>
+    </template>
+
+
 </template>

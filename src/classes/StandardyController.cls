@@ -4,6 +4,21 @@
 
 public without sharing class StandardyController {
 
+    public class wrapProduct {
+
+        public SBQQ__ProductOption__c productOption {get; set;}
+        @AuraEnabled
+        public Boolean selected {get; set;}
+
+        //This is the contructor method. When we create a new wrapAccount object we pass a Account that is set to the acc property. We also set the selected value to false
+        public wrapProduct(SBQQ__ProductOption__c a, Boolean b) {
+            productOption = a;
+            selected = b;
+
+
+        }
+    }
+
     @AuraEnabled
     public static List<SBQQ__QuoteLine__c> getLineItems(String lineId) {
         return
@@ -152,7 +167,10 @@ public without sharing class StandardyController {
         return wrapProducts;
     }
 
-    //yet to be finished
+
+
+
+
 
 
     @AuraEnabled
@@ -171,7 +189,7 @@ public without sharing class StandardyController {
         quoteLine.SBQQ__Product__c = option.SBQQ__OptionalSKU__r.Id;
         quoteLine.SBQQ__ProductOption__c = option.Id;
         quoteLine.SBQQ__Quantity__c = option.SBQQ__Quantity__c;
-        quoteLine.SBQQ__Number__c = 500;
+
 
         List<SBQQ__QuoteLine__c> duplicate = [SELECT Id, SBQQ__Product__c, SBQQ__ProductOption__c
         FROM SBQQ__QuoteLine__c
@@ -186,18 +204,70 @@ public without sharing class StandardyController {
     }
 
 
-    public class wrapProduct {
-        @AuraEnabled
-        public SBQQ__ProductOption__c productOption {get; set;}
-        @AuraEnabled
-        public Boolean selected {get; set;}
 
-        //This is the contructor method. When we create a new wrapAccount object we pass a Account that is set to the acc property. We also set the selected value to false
-        public wrapProduct(SBQQ__ProductOption__c a, Boolean b) {
-            productOption = a;
-            selected = b;
-        }
+
+
+    /**
+  standardy po tretej prerabke
+  @author miso
+    */
+
+    @AuraEnabled(Cacheable=true)
+    public static List<Miestnost__c> getMiestnosti (String flatID){
+        return [SELECT Id, NazovMiestnosti__c, Byt__c FROM Miestnost__c WHERE Byt__c =: flatID];
     }
+
+    @AuraEnabled(Cacheable=true)
+    public static List<Prvok__c> getPrvky (String MiestnostID){
+
+        return [SELECT Id, Miestnost__c, Prvok__c, Name FROM Prvok__c WHERE Miestnost__c =: MiestnostID];
+    }
+
+    @AuraEnabled
+    public static List<Produkt_Prvku__c> getProduktPrvky(String prvokID){
+
+        return [SELECT Id, Prvok__c, Product__r.Name, Product__r.Product_Image_Link__c, Vybrany__c, Uroven__c FROM Produkt_Prvku__c WHERE Prvok__c =: prvokID ORDER BY Uroven__c];
+
+    }
+    @AuraEnabled
+    public static String updateProduktPrvku(String prvokID){
+
+
+
+
+        Produkt_Prvku__c prvok = [SELECT Id, Vybrany__c, Prvok__c FROM Produkt_Prvku__c WHERE Id =: prvokID];
+        try {
+            Produkt_Prvku__c prvokToDeactivate = [SELECT Id, Vybrany__c, Prvok__c FROM Produkt_Prvku__c WHERE Prvok__c =: prvok.Prvok__c AND Vybrany__c = TRUE];
+            prvokToDeactivate.Vybrany__c = false;
+            update prvokToDeactivate;
+        } catch (QueryException e) {
+            System.debug(e.getMessage());
+        }
+        prvok.Vybrany__c = true;
+        update prvok;
+        return prvok.Id;
+
+    }
+
+    @AuraEnabled
+    public static String getActivatedPrvokID(String prvokID){
+
+
+        try {
+            Produkt_Prvku__c prvok = [SELECT Id, Vybrany__c, Prvok__c FROM Produkt_Prvku__c WHERE Prvok__c =: prvokID AND Vybrany__c = TRUE];
+            return prvok.Id;
+        } catch (QueryException e) {
+            System.debug(e.getMessage());
+        }
+
+        return null;
+
+
+    }
+
+
+
+
 
 
 

@@ -15,8 +15,8 @@
         </div>
         <template if:true={rooms}>
             <template for:each={rooms} for:item="room">
-        <div class="rows" key={room.Id} onclick={renderDruhyProduktov} data-id={room.SBQQ__OptionalSKU__r.Id}>
-            <h2 class="textRow text1">{room.SBQQ__OptionalSKU__r.Name}</h2>
+        <div class="rows" key={room.Id} onclick={renderPrvky} data-id={room.Id}>
+            <h2 class="textRow text1">{room.NazovMiestnosti__c}</h2>
         </div>
 
                 </template>

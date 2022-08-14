@@ -1,0 +1,67 @@
+<!--
+ - Created by mgons on 8/2/2022.
+ -->
+
+<apex:page id="PdfKlzPage" renderAs="pdf" standardStylesheets="false"  controller="PdfController">
+    <apex:includeLightning />
+    <apex:stylesheet value="{!$Resource.css_file_PdfKlzPage}"/>
+    <html >
+    <div class="header" >LIST ZMENY BYTU</div>
+<div class="container">
+
+
+    <table style="width:100%">
+        <tr>
+            <td style="width:50%;padding:5px;">
+                <table style="width:100%">
+                    <tr>
+                        <td style="width:25%;padding:5px;">
+                            <div class="popis txtLeft">Projekt:</div>
+                            <div class="popis txtLeft">Byt:</div>
+                        </td>
+                        <td style="width:75%; padding:5px;">
+                            <div class="txtData txtProject"><apex:outputText value="{!$ObjectType.Byt__c.fields.Projekt__c.label}"/></div>
+                            <div class="txtData txtByt">{!$ObjectType.Byt__c.Name} {!$ObjectType.Byt__c.fields.Ozna_enie__c.label}</div>
+                        </td>
+                    </tr>
+                </table >
+            </td>
+            <td style="width:50%; border-left:1px black solid; padding:5px;">
+                <table style="width:100%">
+                    <tr>
+                        <td style="width:50%;padding:5px;">
+                            <div class="popis txtRight">Budúci vlastník:</div>
+                            <div class="popis txtRight">E-mail:</div>
+                            <div class="popis txtRight">Telefón:</div>
+                            </td>
+                        <td style="width:50%; padding:5px;">
+                            <div class="popis txtRight">Budúci vlastník:</div>
+                            <div class="popis txtRight">E-mail:</div>
+                            <div class="popis txtRight">Telefón:</div>
+                        </td>
+                    </tr>
+                    </table >
+            </td>
+        </tr>
+
+
+    </table>
+    <div class="line"></div>
+</div>
+    <div class="second" style="width:100%">
+        <div class="popisSecondLeft" style="float:left;width:50%;">Typ klientskej zmeny</div>
+        <div class="popisSecondRight" style="float:left;width:50%;">Paušálny poplatok</div>
+    </div>
+    <div class="second secondBold" style="width:100%">
+        <div class="popisSecondLeft" style="float:left;width:50%;">Malé zmeny </div>
+        <div class="popisSecondRight" style="float:left;width:50%;">500€</div>
+    </div>
+    <p class="text"> Nejaky textik dlhsi :) </p>
+    <div class="line"></div>
+    <div class="second" style="width:100%">
+        <div class="popisSecondLeft" style="float:left;width:50%;">Odsúhlasené zmeny</div>
+        <div class="popisSecondRight" style="float:left;width:50%;">Cena</div>
+    </div>
+    <div class="line"></div>
+    </html>
+</apex:page>

@@ -631,6 +631,11 @@
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
+            <field>Prvok__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
             <field>SBQQ__ListPrice__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
@@ -1323,6 +1328,18 @@
         <label>Summary Fields</label>
     </fieldSets>
     <fields>
+        <fullName>CastPrvku__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT( SBQQ__Product__r.CastPrvku__c )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Časť Prvku</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Miestnos__c</fullName>
         <externalId>false</externalId>
         <label>Miestnosť</label>
@@ -1356,6 +1373,19 @@
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Prvok__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Prvok</label>
+        <referenceTo>Prvok__c</referenceTo>
+        <relationshipLabel>Quote Lines</relationshipLabel>
+        <relationshipName>Quote_Lines</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>SBQQ__AdditionalDiscountAmount__c</fullName>

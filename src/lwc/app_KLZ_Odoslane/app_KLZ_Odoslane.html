@@ -1,0 +1,50 @@
+<!--
+ - Created by mgons on 8/11/2022.
+ -->
+
+<!-- App Klz Odoslane -->
+<template>
+    <template if:true={klzOdoslane}>
+    <div class="navigation">
+        <button onclick={goToMojByt} class="button"><i class="arrow left"></i>&nbsp;Môj Byt</button>
+
+    </div>
+        <template if:true={bytData}>
+    <div class="small-navigation" key={bytData.Id}>
+        <h2 class="small-header header1">Byt {bytData.Ozna_enie__c}</h2>
+        <h2 class="small-header header2">Poschodie {bytData.Poschodie__c}</h2>
+        <h2 class="small-header header3">Izbovosť {bytData.Izbovos__c}</h2>
+    </div>
+        </template>
+    <div class="container">
+        <div class="header">Klientské zmeny:</div>
+        <button class="slds-button slds-button_neutral button-left" onclick={goToRozpracovane}>Rozpracované</button>
+        <button class="slds-button slds-button_brand button-left">Odoslané</button>
+
+        <div class="slds-scrollable_y">
+            <h2>Zadané koordinátorovi</h2>
+            <h2 class="grey">Čaká sa na nacenenie koordinátorom</h2>
+
+            <template if:true={getOdoslaneData}>
+                <template for:each={getOdoslaneData} for:item="odoslane">
+            <div class="rows " key={odoslane.Id}>
+                <p1 class="header-row">{odoslane.CaseNumber}</p1>
+                <label class="label">{odoslane.Description}</label>
+                <p1 class="end"><i class="arrowBlack right"></i></p1>
+            </div>
+                </template>
+            </template>
+
+        </div>
+    </div>
+    </template>
+
+    <template if:true={mojByt}>
+        <c-app_-moj-byt flat-i-d={flatID}></c-app_-moj-byt>
+    </template>
+
+    <template if:true={klz}>
+        <c-app_-k-l-z_-rozpracovane flat-i-d={flatID}></c-app_-k-l-z_-rozpracovane>
+    </template>
+
+</template>

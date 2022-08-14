@@ -300,6 +300,150 @@
         <label>Search Results</label>
     </fieldSets>
     <fields>
+        <fullName>CastPrvku__c</fullName>
+        <externalId>false</externalId>
+        <label>Časť Prvku</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Dátová zásuvka</fullName>
+                    <default>false</default>
+                    <label>Dátová zásuvka</label>
+                </value>
+                <value>
+                    <fullName>Drez</fullName>
+                    <default>false</default>
+                    <label>Drez</label>
+                </value>
+                <value>
+                    <fullName>Drezová batéria</fullName>
+                    <default>false</default>
+                    <label>Drezová batéria</label>
+                </value>
+                <value>
+                    <fullName>Dvere komplet</fullName>
+                    <default>false</default>
+                    <label>Dvere komplet</label>
+                </value>
+                <value>
+                    <fullName>Elektrická zásuvka</fullName>
+                    <default>false</default>
+                    <label>Elektrická zásuvka</label>
+                </value>
+                <value>
+                    <fullName>Interiérové dvere</fullName>
+                    <default>false</default>
+                    <label>Interiérové dvere</label>
+                </value>
+                <value>
+                    <fullName>Klucka</fullName>
+                    <default>false</default>
+                    <label>Klucka</label>
+                </value>
+                <value>
+                    <fullName>Kovanie</fullName>
+                    <default>false</default>
+                    <label>Kovanie</label>
+                </value>
+                <value>
+                    <fullName>Krídlo dverí</fullName>
+                    <default>false</default>
+                    <label>Krídlo dverí</label>
+                </value>
+                <value>
+                    <fullName>Krytka elektrickej zásuvky</fullName>
+                    <default>false</default>
+                    <label>Krytka elektrickej zásuvky</label>
+                </value>
+                <value>
+                    <fullName>Kúpeľňová skrinka</fullName>
+                    <default>false</default>
+                    <label>Kúpeľňová skrinka</label>
+                </value>
+                <value>
+                    <fullName>Kúpeľňové umývadlo komplet</fullName>
+                    <default>false</default>
+                    <label>Kúpeľňové umývadlo komplet</label>
+                </value>
+                <value>
+                    <fullName>Ovládacia doska splachovania</fullName>
+                    <default>false</default>
+                    <label>Ovládacia doska splachovania</label>
+                </value>
+                <value>
+                    <fullName>Rámik elektrickej zásuvky</fullName>
+                    <default>false</default>
+                    <label>Rámik elektrickej zásuvky</label>
+                </value>
+                <value>
+                    <fullName>Umývadlo bez batérie</fullName>
+                    <default>false</default>
+                    <label>Umývadlo bez batérie</label>
+                </value>
+                <value>
+                    <fullName>Umývadlo Komplet</fullName>
+                    <default>false</default>
+                    <label>Umývadlo Komplet</label>
+                </value>
+                <value>
+                    <fullName>Umývadlová batéria</fullName>
+                    <default>false</default>
+                    <label>Umývadlová batéria</label>
+                </value>
+                <value>
+                    <fullName>Umývadlový sifón</fullName>
+                    <default>false</default>
+                    <label>Umývadlový sifón</label>
+                </value>
+                <value>
+                    <fullName>Vanová batéria</fullName>
+                    <default>false</default>
+                    <label>Vanová batéria</label>
+                </value>
+                <value>
+                    <fullName>Vypínač klapka</fullName>
+                    <default>false</default>
+                    <label>Vypínač klapka</label>
+                </value>
+                <value>
+                    <fullName>Vypínač komplet</fullName>
+                    <default>false</default>
+                    <label>Vypínač komplet</label>
+                </value>
+                <value>
+                    <fullName>Vypínač rámik</fullName>
+                    <default>false</default>
+                    <label>Vypínač rámik</label>
+                </value>
+                <value>
+                    <fullName>WC doska</fullName>
+                    <default>false</default>
+                    <label>WC doska</label>
+                </value>
+                <value>
+                    <fullName>WC komplet</fullName>
+                    <default>false</default>
+                    <label>WC komplet</label>
+                </value>
+                <value>
+                    <fullName>WC misa</fullName>
+                    <default>false</default>
+                    <label>WC misa</label>
+                </value>
+                <value>
+                    <fullName>WC nádrzka</fullName>
+                    <default>false</default>
+                    <label>WC nádrzka</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
         <fullName>Description</fullName>
         <trackHistory>false</trackHistory>
     </fields>
@@ -374,6 +518,18 @@
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Prvok__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Prvok</label>
+        <referenceTo>Prvok__c</referenceTo>
+        <relationshipLabel>Products</relationshipLabel>
+        <relationshipName>Products</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>QuantityUnitOfMeasure</fullName>
@@ -1599,6 +1755,12 @@
     </fields>
     <listViews>
         <fullName>AllProducts</fullName>
+        <columns>PRODUCT2.NAME</columns>
+        <columns>PRODUCT2.CUSTOMER_PRODUCT_ID</columns>
+        <columns>PRODUCT2.DESCRIPTION</columns>
+        <columns>PRODUCT2.FAMILY</columns>
+        <columns>CastPrvku__c</columns>
+        <columns>SBQQ__ConfigurationType__c</columns>
         <filterScope>Everything</filterScope>
         <label>All Products</label>
     </listViews>

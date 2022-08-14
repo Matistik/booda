@@ -246,6 +246,18 @@
         <trackFeedHistory>false</trackFeedHistory>
     </fields>
     <fields>
+        <fullName>Byt__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Byt</label>
+        <referenceTo>Byt__c</referenceTo>
+        <relationshipLabel>Accounts</relationshipLabel>
+        <relationshipName>Accounts</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>ChannelProgramLevelName</fullName>
     </fields>
     <fields>
@@ -309,6 +321,16 @@
     <fields>
         <fullName>PersonBirthdate</fullName>
         <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>PersonContactID__c</fullName>
+        <externalId>false</externalId>
+        <formula>PersonContact.Id</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>PersonContactID</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>PersonDepartment</fullName>
@@ -633,6 +655,7 @@
     </fields>
     <listViews>
         <fullName>AllAccounts</fullName>
+        <columns>ACCOUNT.CREATED_DATE</columns>
         <columns>ACCOUNT.NAME</columns>
         <columns>ACCOUNT.SITE</columns>
         <columns>ACCOUNT.ADDRESS1_STATE</columns>

@@ -1,0 +1,115 @@
+/**
+ * Created by Maind on 11. 8. 2022.
+ */
+.navigation{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    background: deepskyblue;
+    height: 5vh;
+}
+.arrow {
+    grid-column: 1/2;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    display: inline-block;
+    padding: 4px;
+}
+.left {
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+}
+.button{
+    grid-column: 1/2;
+    background: transparent;
+    border: none;
+    height: 5vh;
+    font-size: medium;
+    padding-left: 10px ;
+    color: white;
+    justify-self: start;
+}
+.slds-icon_container{
+    padding-top: 2px;
+    padding-right: 20px;
+    justify-self: end;
+    grid-column: 2/3;
+}
+.button:hover{
+    text-decoration: underline white;
+}
+.slds-icon_container:hover{
+    cursor: pointer;
+}
+.small-navigation{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    background: #3889fd;
+    height: 3vh;
+}
+h2.small-header{
+    font-size: small;
+    color: white;
+    text-align: center;
+    padding: 3px 0;
+}
+.header1{
+    grid-column: 2/3;
+}
+.header2{
+    grid-column: 3/4;
+}
+.header3{
+    grid-column: 4/5;
+}
+.wrapper{
+    display: grid;
+    background: #efeff5;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 5px;
+}
+.wrapper > div{
+    display: grid;
+    background: white;
+    border-radius: 8px;
+    margin-left: 20px;
+    margin-right: 20px;
+    grid-column: 1/8;
+}
+.header{
+    grid-column: 1/3;
+    font-size: 20px;
+    font-weight: bold;
+    padding-top: 10px;
+    padding-left: 20px;
+}
+.top-header{
+    grid-column: 1/3;
+    font-size: 25px;
+    font-weight: bold;
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-bottom: 15px;
+}
+.column1{
+    padding-left: 20px;
+    grid-column: 1/2;
+
+}
+.column3{
+    grid-column: 2/3;
+    text-align: center;
+    justify-self: end;
+    color: darkgray;
+}
+.prvok{
+    grid-column: 1/3;
+    justify-self: center;
+}
+.bottom{
+    grid-column: 1/3;
+    justify-self: center;
+    color: darkgray;
+}
+.wrapper > div:hover{
+    cursor: pointer;
+}

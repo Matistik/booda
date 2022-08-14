@@ -4,13 +4,30 @@
 
 <!-- App Klz -->
 <template>
-<div class="navigation">
-    <button class="button"><i class="arrow left"></i>&nbsp;Môj Byt</button>
 
-</div>
-<div class="small-navigation">
-    <h2 class="small-header header1">Byt A.501</h2>
-    <h2 class="small-header header2">Poschodie 5</h2>
-    <h2 class="small-header header3">Izbovosť 3,5i</h2>
-</div>
+        <div class="navigation">
+            <button onclick={goToMojByt} class="button"><i class="arrow left"></i>&nbsp;Môj Byt</button>
+
+        </div>
+        <template if:true={bytData}>
+            <div class="small-navigation" key={bytData.Id}>
+                <h2 class="small-header header1">Byt {bytData.Ozna_enie__c}</h2>
+                <h2 class="small-header header2">Poschodie {bytData.Poschodie__c}</h2>
+                <h2 class="small-header header3">Izbovosť {bytData.Izbovos__c}</h2>
+            </div>
+        </template>
+        <div class="container">
+            <div class="header">Klientské zmeny:</div>
+            <div class="button-box">
+                <button class="slds-button ">Cenník
+                    <svg class="slds-button__icon slds-button__icon_right" aria-hidden="true">
+                        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#arrow_right"></use>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+    <template if:true={mojByt}>
+        <c-app_-moj-byt flat-i-d={flatID}></c-app_-moj-byt>
+    </template>
 </template>
