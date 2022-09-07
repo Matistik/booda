@@ -1,0 +1,85 @@
+<!--
+ - Created by mgons on 8/22/2022.
+ -->
+
+<!-- App Standardy Produkty -->
+<template>
+    <template if:true={standardy}>
+        <div class="navigation">
+            <button onclick={goToMojByt} class="button"><i class="arrow left"></i>&nbsp;Môj Byt</button>
+            <button onclick={goToMiestnosti} class="button">/Miestnosti</button>
+            <button onclick={goToPrvky} class="button">/Prvky</button>
+            <button onclick={goToPrvok} class="button">/Prvok</button>
+            <button onclick={goToCasti} class="button">/Časti Prvku</button>
+        </div>
+        <template if:true={bytData}>
+            <div class="small-navigation" key={bytData.Id}>
+                <h2 class="small-header header1">Byt {bytData.Ozna_enie__c}</h2>
+                <h2 class="small-header header2">Poschodie {bytData.Poschodie__c}</h2>
+                <h2 class="small-header header3">Izbovosť {bytData.Izbovos__c}</h2>
+                <h2 class="small-header header4" if:true={stringDate}>Uzavretie Standardov : {stringDate}</h2>
+            </div>
+        </template>
+
+        <div class="wrapper">
+
+            <p1 class="header">Produkty : </p1>
+            <button class="slds-button slds-button_brand button20 slds-button_stretch" onclick={openModal} >
+                <svg class=" button1 slds-button__icon slds-button__icon_left " aria-hidden="true">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#add"></use>
+                </svg>Potrvdiť výber</button>
+            <template if:true={modal}>
+                <c-custom-modal onclose={closeModal}>
+
+                    <h1>Naozaj chcete vybrat tieto Produkty?</h1>
+
+                    <template if:true={selectedProductsObjects}>
+                        <template for:each={selectedProductsObjects} for:item="object">
+
+                            <div class="rows " key={object.Id}>
+                                <img src={object.Product_Image_Link__c} class="img" alt="">
+                                <h2 class="textRow text1" >{object.Name}</h2>
+                            </div>
+
+                        </template>
+                    </template>
+
+                    <lightning-button label='POTVRDIT' onclick={saveProduct} ></lightning-button>
+                    <lightning-button label='ZRUSIT' onclick={closeModal}></lightning-button>
+
+                    <div if:true={saved}>PRODUKT BOL USPESNE ULOZENY!</div>
+
+                </c-custom-modal>
+            </template>
+
+            <template if:true={products}>
+                <template for:each={products} for:item="product" >
+            <div class="rows"  key={product.productOption.Id}>
+                <h2 class="column2" if:true={product.productOption.SBQQ__OptionalSKU__r.Name}>{product.productOption.SBQQ__OptionalSKU__r.Name}</h2>
+                <lightning-input  class="slds-p-left_xx-large end" type="checkbox"  checked={product.selected} data-id={product.productOption.Id} onchange={handleChange} label=""></lightning-input>
+                <img  class="column1" src={product.productOption.Product_Image_Link__c}  alt="">
+
+
+            </div>
+                </template>
+            </template>
+
+
+        </div>
+    </template>
+    <template if:true={mojByt}>
+        <c-app_-moj-byt flat-i-d={flatID}></c-app_-moj-byt>
+    </template>
+    <template if:true={miestnosti}>
+        <c-app_-standardy-miestnosti flat-i-d={flatID}></c-app_-standardy-miestnosti>
+    </template>
+    <template if:true={prvky}>
+        <c-app_-standardy-prvky-pre-miestnost flat-i-d={flatID}></c-app_-standardy-prvky-pre-miestnost>
+    </template>
+    <template if:true={prvok}>
+        <c-app_-standardy-prvok flat-i-d={flatID}></c-app_-standardy-prvok>
+    </template>
+    <template if:true={casti}>
+        <c-app_-standardy-casti-prvku flat-i-d={flatID}></c-app_-standardy-casti-prvku>
+    </template>
+</template>

@@ -1,0 +1,36 @@
+<!--
+ - Created by juraj on 14/08/2022.
+ -->
+
+<!-- Standardy Produkty Bottom -->
+<template>
+    <div class="container" id="container">
+
+
+
+
+        <div class="rows-headers">
+            <div class="header" if:true={numOfPrvky}>Časti Prvku {numOfVybrane} / {numOfPrvky}</div>
+
+
+        </div>
+
+
+
+        <div class="slds-scrollable_y"  >
+            <template if:true={productOptions}>
+                <template for:each={productOptions} for:item="option" >
+
+
+                    <div class="rows"  key={option.aggregateResult.Id} data-id={option.aggregateResult.Name} onclick={renderProductConcreteOptions}>
+                        <p1 class="textRow text1" >{option.aggregateResult.Name} - Pocet Produktov na Vyber - {option.aggregateResult.expr0} - </p1>
+                        <p1 class="textRow text2" >{option.vybrane} </p1>
+                    </div>
+
+                </template>
+            </template>
+
+        </div>
+
+    </div>
+</template>

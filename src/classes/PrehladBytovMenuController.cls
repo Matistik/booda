@@ -2,7 +2,7 @@
  * Created by juraj on 28/07/2022.
  */
 
-public without sharing class PrehladBytovMenuController {
+public with sharing class PrehladBytovMenuController {
 
     @AuraEnabled(Cacheable=true)
     public static List<AggregateResult> getVchodyList() {
@@ -16,8 +16,8 @@ public without sharing class PrehladBytovMenuController {
     @AuraEnabled(Cacheable=true)
     public static List<AggregateResult> getEtapyList() {
 
-        return [SELECT Etapa__c
-        FROM Byt__c GROUP BY Etapa__c ORDER BY Etapa__c
+        return [SELECT Name, Id
+        FROM Etapa__c GROUP BY Name, Id ORDER BY Name
         ];
 
     }

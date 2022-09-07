@@ -36,14 +36,11 @@ export default class DashboardKontakty extends LightningElement {
     }
 
     getContacts() {
-        console.log("flatid+++ " + this.flatID);
+        console.log('vosiel som')
         getContacts({bytId: this.flatID})
             .then(response => {
-
-                if (response.Name === undefined) {
-                    return
-                }
                 this.flatContactsData = response;
+                console.log('accs: ' + this.flatContactsData);
             })
             .catch(error => {
                 console.error(error);

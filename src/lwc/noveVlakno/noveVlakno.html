@@ -1,0 +1,25 @@
+<!--
+ - Created by Maind on 26. 8. 2022.
+ -->
+
+<!-- Nove Vlakno -->
+<template>
+    <lightning-card icon-name="standard:account">
+        <div style="margin-left: 6%" if:true={error}>
+            <lightning-badge label={error} style="color: red;"></lightning-badge>
+        </div>
+
+
+            <div >
+                <div class="container-fluid">
+                    <div class="form-group">
+                        <lightning-input class="nazovVlakna" label="Názov vlákna" name="accTitle" type="text" value=""></lightning-input>
+                    </div>
+
+                </div>
+                <br/>
+                <lightning-button label="Submit" onclick={handleSave} variant="brand"></lightning-button>
+            </div>
+
+    </lightning-card>
+</template>

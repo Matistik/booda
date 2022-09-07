@@ -1,0 +1,157 @@
+<!--
+ - Created by Maind on 31. 8. 2022.
+ -->
+
+<apex:page id="Pin" controller="KLZController">
+        <apex:includeLightning />
+<!--        <apex:stylesheet value="{!$Resource.pin}"/>-->
+        <p>Click on the map to place a marker</p>
+        <apex:form>
+
+
+                <span><button class="slds-button slds-button_brand" onclick="fun();">Uloz Pin</button></span>
+                <p id="messageFromLWC" style="font-weight:bold; font-size:x-large"> </p>
+
+
+        </apex:form>
+        <canvas id="Canvas" width="700" height="700"></canvas>
+        <script src="https://unpkg.com/markerjs2/markerjs2.js"></script>
+        <script>
+
+                var lexOrigin ="https://redprxportal--dev1red.sandbox.lightning.force.com";
+                window.addEventListener("message",function(event){
+                        if(event.origin !== lexOrigin){
+                                //Not the expected origin
+                                return;
+                        }
+                        console.log('listener?')
+                        document.getElementById("messageFromLWC").innerHTML = 'Text from LWC : '+event.data;
+                },false);
+
+
+                var Marker = function () {
+                        this.Sprite = new Image();
+                        this.Sprite.src = "http://www.clker.com/cliparts/w/O/e/P/x/i/map-marker-hi.png"
+                        this.Width = 30;
+                        this.Height = 40;
+                        this.XPos = 0;
+                        this.YPos = 0;
+                }
+
+                var Markers = new Array();
+
+                let posX;
+                let posY;
+
+
+                function loadCordinates() {
+
+                        KLZController.checkForCordinates(function(result,event){
+                                if(event.status)
+                                {console.log('loggik' + JSON.stringify(result))
+
+                                        let s = JSON.stringify(result);
+                                        let posX = s.substring(1,4);
+                                        let posY = s.substring(5,8);
+
+                                        this.posX = parseInt(posX);
+                                        this.posY = parseInt(posY);
+
+                                        if (this.posX !== null){
+                                                console.log('vosiel som')
+                                                var marker = new Marker();
+                                                marker.XPos = this.posX;
+                                                marker.YPos = this.posY;
+                                                Markers.push(marker);
+                                                console.log(Markers)
+                                        }
+                                }
+                        });
+
+                }
+
+                loadCordinates();
+
+
+
+            var canvas = document.getElementById('Canvas');
+            var context = canvas.getContext("2d");
+
+            // Map sprite
+            var mapSprite = new Image();
+            mapSprite.src = "http://www.retrogameguide.com/images/screenshots/snes-legend-of-zelda-link-to-the-past-8.jpg";
+
+
+
+
+
+
+
+
+            var mouseClicked = function (mouse) {
+                // Get corrent mouse coords
+                var rect = canvas.getBoundingClientRect();
+                var mouseXPos = (mouse.x - rect.left);
+                var mouseYPos = (mouse.y - rect.top);
+
+                console.log("Marker added");
+
+                // Move the marker when placed to a better location
+                var marker = new Marker();
+                marker.XPos = mouseXPos - (marker.Width / 2);
+                marker.YPos = mouseYPos - marker.Height;
+                Markers = [];
+                Markers.push(marker);
+                    console.log(Markers)
+            }
+
+
+            function fun() {
+
+                    KLZController.setCordinates(Markers[0].XPos,Markers[0].YPos,function(result,event){
+                            if(event.status)
+                            {console.log(result);}
+                    });
+
+            }
+
+            // Add mouse click event listener to canvas
+            canvas.addEventListener("mousedown", mouseClicked, false);
+
+            var firstLoad = function () {
+                context.font = "15px Georgia";
+                context.textAlign = "center";
+            }
+
+            firstLoad();
+
+            var main = function () {
+                draw();
+            };
+
+            var draw = function () {
+                // Clear Canvas
+                context.fillStyle = "#000";
+                context.fillRect(0, 0, canvas.width, canvas.height);
+
+                // Draw map
+                // Sprite, X location, Y location, Image width, Image height
+                // You can leave the image height and width off, if you do it will draw the image at default size
+                context.drawImage(mapSprite, 0, 0, 700, 700);
+
+                // Draw markers
+                for (var i = 0; i < 1; i++) {
+                    var tempMarker = Markers[i];
+                    // Draw marker
+                    context.drawImage(tempMarker.Sprite, tempMarker.XPos, tempMarker.YPos, tempMarker.Width, tempMarker.Height);
+
+                }
+
+
+
+            };
+
+            setInterval(main, (1000 / 60)); // Refresh 60 times a second
+        </script>
+
+</apex:page>

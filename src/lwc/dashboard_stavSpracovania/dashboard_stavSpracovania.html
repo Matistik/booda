@@ -5,110 +5,22 @@
 
             <h2 class="row1">Stav spracovania</h2>
 
-            <div  class="rows">
-                <h2 class="texts">Dispozícia</h2>
-                <button class={styleDisp1} onclick={changeStyleDisp1}>1</button>
-                <button class={styleDisp2} onclick={changeStyleDisp2}>2</button>
-                <button class={styleDisp3} onclick={changeStyleDisp3}>3</button>
-            </div>
+            <template if if:true={stavyData}>
+            <template for:each={stavyData} for:item="staf">
+            <div  class="rows" key={staf.stavSpracovania.Id}>
+                <h2 class="texts">{staf.stavSpracovania.Name}</h2>
 
-            <div class="rows">
-                <h2 class="texts">Podlahy</h2>
-                <button class={stylePodlahy1} onclick={changeStylePodlahy1}>1</button>
-                <button class={stylePodlahy2} onclick={changeStylePodlahy2}>2</button>
-                <button class={stylePodlahy3} onclick={changeStylePodlahy3}>3</button>
-            </div>
 
-            <div class="rows">
-                <h2 class="texts">Dvere</h2>
-                <button class={styleDvere1} onclick={changeStyleDvere1}>1</button>
-                <button class={styleDvere2} onclick={changeStyleDvere2}>2</button>
-                <button class={styleDvere3} onclick={changeStyleDvere3}>3</button>
-            </div>
+                <button class={styleDisp1} onclick={changeStyleDisp1} data-id={staf.stavSpracovania.Id}>1</button>
+                <button class={styleDisp2} onclick={changeStyleDisp2} data-id={staf.stavSpracovania.Id} >2</button>
+                <button class={styleDisp3} onclick={changeStyleDisp3} data-id={staf.stavSpracovania.Id} >3</button>
 
-            <div class="rows">
-                <h2 class="texts">Obklady</h2>
-                <button class={styleObklady1} onclick={changeStyleObklady1}>1</button>
-                <button class={styleObklady2} onclick={changeStyleObklady2}>2</button>
-                <button class={styleObklady3} onclick={changeStyleObklady3}>3</button>
-            </div>
 
-            <div class="rows">
-                <h2 class="texts">Sanita</h2>
-                <button class={styleSanita1} onclick={changeStyleSanita1}>1</button>
-                <button class={styleSanita2} onclick={changeStyleSanita2}>2</button>
-                <button class={styleSanita3} onclick={changeStyleSanita3}>3</button>
-            </div>
 
-            <div class="rows">
-                <h2 class="texts">Kuchyňa</h2>
-                <button class={styleKuchyna1} onclick={changeStyleKuchyna1}>1</button>
-                <button class={styleKuchyna2} onclick={changeStyleKuchyna2}>2</button>
-                <button class={styleKuchyna3} onclick={changeStyleKuchyna3}>3</button>
             </div>
+            </template>
+            </template>
 
-            <div class="rows">
-                <h2 class="texts">STA</h2>
-                <button class={styleNameSTA1} onclick={changeStyleSTA1}>1</button>
-                <button class={styleNameSTA2} onclick={changeStyleSTA2}>2</button>
-                <button class={styleNameSTA3} onclick={changeStyleSTA3}>3</button>
-            </div>
-
-            <div class="rows">
-                <h2 class="texts">EI</h2>
-                <button class={styleEI1} onclick={changeStyleEI1}>1</button>
-                <button class={styleEI2} onclick={changeStyleEI2}>2</button>
-                <button class={styleEI3} onclick={changeStyleEI3}>3</button>
-            </div>
-
-            <div class="rows">
-                <h2 class="texts">SLAB</h2>
-                <button class={styleSLAB1} onclick={changeStyleSLAB1}>1</button>
-                <button class={styleSLAB2} onclick={changeStyleSLAB2}>2</button>
-                <button class={styleSLAB3} onclick={changeStyleSLAB3}>3</button>
-            </div>
-
-            <div class="rows">
-                <h2 class="texts">ZTI</h2>
-                <button class={styleZTI1} onclick={changeStyleZTI1}>1</button>
-                <button class={styleZTI2} onclick={changeStyleZTI2}>2</button>
-                <button class={styleZTI3} onclick={changeStyleZTI3}>3</button>
-            </div>
-
-            <div class="rows">
-                <h2 class="texts">VZT</h2>
-                <button class={styleVZT1} onclick={changeStyleVZT1}>1</button>
-                <button class={styleVZT2} onclick={changeStyleVZT2}>2</button>
-                <button class={styleVZT3} onclick={changeStyleVZT3}>3</button>
-            </div>
-
-            <div class="rows">
-                <h2 class="texts">UK+CHL</h2>
-                <button class={styleUKCHL1} onclick={changeStyleUKCHL1}>1</button>
-                <button class={styleUKCHL2} onclick={changeStyleUKCHL2}>2</button>
-                <button class={styleUKCHL3} onclick={changeStyleUKCHL3}>3</button>
-            </div>
-
-            <div class="rows">
-                <h2 class="texts">Kúpeľňové štúdio</h2>
-                <button class={styleKupStu1} onclick={changeStyleKupStu1}>1</button>
-                <button class={styleKupStu2} onclick={changeStyleKupStu2}>2</button>
-                <button class={styleKupStu3} onclick={changeStyleKupStu3}>3</button>
-            </div>
-
-            <div class="rows">
-                <h2 class="texts">Technická správa</h2>
-                <button class={styleTechSp1} onclick={changeStyleTechSp1}>1</button>
-                <button class={styleTechSp2} onclick={changeStyleTechSp2}>2</button>
-                <button class={styleTechSp3} onclick={changeStyleTechSp3}>3</button>
-            </div>
-
-            <div class="rows">
-                <h2 class="texts">Zaplatenie paušálu KLZ</h2>
-                <button class={styleZapPa1} onclick={changeStyleZapPa1}>1</button>
-                <button class={styleZapPa2} onclick={changeStyleZapPa2}>2</button>
-                <button class={styleZapPa3} onclick={changeStyleZapPa3}>3</button>
-            </div>
 
         </div>
     </template>

@@ -21,25 +21,25 @@
 
         <p1 class="header">Pôdorysy:</p1>
 
-        <div class="rows row1">
+        <div class="rows row1" onclick={goToKonkretnyPodorys}>
             <p1>Pôdorys dispozícia</p1>
             <label class="label">Základný pôdorys celého bytu</label>
             <p1 class="end"><i class="arrowBlack right"></i></p1>
         </div>
 
-        <div class="rows row2">
+        <div class="rows row2" onclick={goToKonkretnyPodorys}>
             <p1>Pôdorys elektro a zariadenie</p1>
             <label class="label">Detailný pôdorys celého bytu s označením zariadení</label>
             <p1 class="end"><i class="arrowBlack right"></i></p1>
         </div>
 
-        <div class="rows row2">
+        <div class="rows row2" onclick={goToKonkretnyPodorys}>
             <p1>Bočný rez kuchyne</p1>
             <label class="label">Bočné rezy kuchyne</label>
             <p1 class="end"><i class="arrowBlack right"></i></p1>
         </div>
 
-        <div class="rows row3">
+        <div class="rows row3" onclick={goToKonkretnyPodorys}>
             <p1>Pôdorys kúpeľne</p1>
             <label class="label">Pôdorys s detailami kúpeľne</label>
             <p1 class="end"><i class="arrowBlack right"></i></p1>
@@ -51,4 +51,10 @@
     <template if:true={mojByt}>
         <c-app_-moj-byt flat-i-d={flatID}></c-app_-moj-byt>
     </template>
+
+    <template if:true={konkretnypodorys}>
+<!--        <c-app_-podorys-konkretny flat-i-d={flatID}></c-app_-podorys-konkretny>-->
+        <c-app_nova-k-l-z flat-i-d={flatID}></c-app_nova-k-l-z>
+    </template>
+
 </template>

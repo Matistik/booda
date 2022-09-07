@@ -4,12 +4,10 @@
 
 <!-- Main Navigation -->
 <template>
-<template if:true={bytData}>
     <div class="navigation">
         <button class="button" onclick={handleRenderToKlz}>&nbsp;<i class="arrow right"></i></button>
         <button class="button hover" onclick={handleRenderToHome}>/   Domov</button>
         <button class="button hover" onclick={handleRenderToFlats}>/   Byty</button>
-        <button class ="button bolder">/   Byt {bytData.Name}</button>
+        <button class ="button bolder">/   Byt</button>
     </div>
-</template>
 </template>

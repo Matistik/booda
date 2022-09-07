@@ -258,6 +258,11 @@
                     <label>Keramický obklad</label>
                 </value>
                 <value>
+                    <fullName>Krížový prepínač rad. 7, Zapustený, 10A/230V, IP20</fullName>
+                    <default>false</default>
+                    <label>Krížový prepínač rad. 7, Zapustený, 10A/230V, IP20</label>
+                </value>
+                <value>
                     <fullName>Kúpeľňové umývadlo</fullName>
                     <default>false</default>
                     <label>Kúpeľňové umývadlo</label>
@@ -288,6 +293,11 @@
                     <label>Rohový ventil</label>
                 </value>
                 <value>
+                    <fullName>Rozvádzač bytu (Silnoprúd + Slaboprúd nad sebou) 420x1100mm</fullName>
+                    <default>false</default>
+                    <label>Rozvádzač bytu (Silnoprúd + Slaboprúd nad sebou) 420x1100mm</label>
+                </value>
+                <value>
                     <fullName>Spínač jednopólový</fullName>
                     <default>false</default>
                     <label>Spínač jednopólový</label>
@@ -306,6 +316,11 @@
                     <fullName>Sprchová/Vaňová zmiešavacia batéria</fullName>
                     <default>false</default>
                     <label>Sprchová/Vaňová zmiešavacia batéria</label>
+                </value>
+                <value>
+                    <fullName>Striedavý prepínač rad. 6, Zapustený, 10A/230V, IP20</fullName>
+                    <default>false</default>
+                    <label>Striedavý prepínač rad. 6, Zapustený, 10A/230V, IP20</label>
                 </value>
                 <value>
                     <fullName>Stropné svietdilo</fullName>
@@ -337,6 +352,121 @@
                     <default>false</default>
                     <label>Zásuvka 2-rámik</label>
                 </value>
+                <value>
+                    <fullName>Zásuvka jednoduchá zapustená 16A/230V, IP20</fullName>
+                    <default>false</default>
+                    <label>Zásuvka jednoduchá zapustená 16A/230V, IP20</label>
+                </value>
+                <value>
+                    <fullName>Žiarovkové svietidlo stropné, 100W/230V, IP20</fullName>
+                    <default>false</default>
+                    <label>Žiarovkové svietidlo stropné, 100W/230V, IP20</label>
+                </value>
+                <value>
+                    <fullName>Vchodové dvere 90</fullName>
+                    <default>false</default>
+                    <label>Vchodové dvere 90</label>
+                </value>
+                <value>
+                    <fullName>Podlaha</fullName>
+                    <default>false</default>
+                    <label>Podlaha</label>
+                </value>
+                <value>
+                    <fullName>Interiérové dvere 80</fullName>
+                    <default>false</default>
+                    <label>Interiérové dvere 80</label>
+                </value>
+                <value>
+                    <fullName>Vypínač jednopólový rad. 1, Zapustený, 10A/230V, IP20</fullName>
+                    <default>false</default>
+                    <label>Vypínač jednopólový rad. 1, Zapustený, 10A/230V, IP20</label>
+                </value>
+                <value>
+                    <fullName>Interiérové dvere 70</fullName>
+                    <default>false</default>
+                    <label>Interiérové dvere 70</label>
+                </value>
+                <value>
+                    <fullName>Zásuvka jednoduchá, na povrch, 16A/230V, IP44</fullName>
+                    <default>false</default>
+                    <label>Zásuvka jednoduchá, na povrch, 16A/230V, IP44</label>
+                </value>
+                <value>
+                    <fullName>Automatická práčka</fullName>
+                    <default>false</default>
+                    <label>Automatická práčka</label>
+                </value>
+                <value>
+                    <fullName>Umývatko</fullName>
+                    <default>false</default>
+                    <label>Umývatko</label>
+                </value>
+                <value>
+                    <fullName>3x Zásuvka v trojrámiku, zapustená, 16A/230V, IP20</fullName>
+                    <default>false</default>
+                    <label>3x Zásuvka v trojrámiku, zapustená, 16A/230V, IP20</label>
+                </value>
+                <value>
+                    <fullName>Vaňa</fullName>
+                    <default>false</default>
+                    <label>Vaňa</label>
+                </value>
+                <value>
+                    <fullName>Sériový vypínač rad. 5, Zapustený, 10A/230V, IP20</fullName>
+                    <default>false</default>
+                    <label>Sériový vypínač rad. 5, Zapustený, 10A/230V, IP20</label>
+                </value>
+                <value>
+                    <fullName>2x Zásuvka v dvojrámiku, zapustená, 16A/230V, IP20</fullName>
+                    <default>false</default>
+                    <label>2x Zásuvka v dvojrámiku, zapustená, 16A/230V, IP20</label>
+                </value>
+                <value>
+                    <fullName>Keramická dlažba</fullName>
+                    <default>false</default>
+                    <label>Keramická dlažba</label>
+                </value>
+                <value>
+                    <fullName>Záchod</fullName>
+                    <default>false</default>
+                    <label>Záchod</label>
+                </value>
+                <value>
+                    <fullName>Domáci audiotelefón</fullName>
+                    <default>false</default>
+                    <label>Domáci audiotelefón</label>
+                </value>
+                <value>
+                    <fullName>Dvojitý striedavý prepínač rad. 5B, Zapustený, 10A/230V, IP20</fullName>
+                    <default>false</default>
+                    <label>Dvojitý striedavý prepínač rad. 5B, Zapustený, 10A/230V, IP20</label>
+                </value>
+                <value>
+                    <fullName>Vývod všeobecný, 1 - fázový</fullName>
+                    <default>false</default>
+                    <label>Vývod všeobecný, 1 - fázový</label>
+                </value>
+                <value>
+                    <fullName>Kuchynský drez</fullName>
+                    <default>false</default>
+                    <label>Kuchynský drez</label>
+                </value>
+                <value>
+                    <fullName>Umývačka riadu</fullName>
+                    <default>false</default>
+                    <label>Umývačka riadu</label>
+                </value>
+                <value>
+                    <fullName>Keramická dlažba na balkónoch</fullName>
+                    <default>false</default>
+                    <label>Keramická dlažba na balkónoch</label>
+                </value>
+                <value>
+                    <fullName>Podlahová vpusť</fullName>
+                    <default>false</default>
+                    <label>Podlahová vpusť</label>
+                </value>
             </valueSetDefinition>
         </valueSet>
     </fields>
@@ -357,6 +487,11 @@
         <columns>Prvok__c</columns>
         <columns>Miestnost__c</columns>
         <filterScope>Everything</filterScope>
+        <filters>
+            <field>CREATED_DATE</field>
+            <operation>equals</operation>
+            <value>YESTERDAY</value>
+        </filters>
         <label>All</label>
     </listViews>
     <nameField>

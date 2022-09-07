@@ -1,0 +1,35 @@
+<!--
+ - Created by Maind on 5. 9. 2022.
+ -->
+
+<!-- App Nova Klz -->
+<template>
+    <template if:true={renderNovaKlz}>
+    <lightning-card title="Zadaj Klientsku Zmenu" icon-name="standard:case">
+        <div style="margin-left: 6%" if:true={error}>
+            <lightning-badge label={error} style="color: red;"></lightning-badge>
+        </div>
+
+        <template if:true={caseRecord}>
+            <div class="slds-m-around--xx-large">
+                <div class="container-fluid">
+
+                    <div class="form-group">
+                        <lightning-input label="Zadaj Predmet" name="objSubject" type="text" value={caseRecord.Subject} onchange={handleSubjectChange} required="true"></lightning-input>
+                    </div>
+                    <div class="form-group">
+                        <lightning-input label="Zadaj Popis" name="objDescription" type="text" value={caseRecord.Description} onchange={handleDescriptionChange} required="true"></lightning-input>
+                    </div>
+
+
+                </div>
+                <br/>
+                <lightning-button label="Zadaj miesto v Pôdoryse" onclick={handleSave} variant="brand"></lightning-button>
+            </div>
+        </template>
+    </lightning-card>
+</template>
+    <template if:true={renderPodorys}>
+        <c-app_-podorys-konkretny flat-i-d={flatID} klz-i-d={klzID}></c-app_-podorys-konkretny>
+    </template>
+</template>

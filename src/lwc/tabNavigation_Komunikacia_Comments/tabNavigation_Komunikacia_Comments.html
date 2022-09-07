@@ -5,35 +5,89 @@
 <!-- Tab Navigation Komunikacia Comments -->
 <template>
     <div class="wrapper">
+
         <div class="container">
 
             <div class="rows-headers">
-                <div class="header">Komunikacia ku klientskej zmene</div>
+
+                <template if:true={seenDate}>
+                    <div if:true={commentId} class="header">Komunikacia ku klientskej zmene</div>
+                    <h2 if:true={commentId} class="videne">Videné klientom:</h2>
+                    <lightning-formatted-date-time class="time" value={seenDate.Videne_od_klienta__c} year="numeric"
+                                                   month="numeric" day="numeric" hour="2-digit"
+                                                   minute="2-digit" hour12="true"></lightning-formatted-date-time>
+                </template>
+
+                <template if:true={seenVlakno}>
+                    <div if:true={vlaknoID} class="header">Všeobecná komunikácia</div>
+                    <h2 if:true={vlaknoID} class="videne">Videné klientom:</h2>
+                    <lightning-formatted-date-time class="time" value={seenVlakno.Vlakno_videne_od_klienta__c} year="numeric"
+                                                   month="numeric" day="numeric" hour="2-digit"
+                                                   minute="2-digit" hour12="true"></lightning-formatted-date-time>
+                </template>
+
+
 
             </div>
-            <div class="slds-scrollable_y"  >
-            <template if:true={caseCommentsData}>
-                <template for:each={caseCommentsData} for:item="comments">
-                    <div class="rows" key={comments.Id}>
-                        <h2 class="textRow text2" key={comments.Id}>{comments.CreatedBy.FirstName} {comments.CreatedBy.LastName}</h2>
-                        <lightning-formatted-date-time class="textRow text3" key={comments.Id} value={comments.CreatedDate} year="numeric" month="numeric" day="numeric" hour="2-digit"
-                                                       minute="2-digit" hour12="true" ></lightning-formatted-date-time>
-                        <h2 class="textRow text1" key={comments.Id}>{comments.CommentBody}</h2>
-                    </div>
+
+            <div class="slds-scrollable_y">
+                <template if:true={caseCommentsData}>
+                    <template for:each={caseCommentsData} for:item="comments">
+                        <div class="rows" key={comments.Id}>
+                            <h2 class="textRow text2" key={comments.Id}>{comments.CreatedBy.FirstName}
+                                {comments.CreatedBy.LastName}</h2>
+                            <lightning-formatted-date-time class="textRow text3" key={comments.Id}
+                                                           value={comments.CreatedDate} year="numeric" month="numeric"
+                                                           day="numeric" hour="2-digit"
+                                                           minute="2-digit"
+                                                           hour12="true"></lightning-formatted-date-time>
+                            <h2 class="textRow text1" key={comments.Id}>{comments.CommentBody}</h2>
+                        </div>
+                    </template>
                 </template>
+
+                <template if:true={vlaknoComments}>
+                    <template for:each={vlaknoComments} for:item="vlakno">
+                        <div class="rows" key={vlakno.Id}>
+                            <h2 class="textRow text2" key={vlakno.Id}>{vlakno.CreatedBy.FirstName}
+                                {vlakno.CreatedBy.LastName}</h2>
+                            <lightning-formatted-date-time class="textRow text3" key={vlakno.Id}
+                                                           value={vlakno.Koment_vytvoreny__c} year="numeric" month="numeric"
+                                                           day="numeric" hour="2-digit"
+                                                           minute="2-digit"
+                                                           hour12="true"></lightning-formatted-date-time>
+                            <h2 class="textRow text1" key={vlakno.Id}>{vlakno.VlaknoKoment__c}</h2>
+                        </div>
+                    </template>
+                </template>
+            </div>
+
+            <br>
+            <template if:true={klzCommentar}>
+                <div class="comment">
+                    <div class="comment-line">
+                        <lightning-input label="Napíš komentár k zvolenej klientskej zmene" name="comment" type="text"
+                                         value={comments.CommentBody}
+                                         onchange={handleCommentBodyChange}></lightning-input>
+                    </div>
+                    <div>
+                        <lightning-button label="Poslať" onclick={handleSave} variant="brand"></lightning-button>
+                    </div>
+                </div>
             </template>
 
-            </div>
-            <br>
-            <div class="comment">
-                <div class="comment-line">
-                    <lightning-input label="Napíš komentár k zvolenej klientskej zmene" name="comment" type="text" value={comments.CommentBody} onchange={handleCommentBodyChange}></lightning-input>
+            <template if:true={vlaknoCommentar}>
+                <div class="comment">
+                    <div class="comment-line">
+                        <lightning-input class="vlakno" label="Napíš komentár k zvolenej všeobecnej komunikácii" name="comment" type="text"
+                                         value=""
+                                         ></lightning-input>
+                    </div>
+                    <div>
+                        <lightning-button label="Poslať" onclick={handleSaveVlaknoMen} variant="brand"></lightning-button>
+                    </div>
                 </div>
-                <div>
-                    <lightning-button label="Poslať" onclick={handleSave} variant="brand"></lightning-button>
-                </div>
-
-            </div>
+            </template>
         </div>
     </div>
 </template>

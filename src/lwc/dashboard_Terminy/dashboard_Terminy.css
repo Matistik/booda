@@ -25,7 +25,25 @@
     grid-column: 1/2;
     border-radius: 8px;
 }
+.date3{
+    height: 40px;
+    grid-column: 1/2;
+    border-radius: 8px;
+}
+.date5{
+    height: 40px;
+    grid-column: 1/2;
+    border-radius: 8px;
+}
 .date2{
+    grid-column: 2/3;
+    border-radius: 8px;
+}
+.date4{
+    grid-column: 2/3;
+    border-radius: 8px;
+}
+.date6{
     grid-column: 2/3;
     border-radius: 8px;
 }

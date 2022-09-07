@@ -54,7 +54,7 @@ export default class TabNavigationKlzKalkulacia extends LightningElement {
             .then(result => {
                 // Clear the user enter values
                 this.kalkulaciaRecord = {};
-
+                this.dispatchEvent(new CustomEvent('close'));
                 window.console.log('result ===> '+result);
                 // Show success messsage
                 this.dispatchEvent(new ShowToastEvent({
@@ -67,7 +67,7 @@ export default class TabNavigationKlzKalkulacia extends LightningElement {
                 this.error = error.message;
             });
 
-        this.dispatchEvent(new CustomEvent('close'));
+
         this.dispatchEvent(new CustomEvent('renderkalkulacia'));
         //this.dispatchEvent(new CustomEvent('rerender'));
     }

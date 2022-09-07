@@ -1,0 +1,45 @@
+<!--
+ - Created by Maind on 16. 8. 2022.
+ -->
+
+<!-- App Cennik -->
+<template>
+<template if:true={cennik}>
+    <div class="navigation">
+        <button onclick={goToKlzRozpracovane} class="button"><i class="arrow left"></i>&nbsp;Klientské zmeny</button>
+
+    </div>
+    <template if:true={bytData}>
+        <div class="small-navigation" key={bytData.Id}>
+            <h2 class="small-header header1">Byt {bytData.Ozna_enie__c}</h2>
+            <h2 class="small-header header2">Poschodie {bytData.Poschodie__c}</h2>
+            <h2 class="small-header header3">Izbovosť {bytData.Izbovos__c}</h2>
+        </div>
+    </template>
+
+    <div class="container">
+        <div class="header">Bez zmeny:</div>
+        <div class="cena">0 €</div>
+
+        <div class="header">Malé zmeny:</div>
+        <div class="cena">500 €</div>
+        <div class="zmena">
+                Zmena štandardu resp. výmer materiálov povrchov a zariadení mimo štandardu, drobné posuny rozvodov a inštalácií do 1 m. V rámci malej KLZ počet konzultačno-poradenských hodín: 8.
+                Tento poplatok nezahŕňa sumu za spracovanie úpravy PD (FVA) a cenu za spracovanie požadovaných úprav byte, toto bude predmetom CP, ktorú klient obdrží po špecifikovaní zmien.
+        </div>
+
+        <div class="header">Veľké zmeny:</div>
+        <div class="cena">1000 €</div>
+        <div class="zmena">
+            Zmena štandardu resp. výmer materiálov povrchov a zariadení mimo štandardu, drobné posuny rozvodov a inštalácií do 1 m. V rámci malej KLZ počet konzultačno-poradenských hodín: 8.
+            Tento poplatok nezahŕňa sumu za spracovanie úpravy PD (FVA) a cenu za spracovanie požadovaných úprav byte, toto bude predmetom CP, ktorú klient obdrží po špecifikovaní zmien.
+        </div>
+
+    </div>
+</template>
+
+    <template if:true={klzRozpracovane}>
+        <c-app_-k-l-z_-rozpracovane flat-i-d={flatID}></c-app_-k-l-z_-rozpracovane>
+    </template>
+
+</template>

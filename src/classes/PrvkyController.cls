@@ -2,7 +2,7 @@
  * Created by juraj on 25/07/2022.
  */
 
-public without sharing class PrvkyController {
+public with sharing class PrvkyController {
 
     @AuraEnabled(Cacheable=true)
     public static List<Prvok__c> getPrvky(String lineId) {

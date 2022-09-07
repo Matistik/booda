@@ -2,7 +2,7 @@
  * Created by mgons on 8/2/2022.
  */
 
-import { LightningElement,api,track,wire } from 'lwc';
+import {LightningElement} from 'lwc';
 import pdflib from '@salesforce/resourceUrl/pdflib';
 import {loadScript} from "lightning/platformResourceLoader";
 
@@ -13,6 +13,7 @@ export default class show_PDF extends LightningElement {
         ])
         
 }
+
     async  createPdf() {
         const pdfDoc = await PDFLib.PDFDocument.create()
         const timesRomanFont = await pdfDoc.embedFont(PDFLib.StandardFonts.TimesRoman)
@@ -36,8 +37,7 @@ export default class show_PDF extends LightningElement {
         var blob = new Blob([byte],{type:"application/pdf"});
         var link = document.createElement("a");
         link.href = window.URL.createObjectURL(blob);
-        var fileName = pdfName;
-        link.download = fileName;
+        link.download = pdfName;
         link.click();
     }
 }

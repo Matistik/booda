@@ -16,12 +16,20 @@
                     Klient App
                 </button>
 
-                <button class="slds-button button-pdf slds-button_brand">
+                <button onclick={openpdfModal} class="slds-button button-pdf slds-button_brand">
                     <svg class=" button1 slds-button__icon slds-button__icon_left " aria-hidden="true">
                         <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#pdf_ext"></use>
                     </svg>
-                    PDF výstup
+                    Vygenerovať PDF
                 </button>
+                <template if:true={openModal}>
+                    <c-custom-modal onclose={closepdfModal}>
+                        <div class="mid">
+                            <h1 >PDF bolo vygenerované, prosím pokračujte kliknutím na link</h1>
+                            <a target="_blank" rel="noopener noreferrer"  href='https://redprxportal--dev1red--c.sandbox.vf.force.com/apex/StandardyPdfPage' >PDF link</a>
+                        </div>
+                    </c-custom-modal>
+                </template>
 
                 <div class="rows">
                     <button class={button1}>Druhy Prvkov</button>

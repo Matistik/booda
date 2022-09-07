@@ -2,7 +2,7 @@
  * Created by matistikoff on 21. 7. 2022.
  */
 
-import {LightningElement, track, wire} from 'lwc';
+import {LightningElement, track, wire, api} from 'lwc';
 import getBytyList from '@salesforce/apex/PrehladBytovController.getBytyList';
 
 
@@ -16,6 +16,7 @@ export default class PrehladBytov extends LightningElement {
     @track flatID;
     @track bytA;
     @track bytVchod;
+    @api etapaID
 
     renderaparent(event){
         this.bytA = event.detail;
@@ -69,8 +70,8 @@ export default class PrehladBytov extends LightningElement {
         this.template.querySelector("c-prehlad-bytov-list").getBytyList();
     }
     handleVsetkyEtapyValue(event){
-        this.bytVchod = event.detail.id;
-        this.template.querySelector("c-prehlad-bytov-list").getEtapyData(this.bytVchod);
+        this.etapaID = event.detail.id;
+        this.template.querySelector("c-prehlad-bytov-list").getEtapyData(event.detail.id);
     }
 
 }

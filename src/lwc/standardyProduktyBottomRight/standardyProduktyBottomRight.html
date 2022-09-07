@@ -1,0 +1,52 @@
+<!--
+ - Created by mgons on 8/15/2022.
+ -->
+
+<!-- Standardy Produkty Bottom Right -->
+<template>
+
+
+
+    <div  class="container" id="container">
+
+
+
+
+        <div class="rows-headers">
+            <div class="header" >Produkty </div>
+        </div>
+
+
+
+        <div class="slds-scrollable_y"  >
+            <template if:true={products}>
+                <template for:each={products} for:item="product" >
+
+                    <div class="rows " key={product.productOption.Id} >
+                        <h2 class="textRow text1" if:true={product.productOption.SBQQ__OptionalSKU__r.Name}>{product.productOption.SBQQ__OptionalSKU__r.Name}</h2>
+                        <lightning-input  class="slds-p-left_xx-large" type="checkbox"  checked={product.selected} data-id={product.productOption.Id} onchange={handleChange} label=""></lightning-input>
+                        <img src={product.productOption.Product_Image_Link__c} class="img" alt="" data-id={product.productOption.Id} onclick={openImgModal}>
+
+
+
+                        <template if:true={imgModal}>
+                            <c-custom-modal if:true={image} onclose={closeImgModal}>
+                                <div class="mid">
+                                    <img if:true={image.Product_Image_Link__c} src={image.Product_Image_Link__c} class="img-big" alt="" >
+                                </div>
+
+                            </c-custom-modal>
+                        </template>
+
+
+
+
+
+                    </div>
+                </template>
+            </template>
+        </div>
+    </div>
+
+
+</template>

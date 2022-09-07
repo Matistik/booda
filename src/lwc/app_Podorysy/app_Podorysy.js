@@ -11,10 +11,16 @@ export default class AppPodorysy extends LightningElement {
 
     @track mojByt = false;
     @track podorysy = true;
+    @track konkretnypodorys = false
 
     goToMojByt(){
         this.mojByt = !this.mojByt;
         this.podorysy = !this.podorysy;
+    }
+
+    goToKonkretnyPodorys(){
+        this.podorysy = !this.podorysy;
+        this.konkretnypodorys = !this.konkretnypodorys;
     }
 
     renderedCallback() {

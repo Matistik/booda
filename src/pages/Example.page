@@ -1,0 +1,9 @@
+<!--
+ - Created by matistikoff on 1. 9. 2022.
+ -->
+
+<apex:page id="Example">
+
+    <apex:outputlabel >Enter Name</apex:outputlabel>
+
+</apex:page>

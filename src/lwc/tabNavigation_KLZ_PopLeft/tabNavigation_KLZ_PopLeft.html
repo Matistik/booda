@@ -29,7 +29,7 @@
                 <template for:each={KLZData} for:item="klz">
                     <div class="rows-text" key={klz.Id} onclick = "{renderPopRight}" data-id={klz.Id}>
                         <h2 class="textUp text1" key={klz.Id}>{klz.Status}</h2>
-                        <h2 class="textDown text2" key={klz.Id}>{klz.CaseNumber}</h2>
+                        <h2 class="textDown text2" key={klz.Id}>{klz.ID_KLZ__c}</h2>
                     </div>
                 </template>
             </template>

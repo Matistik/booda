@@ -33,8 +33,20 @@ th{
     border-bottom: 1px solid black;
     padding-top: 10px;
 }
+.line-bold{
+    border-bottom: 2px solid black;
+    padding-top: 10px;
+}
+.line-grey{
+    border-bottom: dotted 1px black ;
+    padding-top: 10px;
+    opacity: 50%;
+}
 .popisSecondRight{
     text-align: right;
+}
+.popisMiddle{
+    text-align: center;
 }
 .second{
     padding-bottom: 10px;

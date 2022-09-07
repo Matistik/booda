@@ -1,0 +1,101 @@
+<!--
+ - Created by Maind on 15. 8. 2022.
+ -->
+
+<!-- App Spravy Konkretna -->
+<template>
+    <template if:true={concreteSprava}>
+        <div class="navigation">
+
+            <button onclick={goToSpravy} class="button"><i class="arrow left"></i>&nbsp;Správy</button>
+
+            <template if:true={seenDate}>
+                <h2  if:true={caseID} class="videne">Videné menežérom: </h2>
+                <lightning-formatted-date-time class="time" value={seenDate.Videne_od_menezera__c} year="numeric"
+                                               month="numeric" day="numeric" hour="2-digit"
+                                               minute="2-digit" hour12="true">Videné:
+                </lightning-formatted-date-time>
+            </template>
+
+            <template if:true={vlaknoKomentarDate}>
+                <h2  if:true={vlaknoID} class="videne">Videné menežérom: </h2>
+                <lightning-formatted-date-time class="time" value={vlaknoKomentarDate.Vlakno_videne_od_menezera__c} year="numeric"
+                                               month="numeric" day="numeric" hour="2-digit"
+                                               minute="2-digit" hour12="true">Videné:
+                </lightning-formatted-date-time>
+            </template>
+
+        </div>
+        <template if:true={bytData}>
+            <div class="small-navigation" key={bytData.Id}>
+                <h2 class="small-header header1">Byt {bytData.Ozna_enie__c}</h2>
+                <h2 class="small-header header2">Poschodie {bytData.Poschodie__c}</h2>
+                <h2 class="small-header header3">Izbovosť {bytData.Izbovos__c}</h2>
+            </div>
+        </template>
+
+        <div class="slds-scrollable_y">
+            <template if:true={caseCommentsData}>
+                <template for:each={caseCommentsData} for:item="comments">
+                    <div class="rows" key={comments.Id}>
+                        <h2 class="textRow text2" key={comments.Id}>{comments.CreatedBy.FirstName}
+                            {comments.CreatedBy.LastName}</h2>
+                        <lightning-formatted-date-time class="textRow text3" key={comments.Id}
+                                                       value={comments.CreatedDate} year="numeric" month="numeric"
+                                                       day="numeric" hour="2-digit"
+                                                       minute="2-digit" hour12="true"></lightning-formatted-date-time>
+                        <h2 class="textRow text1" key={comments.Id}>{comments.CommentBody}</h2>
+                    </div>
+                </template>
+            </template>
+        </div>
+
+        <div class="slds-scrollable_y">
+            <template if:true={vlaknoCommentsData}>
+                <template for:each={vlaknoCommentsData} for:item="vlakno">
+                    <div class="rows" key={vlakno.Id}>
+                        <h2 class="textRow text2" key={vlakno.Id}>{vlakno.CreatedBy.FirstName}
+                            {vlakno.CreatedBy.LastName}</h2>
+
+                        <lightning-formatted-date-time class="textRow text3" key={vlakno.Id}
+                                                       value={vlakno.Koment_vytvoreny__c} year="numeric" month="numeric"
+                                                       day="numeric" hour="2-digit"
+                                                       minute="2-digit" hour12="true"></lightning-formatted-date-time>
+                        <h2 class="textRow text1" key={vlakno.Id}>{vlakno.VlaknoKoment__c}</h2>
+                    </div>
+                </template>
+            </template>
+        </div>
+
+        <template if:true={klzKomentarApp}>
+        <div class="comment">
+            <div class="comment-line">
+                <lightning-input onkeypress={key_event} label="Napíš komentár k zvolenej klientskej zmene"
+                                 name="comment" type="text" value={comments.CommentBody}
+                                 onchange={handleCommentBodyChange}></lightning-input>
+            </div>
+            <div>
+                <lightning-button label="Poslať" onclick={handleSaveApp} variant="brand"></lightning-button>
+            </div>
+        </div>
+    </template>
+
+        <template if:true={vlaknoKomentarApp}>
+            <div class="comment">
+                <div class="comment-line">
+                    <lightning-input onkeypress={key_event} class="vlaknoApp" label="Napíš komentár ku všeobecnej komunikácii"
+                                     name="comment" type="text" value=""
+                                     ></lightning-input>
+                </div>
+                <div>
+                    <lightning-button label="Poslať" onclick={handleSaveVlaknoApp} variant="brand"></lightning-button>
+                </div>
+            </div>
+        </template>
+
+    </template>
+
+    <template if:true={spravy}>
+        <c-app_-spravy flat-i-d={flatID} case-i-d={caseID} vlakno-i-d={vlaknoID}></c-app_-spravy>
+    </template>
+</template>

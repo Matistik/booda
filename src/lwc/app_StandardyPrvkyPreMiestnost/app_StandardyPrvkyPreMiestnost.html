@@ -1,0 +1,39 @@
+<!--
+ - Created by mgons on 8/22/2022.
+ -->
+
+<!-- App Standardy Prvky Pre Miestnost -->
+<template>
+    <template if:true={standardy}>
+        <div class="navigation">
+            <button onclick={goToMojByt} class="button"><i class="arrow left"></i>&nbsp;Môj Byt</button>
+            <button onclick={goToMiestnosti} class="button">/Miestnosti</button>
+
+        </div>
+        <template if:true={bytData}>
+            <div class="small-navigation" key={bytData.Id}>
+                <h2 class="small-header header1">Byt {bytData.Ozna_enie__c}</h2>
+                <h2 class="small-header header2">Poschodie {bytData.Poschodie__c}</h2>
+                <h2 class="small-header header3">Izbovosť {bytData.Izbovos__c}</h2>
+                <h2 class="small-header header4" if:true={stringDate}>Uzavretie Standardov : {stringDate}</h2>
+            </div>
+        </template>
+
+        <div class="wrapper">
+
+            <p1 class="header">Prvky pre miestnost : </p1>
+<template if:true={prvky}>
+    <template for:each={prvky} for:item="prvok">
+            <div class="rows" key={prvok.Id} onclick={renderProdukty} data-id={prvok.Id}>
+                <p1 class="column1">{prvok.Name} - {prvok.Prvok__c}</p1>
+                <p1 class="end"><i class="arrowBlack right"></i></p1>
+            </div>
+</template>
+</template>
+        </div>
+    </template>
+    <template if:true={mojByt}>
+        <c-app_-moj-byt flat-i-d={flatID}></c-app_-moj-byt>
+    </template>
+
+</template>

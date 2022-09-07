@@ -8,8 +8,28 @@ import getCaseStav from '@salesforce/apex/PoziadavkyNaZmenyController.getCaseSta
 
 export default class PoziadavkyNaZmenyList extends LightningElement {
 
-    @api flatID;
+    @api flatID
+    @api klzID
     @track klzData
+
+
+    goToKlzWrapper(event){
+        console.log("idem z pnzl do pnz")
+        let caseId = event.currentTarget.dataset.id
+        let flatId = event.currentTarget.dataset.flat
+        this.flatID = flatId
+        this.klzID = caseId
+        console.log("byt na pnz: "+ this.flatID)
+        let eventToDispatch = new CustomEvent('gotoklz', {
+            detail: {
+                id: caseId,
+                flat: flatId,
+            }
+        });
+        this.dispatchEvent(eventToDispatch)
+    }
+
+
 
     connectedCallback() {
         this.getKLZList()

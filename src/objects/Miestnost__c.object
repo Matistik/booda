@@ -209,6 +209,11 @@
     <label>Miestnosť</label>
     <listViews>
         <fullName>All</fullName>
+        <columns>Byt__c</columns>
+        <columns>NAME</columns>
+        <columns>NazovMiestnosti__c</columns>
+        <columns>Oznacenie__c</columns>
+        <columns>Plocha__c</columns>
         <filterScope>Everything</filterScope>
         <label>All</label>
     </listViews>

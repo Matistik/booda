@@ -8,8 +8,8 @@ import getConcreteKLZ from '@salesforce/apex/KLZController.getConcreteKLZ';
 export default class PoziadavkyNaZmeny extends LightningElement {
 
     @track flatID;
-    @track renderPoziadavkyNaZmeny=true;
-    @track renderToKlzNew;
+    @track renderPoziadavkyNaZmeny = true
+    @track renderToKlzNew = false
     @api klzID;
 
 
@@ -18,13 +18,12 @@ export default class PoziadavkyNaZmeny extends LightningElement {
     }
 
     renderToKlz(event){
-        this.klzID = event.detail.id;
-        this.getConcreteKLZ
-        this.renderPoziadavkyNaZmeny=false;
-        this.renderToKlzNew=true;
-        console.log( this.renderPoziadavkyNaZmeny);
-        console.log('but')
-        console.log( this.renderToKlzNew);
+        console.log("som v pnz")
+        this.klzID = event.detail.id
+        this.flatID = event.detail.flat
+        console.log("som v pnz klzID "+ this.klzID)
+        this.renderPoziadavkyNaZmeny = false
+        this.renderToKlzNew = true
     }
 
     getConcreteKLZ(){

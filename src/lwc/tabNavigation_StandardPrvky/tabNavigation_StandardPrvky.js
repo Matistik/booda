@@ -1,5 +1,7 @@
 import {api, LightningElement, track, wire} from 'lwc';
 import getLineItem from '@salesforce/apex/StandardyController.getLineItems';
+import getJednotlivePrvky from '@salesforce/apex/StandardyController.getJednotlivePrvky';
+import setFlatIdForPdf from '@salesforce/apex/PdfController.setFlatIdForPdf';
 
 export default class TabNavigationStandardPrvky extends LightningElement {
 
@@ -15,7 +17,7 @@ export default class TabNavigationStandardPrvky extends LightningElement {
         this.getLineItem();
     }
     getLineItem(){
-        getLineItem({lineId: this.flatID})
+        getJednotlivePrvky({flatID: this.flatID})
             .then(response => {
                 this.StandardyData = response;
         })
@@ -29,6 +31,24 @@ export default class TabNavigationStandardPrvky extends LightningElement {
         this.flatID;
         this.renderPrvky = !this.renderPrvky;
         this.renderDruhy = !this.renderDruhy;
+    }
+    generateFlatIdForPdf(){
+        setFlatIdForPdf({flatID: this.flatID})
+            .then(response => {console.log(response)})
+            .catch(error => {console.log(error)})
+
+
+    }
+    @track openModal = false;
+
+    openpdfModal() {
+        this.openModal=true;
+        this.generateFlatIdForPdf();
+    }
+
+    closepdfModal() {
+        this.openModal = false;
+
     }
 
 }

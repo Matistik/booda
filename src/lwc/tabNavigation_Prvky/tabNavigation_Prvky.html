@@ -17,7 +17,7 @@
                 <div class="slds-scrollable_y"  style="height: 72vh">
                 <template for:each={PrvkyData} for:item="prvok">
 
-            <div class="rows-text" key={prvok.Id}>
+            <div class="rows-text" key={prvok.Id} onclick={getPrvokId} data-id={prvok.Id}>
                 <h2 class="textRow text1">{prvok.Name}</h2>
                 <h2 class="textRow text2">{prvok.Prvok__c}</h2>
                 <h2 class="textRow text3">{prvok.Miestnost__r.NazovMiestnosti__c}->{prvok.Miestnost__r.Name}</h2>

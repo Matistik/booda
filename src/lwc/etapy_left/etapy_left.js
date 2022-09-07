@@ -8,6 +8,7 @@ import getEtapyList from '@salesforce/apex/EtapyATerminyController.getEtapyList'
 export default class EtapyLeft extends LightningElement {
 
     @track etapyData
+    @track etapaID
 
     renderedCallback() {
         this.getEtapyList();
@@ -25,6 +26,7 @@ export default class EtapyLeft extends LightningElement {
 
     handleRenderSpecEtapy(event){
         let caseId = event.currentTarget.dataset.id;
+        this.etapaID = caseId;
         let eventToDispatch = new CustomEvent('etapa', {
             detail: {
                 id: caseId,

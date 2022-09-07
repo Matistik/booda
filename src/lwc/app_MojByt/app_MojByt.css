@@ -2,17 +2,36 @@
  * Created by Maind on 10. 8. 2022.
  */
 .navigation{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
     background: deepskyblue;
     height: 5vh;
 }
 h2.header{
+    grid-column: 3/4;
     color: white;
     font-size: 3vh;
     font-weight: bold;
     text-align: center;
     padding: 3px 0;
 }
-
+.cislo{
+    grid-column: 4/5;
+    justify-self: end;
+    align-self: center;
+}
+.icon{
+    grid-column: 5/6;
+    justify-self: start;
+}
+.red{
+    font-size: medium;
+    border: none;
+    height: 5vh;
+    color: red;
+    font-weight: bold;
+    background: transparent;
+}
 .small-navigation{
     display: grid;
     grid-template-columns: repeat(5, 1fr);
@@ -23,7 +42,6 @@ h2.small-header{
     font-size: small;
     color: white;
     text-align: center;
-    padding: 3px 0;
 }
 .header1{
     grid-column: 2/3;

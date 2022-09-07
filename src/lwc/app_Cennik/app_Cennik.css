@@ -1,0 +1,75 @@
+/**
+ * Created by Maind on 16. 8. 2022.
+ */
+.navigation{
+    background: deepskyblue;
+    height: 5vh;
+}
+.arrow {
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    display: inline-block;
+    padding: 4px;
+}
+.left {
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+}
+.button{
+    background: transparent;
+    border: none;
+    height: 5vh;
+    font-size: medium;
+    padding-left: 10px ;
+    color: white;
+}
+.button:hover{
+    text-decoration: underline white;
+}
+.small-navigation{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    background: #3889fd;
+    height: 3vh;
+}
+h2.small-header{
+    font-size: small;
+    color: white;
+    text-align: center;
+    padding: 3px 0;
+}
+.header1{
+    grid-column: 2/3;
+}
+.header2{
+    grid-column: 3/4;
+}
+.header3{
+    grid-column: 4/5;
+}
+.container{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+}
+.header{
+    grid-column: 1/3;
+    font-size: 20px;
+    font-weight: bold;
+    padding-left: 20px;
+    padding-top: 30px;
+    padding-bottom: 10px;
+}
+.cena{
+    grid-column: 4/5;
+    justify-self: end;
+    font-weight: bold;
+    padding-top: 30px;
+    font-size: 20px;
+}
+.zmena{
+    grid-column: 1/2;
+    font-weight: normal;
+    font-size: small;
+    color: darkgray;
+    padding-left: 20px;
+}

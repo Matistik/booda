@@ -23,7 +23,8 @@ export default class JspdfDemo extends LightningElement {
 
     generatePdf(){
         console.log('generatePDF')
-        const { jsPDF } = window.jspdf;
+        window.jsPDF = window.jspdf.jsPDF;
+        const { jsPDF} = window.jsPDF;
         const doc = new jsPDF({
         });
 

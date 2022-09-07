@@ -5,10 +5,11 @@
 <!-- App Spravy -->
 <template>
     <template if:true={spravy}>
-    <div class="navigation">
-        <button onclick={goToMojByt} class="button"><i class="arrow left"></i>&nbsp;Môj Byt</button>
+        <div class="navigation">
+            <!--        <h2 class="header">Správy</h2>-->
+            <button onclick={goToMojByt} class="button"><i class="arrow left"></i>&nbsp;Môj Byt</button>
 
-    </div>
+        </div>
         <template if:true={bytData}>
             <div class="small-navigation" key={bytData.Id}>
                 <h2 class="small-header header1">Byt {bytData.Ozna_enie__c}</h2>
@@ -17,27 +18,63 @@
             </div>
         </template>
 
-    <div class="wrapper">
+        <div class="wrapper">
 
-        <p1 class="header">Správy: </p1>
+            <p1 class="header">Správy:</p1>
 
-        <div class="rows ">
-            <h1>Názov správy</h1>
-            <div class="new-message">1</div>
-            <p1 class="end"><i class="arrowBlack right"></i></p1>
+            <template if:true={casesData}>
+                <template for:each={casesData} for:item="cases">
+                    <div class="rows" key={cases.Id} onclick={goToKonkretnaSprava}
+                         data-id={cases.Id}>
+                        <h1 class="text1">{cases.ID_KLZ__c}</h1>
+                        <h1 class="text2">{cases.Subject}</h1>
+                        <template if:true={cases.Neprecitane_spravy_od_menezera__c}>
+                            <h1 class="new-message">Neprečítané správy: {cases.Neprecitane_spravy_od_menezera__c}</h1>
+                        </template>
+                        <h1 class="end"><i class="arrowBlack right"></i></h1>
+                    </div>
+                </template>
+            </template>
+
+            <p1 class="header">Všeobecná komunikácia:</p1>
+
+            <template if:true={vlaknaDataApp}>
+                <template for:each={vlaknaDataApp} for:item="vlaknaApp">
+                    <div class="rows" key={vlaknaApp.Id} onclick={goToVlakno}
+                         data-id={vlaknaApp.Id}>
+                        <h1 class="text1">{vlaknaApp.Name}</h1>
+                        <template if:true={vlaknaApp.Vlakno_neprecitane_spravy_od_menezera__c}>
+                            <h1 class="new-message">Neprečítané správy: {vlaknaApp.Vlakno_neprecitane_spravy_od_menezera__c}</h1>
+                        </template>
+                        <h1 class="end"><i class="arrowBlack right"></i></h1>
+                    </div>
+                </template>
+            </template>
+
+
+            <div class="button-box">
+                <lightning-button class="slds-button slds-button_neutral" onclick={openVlaknoModalApp} label="Vytvoriť vlákno">
+                    <svg class="slds-button__icon slds-button__icon_left" aria-hidden="true">
+                        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#add"></use>
+                    </svg>
+                </lightning-button>
+                <template if:true={openVlakno}>
+                    <c-custom-modal onclose={closeVlaknoModalApp}>
+                        <c-nove-vlakno flat-i-d={flatID} onrendervlaknoapp={getVlaknaApp} onclosevlaknoapp={closeVlaknoModalApp}>
+
+                        </c-nove-vlakno>
+                    </c-custom-modal>
+                </template>
+            </div>
+
+
         </div>
-        <div class="button-box">
-        <button class="slds-button slds-button_neutral">
-            <svg class="slds-button__icon slds-button__icon_left" aria-hidden="true">
-                <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#add"></use>
-            </svg>Vytvoriť vlákno</button>
-    </div>
-
-
-    </div>
     </template>
 
     <template if:true={mojByt}>
         <c-app_-moj-byt flat-i-d={flatID}></c-app_-moj-byt>
+    </template>
+    <template if:true={concSprava}>
+        <c-app_-spravy-konkretna flat-i-d={flatID} case-i-d={caseID} vlakno-i-d={vlaknoID}></c-app_-spravy-konkretna>
     </template>
 </template>

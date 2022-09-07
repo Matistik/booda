@@ -4,6 +4,7 @@
 
 <!-- Poziadavky Na Zmeny List -->
 <template>
+
     <div class="container">
 
         <div class="box search-bar">
@@ -27,17 +28,21 @@
         </div>
 
         <template if:true={klzData}>
-        <template for:each={klzData} for:item="klzdata">
-        <div class="rows-text" key={klzdata.Id} data-id={klzdata.Id} onclick={renderToKlz}>
+        <template for:each={klzData} for:item="klzdata"  >
+        <div class="rows-text" key={klzdata.Id} onclick={goToKlzWrapper} data-id={klzdata.Id} data-flat={klzdata.Byt__c}>
             <h2 class="text text1">{klzdata.Byt__r.Name}</h2>
-            <h2 class="text text2">{klzdata.Id}</h2>
-            <h2 class="text text3"></h2>
+            <h2 class="text text2">{klzdata.ID_KLZ__c}</h2>
+            <h2 class="text text3">{klzdata.Status}</h2>
             <h2 class="text text4"></h2>
-            <h2 class="text text5"></h2>
+            <h2 class="text text5">{klzdata.Subject}</h2>
             <h2 class="text text6"></h2>
             <h2 class="text text7"></h2>
         </div>
         </template>
         </template>
     </div>
+
+
+
+
 </template>

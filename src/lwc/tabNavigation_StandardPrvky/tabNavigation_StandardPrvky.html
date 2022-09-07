@@ -13,10 +13,18 @@
                     <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#add"></use>
                 </svg>Klient App</button>
 
-            <button class="slds-button button-pdf slds-button_brand">
+            <button onclick={openpdfModal} class="slds-button button-pdf slds-button_brand ">
                 <svg class=" button1 slds-button__icon slds-button__icon_left " aria-hidden="true">
-                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#pdf_ext"></use>
-                </svg>PDF výstup</button>
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#pdf_ext" onclick={generateFlatIdForPdf}></use>
+                </svg>Vygenerovať PDF</button>
+            <template if:true={openModal}>
+                <c-custom-modal onclose={closepdfModal}>
+                    <div class="mid">
+                        <h1 >PDF bolo vygenerované, prosím pokračujte kliknutím na link</h1>
+                        <a target="_blank" rel="noopener noreferrer"  href='https://redprxportal--dev1red--c.sandbox.vf.force.com/apex/StandardyPdfPage' >PDF link</a>
+                    </div>
+                </c-custom-modal>
+            </template>
 
             <div class="rows">
                 <button class={button1} onclick={goTo}>Druhy Prvkov</button>
@@ -37,8 +45,8 @@
                         <template for:each={StandardyData} for:item="standard">
                         <div class="rows-text" key={standard.Id}>
                             <h2 class="text text1" key={standard.Id}>{standard.Miestnos__c}</h2>
-                            <h2 class="text text2" key={standard.Id}>{standard.SBQQ__ProductFamily__c}</h2>
-                            <h2 class="text text3" key={standard.Id}>--</h2>
+                            <h2 class="text text2" key={standard.Id}>{standard.Prvok__r.Prvok__c}</h2>
+                            <h2 class="text text3" key={standard.Id}>{standard.CastPrvku__c}</h2>
                             <h2 class="text-green text4" key={standard.Id}>--</h2>
                             <h2 class="text text5" key={standard.Id}>{standard.SBQQ__Product__r.Name}</h2>
                         </div>

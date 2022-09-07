@@ -29,61 +29,66 @@
 
         </div>
 
-        <h2 class="header-first">Poschodie 1</h2>
-        <h2 class="header-second">Dní</h2>
-        <h2 class="header-third">Termín</h2>
+        <template if:true={etapyData}>
+            <template for:each={etapyData} for:item="etapa">
 
-        <div class="row-box">
+        <h2 key={etapa.Id} class="header-first">{etapa.Name}</h2>
+        <h2 key={etapa.Id} class="header-second">Dní</h2>
+        <h2 key={etapa.Id} class="header-third">Termín</h2>
 
-            <div class="row">
-                <div class="text-field">Uzávierka štandardov
+
+        <div key={etapa.Id} class="row-box">
+
+            <div key={etapa.Id} class="row">
+                <div key={etapa.Id} class="text-field">Uzávierka štandardov
                 </div>
-                <div class="text-field-deadline">125
+                <div key={etapa.Id} class="text-field-deadline">{etapa.OstavaDniUS__c}
                 </div>
-                <input class="select date-datum" type="date" >
+                <div key={etapa.Id} class="select date-datum" >{etapa.UzavierkaStandardov__c}</div>
             </div>
-            <div class="row">
-                <div class="text-field">Uzávierka KLZ
+            <div key={etapa.Id} class="row">
+                <div key={etapa.Id} class="text-field">Uzávierka KLZ
                 </div>
-                <div class="text-field-deadline">125
+                <div key={etapa.Id} class="text-field-deadline">{etapa.OstavaDniUKLZ__c}
                 </div>
-                <input class="select date-datum" type="date" >
-            </div>
-
-            <div class="row">
-                <div class="text-field">Fixnutie profesií
-                </div>
-                <div class="text-field-deadline">125
-                </div>
-                <input class="select date-datum" type="date" >
+                <div key={etapa.Id} class="select date-datum" >{etapa.UzavierkaKLZ__c}</div>
             </div>
 
-            <div class="row">
-                <div class="text-field">Fixnutie statiky
+            <div key={etapa.Id} class="row">
+                <div key={etapa.Id} class="text-field">Fixnutie profesií
                 </div>
-                <div class="text-field-deadline">125
+                <div key={etapa.Id} class="text-field-deadline">{etapa.OstavaDniFP__c}
                 </div>
-                <input class="select date-datum" type="date" >
+                <div key={etapa.Id} class="select date-datum" >{etapa.FixnutieProfesii__c}</div>
             </div>
 
-            <div class="row">
-                <div class="text-field">Fixnutie murovačiek
+            <div key={etapa.Id} class="row">
+                <div key={etapa.Id} class="text-field">Fixnutie statiky
                 </div>
-                <div class="text-field-deadline">125
+                <div key={etapa.Id} class="text-field-deadline">{etapa.OstavaDniFS__c}
                 </div>
-                <input class="select date-datum" type="date" >
+                <div key={etapa.Id} class="select date-datum" >{etapa.FixnutieStatiky__c}</div>
             </div>
 
-            <div class="row">
-                <div class="text-field">Definitívna uzávierka
+            <div key={etapa.Id} class="row">
+                <div key={etapa.Id} class="text-field">Fixnutie murovačiek
                 </div>
-                <div class="text-field-deadline">125
+                <div key={etapa.Id} class="text-field-deadline">{etapa.OstavaDniFM__c}
                 </div>
-                <input class="select date-datum" type="date" >
+                <div key={etapa.Id} class="select date-datum" >{etapa.FixnutieMurovaciek__c}</div>
+            </div>
+
+            <div key={etapa.Id} class="row">
+                <div key={etapa.Id} class="text-field">Definitívna uzávierka
+                </div>
+                <div key={etapa.Id} class="text-field-deadline">{etapa.OstavaDniDU__c}
+                </div>
+                <div key={etapa.Id} class="select date-datum" >{etapa.DefinitivnaUzavierka__c}</div>
             </div>
 
         </div>
-
+            </template>
+        </template>
 
 
     </div>

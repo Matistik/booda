@@ -8,6 +8,7 @@ import getBytyEtapy from '@salesforce/apex/EtapyATerminyController.getBytyListEt
 export default class EtapyRight extends LightningElement {
 
     @track byty
+    @api flatID
 
     connectedCallback() {
         this.getEtapyData()
@@ -24,5 +25,21 @@ export default class EtapyRight extends LightningElement {
                 console.error(error);
             })
     }
+
+
+
+    renderToByt(event){
+
+        let caseId = event.currentTarget.dataset.id
+        this.flatID = caseId
+        let eventToDispatch = new CustomEvent('bytfrometapy', {
+            detail: {
+                id: caseId,
+
+            }
+        });
+        this.dispatchEvent(eventToDispatch)
+    }
+
 
 }

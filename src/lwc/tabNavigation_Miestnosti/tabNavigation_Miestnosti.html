@@ -14,16 +14,16 @@
             <h2 class="texts text2">Názov miestností</h2>
             <h2 class="texts text3">Označenie</h2>
             <h2 class="texts text4">Plocha</h2>
-            <h2 class="texts text5">Poznámka</h2>
+            <h2 class="texts text6">Poznámka</h2>
         </div>
 
             <template for:each={MiestnostiData} for:item="miestnost">
-        <div class="rows-text" key={miestnost.Id}>
+        <div class="rows-text" key={miestnost.Id} data-id={miestnost.Id}>
             <h2 class="text text1">{miestnost.Name}</h2>
             <h2 class="text text2">{miestnost.NazovMiestnosti__c}</h2>
             <h2 class="text text3">{miestnost.Oznacenie__c}</h2>
             <h2 class="text text4">{miestnost.Plocha__c}</h2>
-            <h2 class="text text5">{miestnost.Poznamka__c}</h2>
+            <textarea data-id={miestnost.Id} onchange={handleSavePoznamka} label="" class="text5" >{miestnost.Poznamka__c}</textarea>
         </div>
     </template>
     </div>

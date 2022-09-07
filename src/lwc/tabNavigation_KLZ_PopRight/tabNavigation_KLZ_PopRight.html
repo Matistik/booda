@@ -1,60 +1,97 @@
 <template>
-
-
     <div class="container">
 
         <div class="body">
 
             <div class="box first-box">
                 <div if:true={ConcreteKLZData} class="header">Zmena {ConcreteKLZData.CaseNumber}</div>
-                <button onclick={handleUpdateKlz} class="slds-button button-save slds-button_brand">
-                    <svg class=" button1 slds-button__icon slds-button__icon_left " aria-hidden="true">
-                        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#save"></use>
-                    </svg>Ulozit</button>
-
-                <div class="text">Stav
-                </div>
-                <template if:true={ConcreteKLZData}>
-                <template for:each={ConcreteKLZData} for:item="data">
-                <lightning-combobox key={data.Id} validity="" class="dropdown stav"
-                        name="progress"
-                        label="Status"
-                        value={data.Status}
-                        placeholder={value}
-                        options={options}
-                        required
-                ></lightning-combobox>
-                </template>
+                <button class="slds-button_brand buttonZobraz" onclick={openPodorysModal}>Označenie v pôdoryse</button>
+                <template if:true={podorysModal} >
+                    <c-custom-modal onclose={closePodorysModal} >
+                       <c-tab-navigation_-k-l-z_-zobrazenie-podorysu flat-i-d={flatID} klz-i-d={klzID}></c-tab-navigation_-k-l-z_-zobrazenie-podorysu>
+                    </c-custom-modal>
                 </template>
 
-                <div class="text">Predmet
-                </div>
                 <template if:true={ConcreteKLZData}>
                     <template for:each={ConcreteKLZData} for:item="data">
-                <lightning-textarea key={data.Id} label="" value={data.Subject} class="poznamky-od3" >{data.Subject}
-            </lightning-textarea>
-                </template>
+                            <lightning-input
+                                    type="text"
+                                    label="Názov KLZ"
+                                    key={data.Id}
+                                    value={data.ID_KLZ__c}
+                                    class="poznamky-od3"
+                                >
+                            </lightning-input>
+                    </template>
                 </template>
 
-                <div class="text">Platný termín pre zmenu
-                </div>
-                <div class="text text-diff">Termín
-                </div>
-                <select class="dropdown termin" >
+                <template if:true={ConcreteKLZData}>
+                    <template for:each={ConcreteKLZData} for:item="data">
+                        <lightning-combobox
+                            key={data.Id}
+                            class="dropdown1 stav"
+                            name="progress"
+                            value={data.Status}
+                            placeholder={data.Status}
+                            options={options}
+                            label="Stav"
+                            required="true"
+                            onchange={handleUpdateKlz}
+                        >
+                        </lightning-combobox>
+
+
+                    <lightning-input class="slds-p-top_large poznamky-od3"
+                                     key={data.Id}
+                                    type="text"
+                                    label="Prvok"
+                                     value={data.Nazov_Prvku__c}
+                                     onclick={openPrvokModal}
+                                     placeholder="Vyber prvok"
+                    >
+                    </lightning-input>
+
+
+
+
+
+
+
+
+
+
+
+
+                <div key={data.Id} class="text">Platný termín pre zmenu</div>
+
+                <div key={data.Id} class="text text-diff">Termín</div>
+
+                <select key={data.Id} class="dropdown termin" >
                     <option >1. Uzávierka štandardov</option>
                     <option >2. Uzávierka KLZ</option>
                     <option >3. Fixnutie profesií</option>
                     <option >4. Fixnutie statiky</option>
                     <option >5. Fixnutie murovačiek</option>
                     <option >6. Definitívna uzávierka</option>
-
                 </select>
 
-                <input class="calendar" type="date" >
-                <div  class="text">Interné poznámky
-                </div>
+                <input key={data.Id} class="calendar" type="date">
 
-                <textarea  class="poznamky" cols="1" ></textarea>
+                <lightning-textarea
+                        key={data.Id}
+                        class="poznamky"
+                        label="Interne poznámky"
+                        value={data.Interne_poznamky__c}
+                        onchange={handleUpdateKlz}
+                >
+                </lightning-textarea>
+
+</template>
+
+
+
+
+</template>
 
             </div>
 
@@ -63,28 +100,50 @@
                 <div class="header">Poznámky</div>
                 <div class="text poznamky-od">Popis požiadavky od klienta</div>
                 <div class="text poznamky-pre">Poznámka pre klienta</div>
+
                 <template if:true={ConcreteKLZData}>
                     <template for:each={ConcreteKLZData} for:item="data">
-                <lightning-textarea key={data.Id} label="" value={data.Description} class="poznamky-od1" >
-            </lightning-textarea>
-                    </template>
-                </template>
-                <textarea  class="poznamky-pre1" cols="1" >
-            </textarea>
+                    <textarea disabled
+                            key={data.Id}
+                            value={data.Description}
+                            class="poznamky-od1"
+
+                    >{data.Description}
+                    </textarea>
+
+
+                <lightning-textarea
+                        key={data.Id}
+                        class="poznamky-pre1" cols="1"
+                        value={data.Poznamka_pre_klienta__c}
+                        onchange={handleUpdateKlz}
+                >
+                </lightning-textarea>
+
+</template>
+</template>
             </div>
+
             <div class="box third-box">
                 <div class="header">Kalkulácie</div>
                 <button onclick={openKalModal} class="slds-button button-nova slds-button_brand">
                     <svg class=" button1 slds-button__icon slds-button__icon_left " aria-hidden="true">
                         <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#add"></use>
-                    </svg>Nová kalkulácia</button>
+                    </svg>Nová kalkulácia
+                </button>
+
                 <template if:true={openModal} >
                     <c-custom-modal onclose={closeKalModal} >
-
-                        <c-tab-navigation_-k-l-z_-kalkulacia klz-i-d={klzID} onclose={closeKalModal} onrenderkalkulacia= {getKalkulacia}></c-tab-navigation_-k-l-z_-kalkulacia>
-
+                        <c-tab-navigation_-k-l-z_-kalkulacia klz-i-d={klzID} onclose={closeKalModal} ></c-tab-navigation_-k-l-z_-kalkulacia>
                     </c-custom-modal>
                 </template>
+
+                <template if:true={prvokModal}>
+                    <c-custom-modal onclose={closePrvokModal}>
+                        <c-tab-navigation_-prvky flat-i-d={flatID} onprvok={getPrvok}></c-tab-navigation_-prvky>
+                    </c-custom-modal>
+                </template>
+
 
                 <div class="rows">
                     <h2 class="textR text1">Aktivácia</h2>
@@ -102,29 +161,23 @@
                             <h2 class="textRow text3">{kalkulacia.Stav__c}</h2>
                             <h2 class="textRow text4">{kalkulacia.Cena__c}€</h2>
 
-
                             <button class="button1 row-button-open"><svg class="slds-icon_xx-small slds-input__icon icon-search-input__icon slds-input__icon_left " aria-hidden="true">
-                                <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#arrow_right"></use></svg></button>
-                            <button class="button2 row-button-open"><svg class="slds-icon_xx-small slds-input__icon icon-search-input__icon slds-input__icon_left " aria-hidden="true">
-                                <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#delete"></use></svg></button>
+                                <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#arrow_right"></use></svg>
+                            </button>
+                            <button onclick={deleteKalkulacia} data-id={kalkulacia.Id} class="button2 row-button-open"><svg class="slds-icon_xx-small slds-input__icon icon-search-input__icon slds-input__icon_left " aria-hidden="true">
+                                <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#delete"></use></svg>
+                            </button>
                         </div>
                     </template>
                 </template>
 
                 <template if:true={sumaKalkulacia}>
-                <h1 class="cena">Celkova cena kalkulacie : {sumaKalkulacia.expr0}€</h1>
+                    <h1 class="cena">Celkova cena kalkulacie : {sumaKalkulacia.expr0}€</h1>
                 </template>
 
             </div>
 
-
-
-
-
-
-
         </div>
-
 
     </div>
 </template>

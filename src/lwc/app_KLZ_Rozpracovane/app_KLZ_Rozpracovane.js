@@ -8,13 +8,20 @@ import getKLZRozpracovane from '@salesforce/apex/KLZController.getKLZRozpracovan
 
 export default class AppKlz extends LightningElement {
     @api flatID;
+    @api caseID
     @track bytData;
     @track getRozpracovaneData = [];
+    @track cennik = false
 
     @track mojByt = false;
     @track klz = true;
     @track klzOdoslane = false;
     @track klzRozpracovaneInside = false;
+
+    goToCennik(){
+        this.cennik = !this.cennik;
+        this.klz = !this.klz;
+    }
 
     goToMojByt(){
         this.mojByt = !this.mojByt;
@@ -26,12 +33,13 @@ export default class AppKlz extends LightningElement {
 
     }
 
-    goToRozpracovaneInside(){
+    goToRozpracovaneInside(event){
         this.klz = !this.klz;
         this.klzRozpracovaneInside = !this.klzRozpracovaneInside;
+        this.caseID = event.currentTarget.dataset.id;
     }
 
-    renderedCallback() {
+    connectedCallback() {
         this.getKLZRozpracovaneData();
         this.getBytData();
     }

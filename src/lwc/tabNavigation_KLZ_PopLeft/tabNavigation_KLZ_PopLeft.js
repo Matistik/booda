@@ -19,14 +19,11 @@ export default class TabNavigationKlzPopLeft extends LightningElement {
     @track odoslaneData;
 
 
-    renderedCallback() {
 
-
-        this. getBytData()
-    }
 
     connectedCallback() {
         this.getKLZ();
+        this.getBytData()
     }
 
     getBytData() {
@@ -92,8 +89,8 @@ export default class TabNavigationKlzPopLeft extends LightningElement {
             .catch(error => {
                 console.log(error);
             })
-
     }
+
 
 
     getConcreteKLZ(){
@@ -101,7 +98,6 @@ export default class TabNavigationKlzPopLeft extends LightningElement {
         getConcreteKLZ({klzID: this.klzID})
             .then(response => {
                 this.ConcreteKLZData = response;
-                console.log("lava strana concrete" + this.klzID)
             })
             .catch(error => {
                 console.log(error);

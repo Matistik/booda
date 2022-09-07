@@ -2,7 +2,7 @@
  - Created by mgons on 8/2/2022.
  -->
 
-<apex:page id="PdfKlzPage" renderAs="pdf" standardStylesheets="false"  controller="PdfController">
+<apex:page id="PdfKlzPage" renderAs="pdf" standardStylesheets="false" controller="PdfController">
     <apex:includeLightning />
     <apex:stylesheet value="{!$Resource.css_file_PdfKlzPage}"/>
     <html >
@@ -10,34 +10,34 @@
 <div class="container">
 
 
-    <table style="width:100%">
+    <table style="width:100%;font-family: 'Arial Unicode MS';">
         <tr>
             <td style="width:50%;padding:5px;">
                 <table style="width:100%">
                     <tr>
                         <td style="width:25%;padding:5px;">
-                            <div class="popis txtLeft">Projekt:</div>
-                            <div class="popis txtLeft">Byt:</div>
+                            <div style="color: gray" class="popis txtLeft">Projekt:</div>
+                            <div style="color: gray" class="popis txtLeft">Byt:</div>
                         </td>
                         <td style="width:75%; padding:5px;">
-                            <div class="txtData txtProject"><apex:outputText value="{!$ObjectType.Byt__c.fields.Projekt__c.label}"/></div>
-                            <div class="txtData txtByt">{!$ObjectType.Byt__c.Name} {!$ObjectType.Byt__c.fields.Ozna_enie__c.label}</div>
+                            <div class="txtData txtProject"><apex:outputText value="{!byt.Projekt__c}"/></div>
+                            <div class="txtData txtByt">{!byt.Name} {!byt.Ozna_enie__c}</div>
                         </td>
                     </tr>
                 </table >
             </td>
             <td style="width:50%; border-left:1px black solid; padding:5px;">
-                <table style="width:100%">
+                <table style="width:100%;font-family: 'Arial Unicode MS';">
                     <tr>
                         <td style="width:50%;padding:5px;">
-                            <div class="popis txtRight">Budúci vlastník:</div>
-                            <div class="popis txtRight">E-mail:</div>
-                            <div class="popis txtRight">Telefón:</div>
+                            <div style="color: gray" class="popis txtRight">Budúci vlastník:</div>
+                            <div style="color: gray" class="popis txtRight">E-mail:</div>
+                            <div style="color: gray" class="popis txtRight">Telefón:</div>
                             </td>
                         <td style="width:50%; padding:5px;">
-                            <div class="popis txtRight">Budúci vlastník:</div>
-                            <div class="popis txtRight">E-mail:</div>
-                            <div class="popis txtRight">Telefón:</div>
+                            <div class="popis txtRight">{!acc.Name}</div>
+                            <div class="popis txtRight">{!acc.PersonEmail}</div>
+                            <div class="popis txtRight">{!acc.Phone}</div>
                         </td>
                     </tr>
                     </table >
@@ -48,20 +48,75 @@
     </table>
     <div class="line"></div>
 </div>
-    <div class="second" style="width:100%">
-        <div class="popisSecondLeft" style="float:left;width:50%;">Typ klientskej zmeny</div>
-        <div class="popisSecondRight" style="float:left;width:50%;">Paušálny poplatok</div>
+    <div class="second" style="width:100%;font-family: 'Arial Unicode MS';">
+        <div class="popisSecondLeft" style="float:left;width:50%;color: gray;">Typ klientskej zmeny</div>
+        <div class="popisSecondRight" style="float:left;width:50%;color: gray;">Paušálny poplatok</div>
     </div>
-    <div class="second secondBold" style="width:100%">
+    <div class="second secondBold" style="width:100%;font-family: 'Arial Unicode MS';">
         <div class="popisSecondLeft" style="float:left;width:50%;">Malé zmeny </div>
         <div class="popisSecondRight" style="float:left;width:50%;">500€</div>
     </div>
     <p class="text"> Nejaky textik dlhsi :) </p>
     <div class="line"></div>
-    <div class="second" style="width:100%">
-        <div class="popisSecondLeft" style="float:left;width:50%;">Odsúhlasené zmeny</div>
-        <div class="popisSecondRight" style="float:left;width:50%;">Cena</div>
+    <div class="second" style="width:100%;font-family: 'Arial Unicode MS';">
+        <div class="popisSecondLeft" style="float:left;width:50%;color: gray;">Odsúhlasené zmeny</div>
+        <div class="popisSecondRight" style="float:left;width:50%;color: gray;">Cena</div>
     </div>
-    <div class="line"></div>
+    <div class="line-grey"></div>
+    <table style="width:100%;font-family: 'Arial Unicode MS';">
+        <apex:repeat var="cases" value="{!KlzList}">
+        <tr>
+
+
+            <td style="width:50%;padding:5px;">
+                <div class="popis txtRight">{!cases.CaseNumber}</div>
+                <div class="popis txtRight">{!cases.Description}</div>
+            </td>
+
+            <td style="width:50%; padding:5px;">
+                <div class=" secondBold popisSecondRight">500€</div>
+
+            </td>
+        </tr>
+
+        </apex:repeat>
+    </table >
+    <div class="line-bold"></div>
+    <table style="width:100%;font-family: 'Arial Unicode MS';">
+        <tr>
+            <td style="width:70%;padding:5px;">
+
+            </td>
+
+            <td style="width:15%; padding:5px;">
+                <div class="popisSecondRight">Celkom:</div>
+
+            </td>
+            <td style="width:15%; padding:5px;">
+                <div class="secondBold popisSecondRight">1000€</div>
+
+            </td>
+        </tr>
+    </table >
+    <p class="text"> Nejaky textik dlhsi :) </p>
+    <table style="width:100%;font-family: 'Arial Unicode MS';">
+        <tr>
+            <td style="width:60%;padding:5px;">
+
+            </td>
+
+            <td style="width:20%; padding:5px;">
+                <div class="line-grey"></div>
+                <div style="color: gray" class="popisMiddle">Dátum</div>
+
+            </td>
+            <td style="width:20%; padding:5px;">
+                <div class="line-grey"></div>
+
+                <div style="color: gray" class="popisMiddle grey">Podpis klienta</div>
+
+            </td>
+        </tr>
+    </table >
     </html>
 </apex:page>

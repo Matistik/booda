@@ -44,15 +44,21 @@
     padding-bottom: 0px;
     color: darkgray;
     padding-top: 5px;
-
+    align-self: end;
 }
 .text-diff{
     font-size: x-small;
-    grid-column: 8/16;
+    grid-column: 10/16;
     padding-bottom: 0px;
     color: darkgray;
-
 }
+.lref{
+    grid-column: 1/16;
+}
+.slds-p-top-small{
+    grid-column: 1/16;
+}
+
 .nazov{
     grid-column: 1/16;
     align-self: center;
@@ -67,6 +73,13 @@
     height: 35px;
     border-radius: 8px;
 }
+.dropdown1{
+    grid-column: 1/16;
+    align-self: center;
+    resize: none;
+    height: 35px;
+    border-radius: 8px;
+}
 .termin{
     grid-column: 1/10;
 }
@@ -75,7 +88,6 @@
     align-self: center;
     min-height: 35px !important;
     border-radius: 8px;
-
 }
 .poznamky{
     grid-column: 1/16;
@@ -89,11 +101,9 @@
 }
 .poznamky-od3{
     grid-column: 1/16;
-    align-self: center;
-    resize: none;
-    height: 35px;
-    border-radius: 8px;
-    padding-left: 5px;
+    font-size: 10px;
+    margin-bottom: 0px;
+    padding-top: 6px;
 }
 .poznamky-pre{
     grid-column: 10/16;
@@ -198,4 +208,13 @@
 .cena{
     grid-column: 10/16;
     padding-top: 10px;
+}
+:host {
+    --dxp-s-form-element-label-font-size:10px;
+}
+.buttonZobraz{
+    grid-column: 6/15;
+    max-height: 30px;
+    border-radius: 4px;
+border-width: 0px;
 }

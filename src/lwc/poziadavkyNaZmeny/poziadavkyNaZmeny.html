@@ -19,15 +19,14 @@
         </div>
 
         <div>
-            <c-poziadavky-na-zmeny-list onnewklz={renderToKlz}></c-poziadavky-na-zmeny-list>
+            <c-poziadavky-na-zmeny-list ongotoklz= {renderToKlz}></c-poziadavky-na-zmeny-list>
         </div>
 
     </div>
 </template>
 
-
-
-
-
+    <template if:true={renderToKlzNew}>
+        <c-tab-navigation_-k-l-z_-wrapper klz-i-d={klzID} flat-i-d={flatID}></c-tab-navigation_-k-l-z_-wrapper>
+    </template>
 
 </template>

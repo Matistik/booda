@@ -7,7 +7,7 @@ import saveCase  from '@salesforce/apex/NovaKLZController.saveCaseRecord';
 import Description_Field from '@salesforce/schema/Case.Description';
 import Subject_Field from '@salesforce/schema/Case.Subject';
 
-import {ShowToastEvent} from 'lightning/platformShowToastEvent';
+import ShowToastEvent from 'lightning/platformShowToastEvent';
 
 export default class TabNavigationNovaKlz extends LightningElement {
 
@@ -34,7 +34,7 @@ export default class TabNavigationNovaKlz extends LightningElement {
             .then(result => {
                 // Clear the user enter values
                 this.caseRecord = {};
-
+                this.dispatchEvent(new CustomEvent('close'));
                 window.console.log('result ===> '+result);
                 // Show success messsage
                 this.dispatchEvent(new ShowToastEvent({
@@ -48,7 +48,7 @@ export default class TabNavigationNovaKlz extends LightningElement {
             });
 
         this.dispatchEvent(new CustomEvent('render'));
-        this.dispatchEvent(new CustomEvent('close'));
+
 
     }
 

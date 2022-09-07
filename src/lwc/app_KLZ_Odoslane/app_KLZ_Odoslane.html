@@ -27,8 +27,8 @@
 
             <template if:true={getOdoslaneData}>
                 <template for:each={getOdoslaneData} for:item="odoslane">
-            <div class="rows " key={odoslane.Id}>
-                <p1 class="header-row">{odoslane.CaseNumber}</p1>
+            <div class="rows " key={odoslane.Id} onclick={goToOdoslaneInside} data-id={odoslane.Id}>
+                <p1 class="header-row">{odoslane.ID_KLZ__c}</p1>
                 <label class="label">{odoslane.Description}</label>
                 <p1 class="end"><i class="arrowBlack right"></i></p1>
             </div>
@@ -45,6 +45,10 @@
 
     <template if:true={klz}>
         <c-app_-k-l-z_-rozpracovane flat-i-d={flatID}></c-app_-k-l-z_-rozpracovane>
+    </template>
+
+    <template if:true={klzOdoslaneInside}>
+        <c-app_-k-l-z_-odoslane_-inside flat-i-d={flatID} case-i-d={caseID}></c-app_-k-l-z_-odoslane_-inside>
     </template>
 
 </template>

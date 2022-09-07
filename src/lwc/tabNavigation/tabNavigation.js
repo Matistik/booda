@@ -11,6 +11,7 @@ export default class TabNavigation extends LightningElement {
     @track standard = true;
     @track subory = true;
     @track klz = true;
+    @api klzID
 
     @track showTabs = true;
     @track showNewKlz = false;
@@ -30,12 +31,15 @@ export default class TabNavigation extends LightningElement {
     }
 
     handleRenderToKlz(){
+        console.log("chcem ist na klz");
         this.dispatchEvent(new CustomEvent('klz'));
     }
 
 
     handleRenderToFlats(){
+        console.log("chcem ist na byty");
         this.dispatchEvent(new CustomEvent('flat'));
+
     }
 
     showTemplateOrStandard(){
@@ -47,15 +51,34 @@ export default class TabNavigation extends LightningElement {
 
     showTemplateOrKLZ(){
         console.log("asd")
+        this.showTabs= true
+        this.showNewKlz = false
         this.template=false;
         this.subory=false;
+        this.standard = false
         this.klz=true;
-        this.standard=false;
     }
 
-    renderToNewKLZ(){
+    renderToNewKLZ(event){
         this.showTabs = false;
         this.showNewKlz = true;
+        this.klzID = event.detail.id
+    }
+
+    showTabOrKLZ(){
+        this.showNewKlz = false
+        this.klz = true
+        this.showTabs = true
+
+    }
+
+    renderToFlat(){
+        this.showNewKlz = false
+        this.showTabs = true
+    }
+
+    renderKom(){
+        this.template.querySelector("c-tab-navigation_-komunikacia").getKLZforComm();
     }
 
 }

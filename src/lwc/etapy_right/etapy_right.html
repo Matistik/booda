@@ -24,7 +24,7 @@
 
         <template if:true={byty}>
             <template for:each={byty} for:item="byt">
-        <div class="rows-text" key={byt.Id}>
+        <div class="rows-text" key={byt.Id} onclick={renderToByt} data-id={byt.Id}>
             <h2 class="textRow text1">{byt.Vchod__c}</h2>
             <h2 class="textRow text2">{byt.Ozna_enie__c}</h2>
             <h2 class="textRow text3">{byt.Poschodie__c}</h2>

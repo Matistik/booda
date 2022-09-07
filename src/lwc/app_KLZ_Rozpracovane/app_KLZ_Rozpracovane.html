@@ -19,7 +19,7 @@
     <div class="container">
         <div class="header">Klientské zmeny:</div>
         <div class="button-box">
-            <button class="slds-button ">Cenník
+            <button onclick={goToCennik} class="slds-button ">Cenník
                 <svg class="slds-button__icon slds-button__icon_right" aria-hidden="true">
                     <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#arrow_right"></use>
                 </svg>
@@ -34,8 +34,8 @@
 
             <template if:true={getRozpracovaneData}>
                 <template for:each={getRozpracovaneData} for:item="rozpracovane">
-                    <div onclick={goToRozpracovaneInside} class="rows" key={rozpracovane.Id}>
-                        <p1 class="header-row">{rozpracovane.CaseNumber}</p1>
+                    <div onclick={goToRozpracovaneInside} class="rows" key={rozpracovane.Id} data-id={rozpracovane.Id}>
+                        <p1 class="header-row">{rozpracovane.ID_KLZ__c}</p1>
                         <label class="label">{rozpracovane.Description}</label>
                         <p1 class="end"><i class="arrowBlack right"></i></p1>
                     </div>
@@ -55,7 +55,11 @@
     </template>
 
     <template if:true={klzRozpracovaneInside}>
-        <c-app_-k-l-z_-rozpracovane_inside flat-i-d={flatID}></c-app_-k-l-z_-rozpracovane_inside>
+        <c-app_-k-l-z_-rozpracovane_inside flat-i-d={flatID} case-i-d={caseID}></c-app_-k-l-z_-rozpracovane_inside>
+    </template>
+
+    <template if:true={cennik}>
+        <c-app_-cennik flat-i-d={flatID}></c-app_-cennik>
     </template>
 
 </template>

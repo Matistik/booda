@@ -1,0 +1,19 @@
+<!--
+ - Created by mgons on 9/4/2022.
+ -->
+
+<!-- Tab Navigation Klz Pop Right Wrapper -->
+<template>
+    <div class="container">
+        <button class="button">Detaily zmeny</button>
+        <button  class="button">Označenie v pôdoryse</button>
+    </div>
+    <div class="body">
+        <template if:true={detail}>
+            <c-tab-navigation_-k-l-z_-pop-right flat-i-d={flatID}></c-tab-navigation_-k-l-z_-pop-right>
+        </template>
+        <template if:true={oznacenie}>
+            <c-tab-navigation_-k-l-z_-pop-right-podorys flat-i-d={flatID}></c-tab-navigation_-k-l-z_-pop-right-podorys>
+        </template>
+    </div>
+</template>

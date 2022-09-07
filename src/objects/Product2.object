@@ -376,9 +376,24 @@
                     <label>Ovládacia doska splachovania</label>
                 </value>
                 <value>
+                    <fullName>Podlaha</fullName>
+                    <default>false</default>
+                    <label>Podlaha</label>
+                </value>
+                <value>
+                    <fullName>Prechodová lišta</fullName>
+                    <default>false</default>
+                    <label>Prechodová lišta</label>
+                </value>
+                <value>
                     <fullName>Rámik elektrickej zásuvky</fullName>
                     <default>false</default>
                     <label>Rámik elektrickej zásuvky</label>
+                </value>
+                <value>
+                    <fullName>Soklová lišta</fullName>
+                    <default>false</default>
+                    <label>Soklová lišta</label>
                 </value>
                 <value>
                     <fullName>Umývadlo bez batérie</fullName>

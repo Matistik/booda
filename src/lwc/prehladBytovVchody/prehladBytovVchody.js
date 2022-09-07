@@ -13,6 +13,7 @@ export default class PrehladBytovVchody extends LightningElement {
     @track etapyData;
 
     @api bytVchod;
+    @api etapaID
 
     renderedCallback() {
         this.getVchodyList();
@@ -39,26 +40,10 @@ export default class PrehladBytovVchody extends LightningElement {
             })
     }
 
-
-    @api handleRenderSpecVchod(event){
-
-        let caseId = event.currentTarget.dataset.id;
-        this.bytVchod = caseId;
-
-        console.log('CHild1 vchod ' + caseId);
-
-        let eventToDispatch = new CustomEvent('vchod', {
-            detail: {
-                id: caseId,
-            }
-        });
-        this.dispatchEvent(eventToDispatch)
-    }
-
     @api handleRenderVsetkyVchody(event){
 
         let caseId = event.currentTarget.dataset.id;
-        console.log('CHild1 vchod ' + caseId);
+        console.log(' vsetky vchody etapy ' + caseId);
 
         let eventToDispatch = new CustomEvent('vsetkyvchody', {
             detail: {
@@ -68,12 +53,28 @@ export default class PrehladBytovVchody extends LightningElement {
         this.dispatchEvent(eventToDispatch)
     }
 
-    @api handleRenderVsetkyEtapy(event){
+    @api handleRenderSpecVchod(event){
 
         let caseId = event.currentTarget.dataset.id;
         this.bytVchod = caseId;
 
-        console.log('CHild1 vchod ' + caseId);
+        console.log('vchod ' + caseId);
+
+        let eventToDispatch = new CustomEvent('vchod', {
+            detail: {
+                id: caseId,
+            }
+        });
+        this.dispatchEvent(eventToDispatch)
+    }
+
+
+
+    @api handleRenderVsetkyEtapy(event){
+
+        let caseId = event.currentTarget.dataset.id;
+        console.log('etapa id ' + caseId);
+
 
         let eventToDispatch = new CustomEvent('vsetkyetapy', {
             detail: {

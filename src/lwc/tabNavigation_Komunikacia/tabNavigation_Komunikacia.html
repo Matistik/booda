@@ -5,39 +5,53 @@
 <!-- Komunikacia -->
 <template>
     <div class="wrapper">
-    <div class="container">
+        <div class="container">
+
+            <div class="rows-headers">
+                <div class="header">Komunikácia</div>
+            </div>
+            <div class="slds-scrollable_y">
+                <template if:true={caseData}>
+                    <template for:each={caseData} for:item="cases">
+                        <div class="rows" key={cases.Id} data-id={cases.Id} onclick={renderComments}>
+                            <h2 class="textRow text1" key={cases.Id}>{cases.ID_KLZ__c}</h2>
+                            <template if:true={cases.Neprecitane_spravy_od_klienta__c}>
+                                <h2 class="textRow text2" key={cases.Id}>Neprečítané správy:
+                                    {cases.Neprecitane_spravy_od_klienta__c}</h2>
+                            </template>
+                            <h2 class="textRow text1" key={cases.Id}>{cases.Subject}</h2>
+                        </div>
+                    </template>
+                </template>
+            </div>
+        </div>
+        <div class="empty">a</div>
 
         <div class="rows-headers">
-            <div class="header">Komunikacia</div>
+            <div class="header">Vlákna</div>
+            <lightning-button class="vlaknoButton" label="Pridať vlákno" onclick={openVlaknoModal}></lightning-button>
+            <template if:true={openVlakno}>
+                <c-custom-modal onclose={closeVlaknoModal}>
+                <c-nove-vlakno flat-i-d={flatID} onrendervlakno={getVlakna} onclosevlakno={closeVlaknoModal}>
 
-<!--            <button class="slds-button slds-button_brand" onclick={openpvModal}>-->
-<!--                <svg class=" button1 slds-button__icon slds-button__icon_left " aria-hidden="true">-->
-<!--                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#add"></use>-->
-<!--                </svg>Pridať vlákno</button>-->
-<!--            <template if:true={openModal}>-->
-<!--                <c-custom-modal onclose={closepvModal}>-->
-
-
-
-<!--                </c-custom-modal>-->
-<!--            </template>-->
-        </div>
-        <div class="slds-scrollable_y"  >
-        <template if:true={caseData}>
-            <template for:each={caseData} for:item="cases">
-                <div class="rows" key={cases.Id} data-id={cases.Id} onclick={renderComments}>
-                    <h2 class="textRow text1" key={cases.Id}>{cases.CaseNumber}</h2>
-                    <h2 class="textRow text1" key={cases.Id}>{cases.Subject}</h2>
-<!--                    <h2 class="textRow text1" key={comment.Id}>name{comment.Name}</h2>-->
-<!--                    <h2 class="textRow text1" key={comment.Id}>id{comment.Subject}</h2>-->
-<!--                    <button class="button1 row-button-open">-->
-<!--                        <svg class="slds-icon_xx-small slds-input__icon icon-search-input__icon slds-input__icon_left " aria-hidden="true"><use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#arrow_right"></use></svg>-->
-<!--                    </button>-->
-                </div>
-        </template>
-        </template>
+                </c-nove-vlakno>
+                </c-custom-modal>
+            </template>
         </div>
 
-    </div>
+        <div class="slds-scrollable_y">
+            <template if:true={vlaknaData}>
+                <template for:each={vlaknaData} for:item="vlakna">
+                    <div class="rows" key={vlakna.Id} data-id={vlakna.Id} onclick={renderVlaknaComments}>
+                        <h2 class="textRow text1" key={vlakna.Id}>{vlakna.Name}</h2>
+                                                    <template if:true={vlakna.Vlakno_neprecitane_spravy_od_klienta__c}>
+                                                        <h2 class="textRow text2" key={vlakna.Id}>Neprečítané správy:
+                                                            {vlakna.Vlakno_neprecitane_spravy_od_klienta__c}</h2>
+                                                    </template>
+                    </div>
+                </template>
+            </template>
+        </div>
+
     </div>
 </template>

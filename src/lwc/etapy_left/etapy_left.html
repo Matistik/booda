@@ -7,7 +7,7 @@
         <template if:true={etapyData}>
             <template for:each={etapyData} for:item="etapa">
         <div class="rows" key={etapa.Id}>
-            <button class= "button slds-button_stretch" onclick={handleRenderSpecEtapy} data-id={etapa.Etapa__c}>{etapa.Etapa__c}</button>
+            <button class= "button slds-button_stretch" onclick={handleRenderSpecEtapy} data-id={etapa.Id}>{etapa.Name}</button>
         </div>
             </template>
         </template>

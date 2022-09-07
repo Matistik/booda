@@ -7,11 +7,13 @@ import getLineItem from '@salesforce/apex/StandardyController.getLineItems';
 import getLineItemMiestnost from '@salesforce/apex/StandardyController.getLineItemsMiestnost';
 import getProductsFromStandard from '@salesforce/apex/StandardyController.getProductsFromStandard';
 import getPrvky from '@salesforce/apex/StandardyController.getPrvky';
+import getMiestnostName from '@salesforce/apex/StandardyController.getMiestnostName';
 
 export default class StandardyProduktyLeft extends LightningElement {
 
     @api flatID;
     @track prvky;
+    @track miestnostName;
 
 
 
@@ -31,7 +33,20 @@ export default class StandardyProduktyLeft extends LightningElement {
     }
 
     @api getPrvky(miestnost){
+
         console.log(miestnost)
+        getMiestnostName({prvokID: miestnost})
+            .then(response => {
+                this.miestnostName = response;
+            })
+            .catch(error => {
+                console.log(error);
+            })
+
+
+
+
+
         getPrvky({MiestnostID: miestnost})
             .then(response => {
 

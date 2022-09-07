@@ -5,6 +5,7 @@
 import {api, LightningElement, track} from 'lwc';
 import getStandardy from '@salesforce/apex/DashboardController.getStandardy';
 import getLineCount from '@salesforce/apex/StandardyController.getLineCount';
+import setFlatIdForPdf from '@salesforce/apex/PdfController.setFlatIdForPdf';
 
 export default class DashboardStandardy extends LightningElement {
 
@@ -48,9 +49,18 @@ export default class DashboardStandardy extends LightningElement {
 
     openpdfModal() {
         this.openModal = true;
+        this.generateFlatIdForPdf();
     }
 
     closepdfModal() {
         this.openModal = false;
+    }
+    generateFlatIdForPdf(){
+        setFlatIdForPdf({flatID: this.flatID})
+            .then(response => {console.log(response)})
+            .catch(error => {console.log(error)})
+
+
+
     }
 }

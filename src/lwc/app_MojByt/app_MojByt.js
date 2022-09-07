@@ -4,12 +4,16 @@
 
 import {api, LightningElement, track} from 'lwc';
 import getByt from '@salesforce/apex/DashboardController.getByt';
+import getUnreadMenezer from '@salesforce/apex/KomunikaciaController.getCountOfUnreadMessagesFromMenezer';
+import getUnreadMenezerApp from '@salesforce/apex/KomunikaciaController.getCountOfUnreadMessagesFromMenezerApp';
 
 export default class AppMojByt extends LightningElement {
     @api flatID;
     @api caseID;
-    @track bytData;
 
+    @track unreadMenezer;
+    @track unreadAll;
+    @track bytData;
     @track mojByt = true;
     @track miestnosti = false;
     @track podorysy = false;
@@ -19,49 +23,58 @@ export default class AppMojByt extends LightningElement {
     @track terminy = false;
     @track spravy = false;
 
-    goToPodorysy(){
+    goToPodorysy() {
         this.mojByt = !this.mojByt;
         this.podorysy = !this.podorysy;
     }
 
-    goToZoznamMiestnosti(){
-    this.mojByt = !this.mojByt;
-    this.miestnosti = !this.miestnosti;
+    goToZoznamMiestnosti() {
+        this.mojByt = !this.mojByt;
+        this.miestnosti = !this.miestnosti;
     }
 
-    goToStandardy(){
+    goToStandardy() {
         this.mojByt = !this.mojByt;
         this.standardy = !this.standardy;
     }
 
-    goToKlz(){
+    goToKlz() {
         this.mojByt = !this.mojByt;
         this.klz = !this.klz;
     }
 
-    goToSubory(){
+    goToSubory() {
         this.mojByt = !this.mojByt;
         this.subory = !this.subory;
     }
 
-    goToTerminy(){
+    goToTerminy() {
         this.mojByt = !this.mojByt;
         this.terminy = !this.terminy;
     }
 
-    goToSpravy(){
+    goToSpravy() {
         this.mojByt = !this.mojByt;
         this.spravy = !this.spravy;
     }
 
     renderedCallback() {
         this.getBytData();
+        this.getUnreadMenezer();
+    }
+
+    getUnreadMenezer(){
+        getUnreadMenezer({flatId: this.flatID})
+            .then(response =>
+            {this.unreadMenezer = response;
+            })
+            .catch(error => {
+                console.error(error);
+            })
     }
 
     getBytData() {
-        console.log("flatid;;;;"+this.flatID);
-
-        getByt({ bytId: this.flatID })
+        getByt({bytId: this.flatID})
             .then(response => {
                 this.bytData = response;
 
@@ -70,5 +83,4 @@ export default class AppMojByt extends LightningElement {
                 console.error(error);
             })
     }
-
 }

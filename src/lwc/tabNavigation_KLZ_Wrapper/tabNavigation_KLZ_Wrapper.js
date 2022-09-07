@@ -36,10 +36,6 @@ export default class TabNavigationKlzWrapper extends LightningElement {
                 console.error(error);
             })
 
-
-
-
-
     }
 
     getKLZ(){
@@ -79,14 +75,17 @@ export default class TabNavigationKlzWrapper extends LightningElement {
 
     handleRenderToHome(){
         this.dispatchEvent(new CustomEvent('home'))
+        console.log("handle render to home")
     }
 
     handleRenderToKlz(){
         this.dispatchEvent(new CustomEvent('klz'))
+        console.log("handle render to klz")
     }
 
     handleRenderToFlat(){
         this.dispatchEvent(new CustomEvent('flat'))
+        console.log("handle render to flat")
     }
 
 }

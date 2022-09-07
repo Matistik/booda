@@ -186,6 +186,94 @@
         <type>Date</type>
     </fields>
     <fields>
+        <fullName>OstavaDniDU__c</fullName>
+        <externalId>false</externalId>
+        <formula>DefinitivnaUzavierka__c - TODAY ()</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Ostáva dní DU</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OstavaDniFM__c</fullName>
+        <externalId>false</externalId>
+        <formula>FixnutieMurovaciek__c - TODAY ()</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Ostáva dní FM</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OstavaDniFP__c</fullName>
+        <externalId>false</externalId>
+        <formula>FixnutieProfesii__c  - TODAY ()</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Ostáva dní FP</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OstavaDniFS__c</fullName>
+        <externalId>false</externalId>
+        <formula>FixnutieStatiky__c - TODAY ()</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Ostáva dní FS</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OstavaDniUKLZ__c</fullName>
+        <externalId>false</externalId>
+        <formula>UzavierkaKLZ__c - TODAY()</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Ostáva dní UKLZ</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OstavaDniUS__c</fullName>
+        <externalId>false</externalId>
+        <formula>UzavierkaStandardov__c - TODAY()</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Ostáva dní US</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Projekt__c</fullName>
+        <externalId>false</externalId>
+        <label>Projekt</label>
+        <length>100</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>UzavierkaKLZ__c</fullName>
         <externalId>false</externalId>
         <label>Uzávierka KLZ</label>

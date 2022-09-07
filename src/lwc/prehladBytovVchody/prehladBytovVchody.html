@@ -32,8 +32,8 @@
         <template if:true={etapyData}>
             <template for:each={etapyData} for:item="etapa">
 
-        <div class="rows" key={etapa.Id}>
-            <h2 class="h1" onclick={handleRenderVsetkyEtapy} data-id={etapa.Etapa__c} >{etapa.Etapa__c}</h2>
+        <div class="rows" key={etapa.Id} >
+            <h2 class="h1" onclick={handleRenderVsetkyEtapy} data-id={etapa.Id} >{etapa.Name}</h2>
         </div>
 
             </template>

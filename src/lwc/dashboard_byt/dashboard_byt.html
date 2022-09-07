@@ -8,13 +8,13 @@
         <div class="container">
 
             <div class="rows">
-                <h2 class="row1">byt Name: {bytData.Name}</h2>
+                <h2 class="row1">Byt</h2>
                 <button onclick={openKAModal} class="button2">Klietn App</button>
             </div>
             <template if:true={openModal}>
                 <c-custom-modal onclose={closeKAModal}>
 
-                    <c-app_-moj-byt flat-i-d={flatID} case-i-d={caseID}></c-app_-moj-byt>
+                    <c-app_-moj-byt flat-i-d={flatID}></c-app_-moj-byt>
 
                 </c-custom-modal>
             </template>
@@ -35,20 +35,22 @@
                 <h2 class="text1">{bytData.Izbovos__c}</h2>
             </div>
 
-            <div class="area1-nadpis">
-                <label class="label1">Číslo ZoBKZ / KZ</label>
-            </div>
+            <!--            <div class="area1-nadpis">-->
+            <!--                <label class="label1">Číslo ZoBKZ / KZ</label>-->
+            <!--            </div>-->
 
             <div class="rows">
-                <textarea class="area1">{bytData.slo_ZoBKZ_KZ__c}</textarea>
+                <lightning-textarea onchange={handleSaveByt} label="Číslo ZoBKZ / KZ" class="area1"
+                                    value={bytData.slo_ZoBKZ_KZ__c}></lightning-textarea>
             </div>
 
-            <div class="area1-nadpis">
-                <label>Poznámky:</label>
-            </div>
+            <!--            <div class="area1-nadpis">-->
+            <!--                <label>Poznámky:</label>-->
+            <!--            </div>-->
 
             <div class="rows">
-                <textarea class="area2" rows="4"></textarea>
+                <lightning-textarea onchange={handleSaveByt} label="Poznámky:" class="area2"
+                                    value={bytData.Pozn_mky__c}></lightning-textarea>
             </div>
 
         </div>

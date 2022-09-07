@@ -6,29 +6,35 @@
 <template>
     <template if:true={klzRozpracovaneInside}>
     <div class="navigation">
-        <button onclick={goToKlzRozpracovane} class="button"><i class="arrow left"></i>&nbsp;Môj Byt</button>
+        <button onclick={goToKlzRozpracovane} class="button"><i class="arrow left"></i>&nbsp;Klientské zmeny</button>
 
     </div>
-    <div class="small-navigation">
-        <h2 class="small-header header1">Byt A.501</h2>
-        <h2 class="small-header header2">Poschodie 5</h2>
-        <h2 class="small-header header3">Izbovosť 3,5i</h2>
-    </div>
-    <div class="container">
-        <div class="header">Klientská zmena:</div>
-        <div class="header-name">KLZ-blabla-000</div>
-        <div class="header-state">Zadané koordinátorom</div>
+        <template if:true={bytData}>
+            <div class="small-navigation" key={bytData.Id}>
+                <h2 class="small-header header1">Byt {bytData.Ozna_enie__c}</h2>
+                <h2 class="small-header header2">Poschodie {bytData.Poschodie__c}</h2>
+                <h2 class="small-header header3">Izbovosť {bytData.Izbovos__c}</h2>
+            </div>
+        </template>
+
+
+        <template if:true={klzData}>
+            <template for:each={klzData} for:item="klz">
+    <div key={klz.Id} class="container">
+        <div key={klz.Id} class="header">Klientská zmena:</div>
+        <div key={klz.Id} class="header-name">{klz.ID_KLZ__c}</div>
+        <div key={klz.Id} class="header-state">Zadané koordinátorom</div>
         <lightning-helptext class="lgc-bg" content="Čo najpresnejšie označte miesto v grafických podkladoch, ku ktorému sa požadovaná zmena vzťahuje"></lightning-helptext>
 
-        <div class="rows ">
+        <div key={klz.Id} class="rows ">
             <p1 class="header-row">Pozícia zmeny:</p1>
-            <label class="label">Where zmena</label>
+            <label class="label">Presne oznacenie v podoryse</label>
             <p1 class="end"><i class="arrowBlack right"></i></p1>
         </div>
-        <div class="header-txt">Popis zmeny *</div>
+        <div key={klz.Id} class="header-txt">Popis zmeny *</div>
         <lightning-helptext class="lgc-bg" content="Čo najpresnejšie popíšte požadované zmeny čo najpresnejšie označte miesto v grafických podkladoch, ku ktorému sa požadovaná zmena vzťahuje"></lightning-helptext>
-        <textarea class="txt"></textarea>
-        <button class="slds-button button-left">
+        <lightning-textarea onchange={handleUpdateKlz} class="txt" value={klz.Description}></lightning-textarea>
+        <button onclick={goToSpravy} class="slds-button button-left">
             <svg class="slds-button__icon slds-button__icon_left" aria-hidden="true">
                 <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#engage"></use>
             </svg>Napíšte nám</button>
@@ -37,12 +43,21 @@
                 <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#arrow_right"></use>
             </svg>
         </button>
-        <button class="slds-button slds-button_brand">Uložiť ako rozpracovanú</button>
+        <button onclick={handleUpdateKlz} class="slds-button slds-button_brand">Uložiť ako rozpracovanú</button>
     </div>
+            </template>
+        </template>
+
+
+
     </template>
 
     <templateif if:true={klz}>
         <c-app_-k-l-z_-rozpracovane flat-i-d={flatID}></c-app_-k-l-z_-rozpracovane>
     </templateif>
+
+    <template if:true={spravy}>
+        <c-app_-spravy-konkretna case-i-d={caseID} flat-i-d={flatID}></c-app_-spravy-konkretna>
+    </template>
 
 </template>

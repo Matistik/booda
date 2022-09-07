@@ -4,6 +4,7 @@
 
 import {api, LightningElement, track} from 'lwc';
 import getLineItem from '@salesforce/apex/StandardyController.getLineItems';
+import setFlatIdForPdf from '@salesforce/apex/PdfController.setFlatIdForPdf';
 
 export default class TabNavigationStandard extends LightningElement {
 
@@ -34,5 +35,23 @@ export default class TabNavigationStandard extends LightningElement {
         this.renderPrvky = !this.renderPrvky;
         this.renderDruhy = !this.renderDruhy;
     }
+    @track openModal = false;
 
+    openpdfModal() {
+        this.openModal=true;
+        this.generateFlatIdForPdf();
+    }
+
+    closepdfModal() {
+        this.openModal = false;
+
+    }
+    generateFlatIdForPdf(){
+        setFlatIdForPdf({flatID: this.flatID})
+            .then(response => {console.log(response)})
+            .catch(error => {console.log(error)})
+
+
+
+    }
 }

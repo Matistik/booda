@@ -7,54 +7,58 @@
             <div class="text text-nazov">Názov etapy
             </div >
 
-            <template if:true={byty}>
-                <template for:each={byty} for:item="byt">
-                          <textarea  class="text-box text-box-nazov" key={byt.Id}>{byt.Etapa__c}
+            <template if:true={etapy}>
+                <template for:each={etapy} for:item="etapa">
+                          <textarea onchange={handleSave} cols="1"  class="textbox text-box-nazov" key={etapa.Id} >{etapa.Name}
                           </textarea>
             </template>
             </template>
 
         </div>
+
         <h2 class="header2">Termíny:</h2>
 
-        <div class="row-box">
-            <div class="row">
-                <div class="text-field">Uzávierka štandardov
+        <template if:true={etapy}>
+            <template for:each={etapy} for:item="etapa">
+        <div key={etapa.Id} class="row-box">
+            <div key={etapa.Id} class="row">
+                <div key={etapa.Id} class="text-field">Uzávierka štandardov
                 </div>
-                <input class="select date-datum" type="date" >
+                <input onchange={handleSave} class="select1 date-datum" type="date" value={etapa.UzavierkaStandardov__c} >
             </div>
-            <div class="row">
-                <div class="text-field">Uzávierka KLZ
+            <div key={etapa.Id} class="row">
+                <div key={etapa.Id} class="text-field">Uzávierka KLZ
                 </div>
-                <input class="select date-datum" type="date" >
-            </div>
-
-            <div class="row">
-                <div class="text-field">Fixnutie profesií
-                </div>
-                <input class="select date-datum" type="date" >
+                <input onchange={handleSave} class="select2 date-datum" type="date" value={etapa.UzavierkaKLZ__c}>
             </div>
 
-            <div class="row">
-                <div class="text-field">Fixnutie statiky
+            <div key={etapa.Id} class="row">
+                <div  key={etapa.Id} class="text-field">Fixnutie profesií
                 </div>
-                <input class="select date-datum" type="date" >
+                <input onchange={handleSave} class="select3 date-datum" type="date" value={etapa.FixnutieProfesii__c}>
             </div>
 
-            <div class="row">
-                <div class="text-field">Fixnutie murovačiek
+            <div key={etapa.Id} class="row">
+                <div key={etapa.Id} class="text-field">Fixnutie statiky
                 </div>
-                <input class="select date-datum" type="date" >
+                <input onchange={handleSave} class="select4 date-datum" type="date" value={etapa.FixnutieStatiky__c}>
             </div>
 
-            <div class="row">
-                <div class="text-field">Definitívna uzávierka
+            <div key={etapa.Id} class="row">
+                <div key={etapa.Id} class="text-field">Fixnutie murovačiek
                 </div>
-                <input class="select date-datum" type="date" >
+                <input onchange={handleSave} class="select5 date-datum" type="date" value={etapa.FixnutieMurovaciek__c}>
+            </div>
+
+            <div key={etapa.Id} class="row">
+                <div key={etapa.Id} class="text-field">Definitívna uzávierka
+                </div>
+                <input onchange={handleSave} class="select6 date-datum" type="date" value={etapa.DefinitivnaUzavierka__c}>
             </div>
 
         </div>
-
+            </template>
+        </template>
 
 
     </div>

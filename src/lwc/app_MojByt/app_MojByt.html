@@ -8,7 +8,15 @@
 
         <div class="navigation">
             <h2 class="header">Môj Byt</h2>
+            <template if:true={unreadMenezer}>
+                <p1 class="cislo red">&nbsp;{unreadMenezer.expr0}</p1>
+                <svg if:true={unreadMenezer.expr0} class="red icon slds-icon slds-icon-text-error" aria-hidden="true">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#chat"></use>
+                </svg>
+
+            </template>
         </div>
+
         <template if:true={bytData}>
             <div class="small-navigation" key={bytData.Id}>
                 <h2 class="small-header header1">Byt {bytData.Ozna_enie__c}</h2>
@@ -67,7 +75,7 @@
         <c-app_-zoznam-miestnosti flat-i-d={flatID}></c-app_-zoznam-miestnosti>
     </template>
     <template if:true={standardy}>
-        <c-app_-standardy flat-i-d={flatID}></c-app_-standardy>
+        <c-app_-standardy-wrapper flat-i-d={flatID}></c-app_-standardy-wrapper>
     </template>
     <template if:true={klz}>
         <c-app_-k-l-z_-rozpracovane flat-i-d={flatID} case-i-d={caseID}></c-app_-k-l-z_-rozpracovane>

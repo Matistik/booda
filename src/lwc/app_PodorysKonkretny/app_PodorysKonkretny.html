@@ -1,11 +1,18 @@
-<!--
+<!--<div  class="container" id="container">
+
+            <img id="img" class="img"  src="https://redprxportal--dev1red.sandbox.file.force.com/sfc/servlet.shepherd/version/renditionDownload?rendition=ORIGINAL_Png&versionId=0681q000005eXpV&operationContext=CHATTER&contentId=05T1q00000Jucbh"  alt="">
+
+            <img src={pinImage} class="draggable"  id="draggable"  alt="">
+
+        </div>
  - Created by Maind on 11. 8. 2022.
  -->
 
 <!-- App Podorys Konkretny -->
 <template>
+    <template if:true={konkretnypodorys}>
     <div class="navigation">
-        <button class="button"><i class="arrow left"></i>&nbsp;Podorysy</button>
+        <button onclick={goToPodorysy} class="button"><i class="arrow left"></i>&nbsp;Podorysy</button>
         <span class="slds-icon_container slds-icon-utility-home" title="Description of icon when needed">
               <svg class="slds-icon_small slds-icon-text-default" aria-hidden="true">
                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#home"></use>
@@ -13,35 +20,67 @@
         </span>
 
     </div>
-    <div class="small-navigation">
-        <h2 class="small-header header1">Byt A.501</h2>
-        <h2 class="small-header header2">Poschodie 5</h2>
-        <h2 class="small-header header3">Izbovosť 3,5i</h2>
-    </div>
+        <template if:true={bytData}>
+            <div class="small-navigation" key={bytData.Id}>
+                <h2 class="small-header header1">Byt {bytData.Ozna_enie__c}</h2>
+                <h2 class="small-header header2">Poschodie {bytData.Poschodie__c}</h2>
+                <h2 class="small-header header3">Izbovosť {bytData.Izbovos__c}</h2>
+            </div>
+        </template>
 
     <div class="wrapper">
         <p1 class="header">Podorys dispozicia:</p1>
 
-        <div class="rows">
-            <span class="prvok slds-icon-utility-home" title="Description of icon when needed">
-              <svg class="slds-icon_large slds-icon-text-default" aria-hidden="true">
-                     <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#home"></use>
-              </svg>
-        </span>
+
+
+
+        <div  class="container" id="container">
+
+            <img id="img" class="img"  src="https://redprxportal--dev1red.sandbox.file.force.com/sfc/servlet.shepherd/version/renditionDownload?rendition=ORIGINAL_Png&versionId=0681q000005eXpV&operationContext=CHATTER&contentId=05T1q00000Jucbh"  alt="">
+
+            <img src={pinImage} class="draggable"  id="draggable"  alt="">
 
         </div>
 
+
+
+
+
         <div>
+
+<template if:true={bytData}>
+
             <button class="button1 slds-button slds-button_neutral">
                 <svg class="slds-button__icon slds-button__icon_left" aria-hidden="true">
                     <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#add"></use>
-                </svg>Pridať zmenu</button>
+                </svg>Uloz KLZ</button>
 
-            <button class="button2 slds-button slds-button_neutral">
+</template>
+
+            <button class="button2 slds-button slds-button_neutral" >
                 <svg class="slds-button__icon slds-button__icon_left" aria-hidden="true">
                     <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#download"></use>
                 </svg>Stiahnúť pôdorys</button>
         </div>
 
     </div>
+
+    </template>
+
+    <template if:true={podorysy}>
+        <c-app_-podorysy flat-i-d={flatID}></c-app_-podorysy>
+    </template>
+
+    <template if:true={novaklz}>
+        <c-app_-podorys-konkretny flat-i-d={flatID}></c-app_-podorys-konkretny>
+    </template>
+
+    <template if:true={novaklzbutton}>
+        <lightning-button onclick={goToRozpracovane} label="prejst na zoznam klz"></lightning-button>
+</template>
+
+    <template if:true={klzrozpracovane}>
+        <c-app_-k-l-z_-rozpracovane flat-i-d={flatID}></c-app_-k-l-z_-rozpracovane>
+    </template>
+
 </template>

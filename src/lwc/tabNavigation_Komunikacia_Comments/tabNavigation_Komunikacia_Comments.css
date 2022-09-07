@@ -4,7 +4,7 @@
 .wrapper{
     /*background: #efeff5;*/
     border-radius: 8px;
-    height: 88vh;
+    /*height: 88vh;*/
 }
 .container{
     display: grid;
@@ -24,11 +24,16 @@
     grid-column: 1/17;
 }
 .header {
-    grid-column: 1/17;
+    grid-column: 1/10;
     font-size: 20px;
     font-weight: bold;
     padding-bottom: 5px;
-
+}
+.videne{
+    grid-column: 14/17;
+}
+.time{
+    grid-column: 17/18;
 }
 .rows{
     grid-column: 1/17;

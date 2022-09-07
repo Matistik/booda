@@ -3,24 +3,36 @@
  */
 
 import {api, LightningElement, track, wire} from 'lwc';
-import getKLZ from '@salesforce/apex/KLZController.getKLZ';
+import getKLZforComm from '@salesforce/apex/KLZController.getKLZforComm';
+import saveCountClient from '@salesforce/apex/NovyCommentController.saveCommentCountClient';
+import getVlakna from '@salesforce/apex/KomunikaciaController.getVlakna';
+import saveMenezerSeenDateVlakno from '@salesforce/apex/NovyCommentController.saveMenezerSeenDateVlakno';
+
 
 export default class TabNavigationKomunikacia extends LightningElement {
 
     @api flatID;
-
-    @track openModal = false;
-    @track caseCommentsData = [];
+    @track caseID;
+    @track vlaknoID;
     @track caseData = [];
+    @track vlaknaData = [];
+    @track bytName;
+    @track count = 0;
+    @track date = new Date();
+    @track vlaknoDate;
+    @track openVlakno = false;
+
 
     connectedCallback() {
-        this.getKLZ();
+        this.getKLZforComm();
+        this.getVlakna();
     }
-    getKLZ(){
-        getKLZ({caseId : this.flatID})
+
+
+    @api getKLZforComm() {
+        getKLZforComm({caseId: this.flatID})
 
             .then(response => {
-                console.log("ID bytu::: " +this.flatID)
                 this.caseData = response;
             })
             .catch(error => {
@@ -28,27 +40,64 @@ export default class TabNavigationKomunikacia extends LightningElement {
             })
     }
 
-    renderComments(event){
+    getVlakna() {
+        getVlakna({flatId: this.flatID})
+            .then(response => {
+                this.vlaknaData = response;
+            })
+            .catch(error => {
+                console.log(error);
+            })
+    }
+
+    renderComments(event) {
         let caseId = event.currentTarget.dataset.id;
-
-        //this.flatID = caseId;
-
+        this.caseID = caseId;
         let eventToDispatch = new CustomEvent('klz', {
             detail: {
                 id: caseId,
-
             }
         });
         this.dispatchEvent(eventToDispatch)
-
+        this.count = null;
+        this.date = new Date().toJSON()
+        saveCountClient({objCount: null, CaseId: this.caseID, objDate: this.date})
+            .then(result => {
+                this.count = {};
+                this.getKLZforComm();
+            })
+            .catch(error => {
+                this.error = error.message;
+            });
     }
 
-
-    openpvModal() {
-        this.openModal = true;
+    renderVlaknaComments(event) {
+        let vlaknoId = event.currentTarget.dataset.id;
+        this.vlaknoID = vlaknoId;
+        console.log("vlaknoId = " + this.vlaknoID)
+        let eventToDispatch = new CustomEvent('vlakno', {
+            detail: {
+                id: vlaknoId,
+            }
+        });
+        this.dispatchEvent(eventToDispatch)
+        this.vlaknoDate = new Date().toJSON()
+        saveMenezerSeenDateVlakno({objCount: null, komentId: this.vlaknoID, objDate: this.vlaknoDate})
+            .then(result => {
+                // this.count = {};
+                this.getVlakna();
+            })
+            .catch(error => {
+                this.error = error.message;
+            });
     }
 
-    closepvModal() {
-        this.openModal = false;
+    openVlaknoModal() {
+        this.openVlakno = true
+    }
+
+    closeVlaknoModal() {
+        this.openVlakno = false;
+        this.getVlakna(this.flatID);
     }
 }

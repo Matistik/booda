@@ -7,9 +7,11 @@
     <div class="wrapper">
     <div class="container">
         <div class="rows-help">
-            <div class="label label-date">Dátum zaplatenia Paušálneho polpalku KLZ</div>
+
+            <div class="label label-date" >Rozsah klienskych zmien</div>
             <div class="label label-poplatok">Paušálny poplatok KLZ</div>
-            <div class="label label-rozsah">Rozsah klienskych zmien</div>
+
+            <div class="label label-rozsah">Dátum zaplatenia Paušálneho polpalku KLZ</div>
         </div>
         <div class="rows-headers">
             <div class="header">Klientske zmeny</div>
@@ -27,17 +29,9 @@
                          <option value="3" >three</option>
                      </select></div></div></div-->
 
-            <select class="select" >
-                <option >Bez zmeny</option>
-                <option >Male zmneny</option>
-                <option >Velke zmeny</option>
-            </select>
-
-            <textarea  class="poplatok" cols="1" readonly>
-        </textarea>
-
-
-            <input class="calendar" type="date" >
+            <lightning-input if:true={bytData} class="select"  value={bytData.Typ_balika_KLZ__c}></lightning-input>
+            <lightning-input if:true={bytData}  class="poplatok" value=""></lightning-input>
+            <lightning-input  class="calendar"  type="date" value=""></lightning-input>
 
 
 
@@ -48,7 +42,17 @@
             <template if:true={openModal}>
                 <c-custom-modal onclose={closeNZModal}>
 
-                    <c-tab-navigation_nova_-k-l-z flat-i-d={flatID} onrender={getKLZ} onclose={closeNZModal}></c-tab-navigation_nova_-k-l-z>
+                    <a href="https://redprxportal--dev1red--c.sandbox.vf.force.com/apex/Pin">podorys
+                    </a>
+                    <lightning-button
+                            variant="brand"
+                            label="Send to VF"
+                            title="Primary action"
+                            onclick={handleClick}
+                            class="slds-m-left_x-small"
+                    ></lightning-button>
+                    <iframe id="vfIframe" src="/apex/Pin"> </iframe>
+                    <c-tab-navigation_nova_-k-l-z flat-i-d={flatID} onclose={closeNZModal}></c-tab-navigation_nova_-k-l-z>
 
                 </c-custom-modal>
             </template>
@@ -71,23 +75,28 @@
         </div>
         <template if:true={KLZData}>
             <template for:each={KLZData} for:item="klz">
-                <div class="rows-text" key={klz.Id} onclick = "{renderToKlzWrapper}" data-id={klz.Id}>
-                    <h2 class="textRow text0" key={klz.Id}>{klz.CaseNumber}</h2>
-                    <h2 class="textRow text1" key={klz.Id}>{klz.Status}</h2>
-                    <h2 class="textRow text2" key={klz.Id}>{klz.Description}</h2>
+                <div class="rows-text" key={klz.Id}  data-id={klz.Id}>
+                    <h2  class="textRow text0" key={klz.Id}>{klz.ID_KLZ__c}</h2>
+                    <h2  class="textRow text1" key={klz.Id}>{klz.Status}</h2>
+                    <h2  class="textRow text2" key={klz.Id}>{klz.Description}</h2>
                     <h2 class="textRow text3" key={klz.Id}>--</h2>
-                    <h2 class="textRow text4" key={klz.Id}>{klz.CreatedDate}</h2>
-                    <h2 class="textRow text5" key={klz.Id}>--</h2>
-                    <h2 class="textRow text6" key={klz.Id}>{klz.ClosedDate}</h2>
-                    <h2 class="textRow text7" key={klz.Id}>{klz.Cena__c}</h2>
-                    <h2 class="textRow text8" key={klz.Id}>{klz.Schv_len__c}</h2>
-                    <button class=" button button1 row-button-open"><svg class="slds-icon_xx-small slds-input__icon icon-search-input__icon slds-input__icon_left " aria-hidden="true">
-                        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#arrow_right"></use></svg></button>
+                    <h2  class="textRow text4" key={klz.Id}>{klz.CreatedDate}</h2>
+                    <h2  class="textRow text5" key={klz.Id}>--</h2>
+                    <h2  class="textRow text6" key={klz.Id}>{klz.ClosedDate}</h2>
+                    <h2  class="textRow text7" key={klz.Id}>{klz.Cena__c}</h2>
+                    <h2  class="textRow text8" key={klz.Id}>{klz.Schv_len__c}</h2>
 
-                    <button class="button button2 row-button-open"><svg class="slds-icon_xx-small slds-input__icon icon-search-input__icon slds-input__icon_left " aria-hidden="true">
+                    <button onclick = "{renderToKlzWrapper}" data-id={klz.Id} class=" button button1 row-button-open"><svg class="slds-icon_xx-small slds-input__icon icon-search-input__icon slds-input__icon_left " aria-hidden="true">
+
+                        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#arrow_right"></use></svg></button>
+                    <button  onclick={deleteKlz} data-id={klz.Id} class="button button2 row-button-open"><svg class="slds-icon_xx-small slds-input__icon icon-search-input__icon slds-input__icon_left " aria-hidden="true">
                         <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#delete"></use></svg></button>
+
                 </div>
             </template>
+
+
+
         </template>
 
 

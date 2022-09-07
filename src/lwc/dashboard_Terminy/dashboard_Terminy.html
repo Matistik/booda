@@ -16,65 +16,71 @@
             <label class="label">Prijaté zadanie KLZ</label>
         </div>
         <div class="row2">
-            <input class="date1" type="date" value={terminyData.D_tum_podpisu_ZoD_ZoBKZ__c}>
-            <input class="date2" type="date" value={terminyData.Prijat_zadanie_KLZ__c}>
+            <input onchange={updateTerminy} label="Dátum podpisu ZoD/ZoBZK" class="date1" type="date" value={terminyData.D_tum_podpisu_ZoD_ZoBKZ__c}>
+            <input onchange={updateTerminy} label="Prijaté zadanie KLZ" class="date2" type="date" value={terminyData.Prijat_zadanie_KLZ__c}>
         </div>
         <div class="row22">
             <label class="label">Zaslanie výzvy KLZ najneskôr do</label>
             <label class="label">Dané na rozpočet</label>
         </div>
         <div class="row3">
-            <input class="date1" type="date" value={terminyData.Zaslanie_v_zvy_KLZ_najnesk_r_do__c}>
-            <input class="date2" type="date" value={terminyData.Dan_na_rozpo_et__c}>
+            <input onchange={updateTerminy} class="date3" type="date" value={terminyData.Zaslanie_v_zvy_KLZ_najnesk_r_do__c}>
+            <input onchange={updateTerminy} class="date4" type="date" value={terminyData.Dan_na_rozpo_et__c}>
         </div>
         <div class="row22">
             <label class="label">Termín zaslania návrhu na stretnutie</label>
             <label class="label">Uzávierka štandardov</label>
         </div>
         <div class="row4">
-            <input class="date1" type="date" value={terminyData.Term_n_zaslania_n_vrhu_na_stretnutie__c}>
-            <input class="date2" type="date" value={terminyData.Uz_vierka_tandardov__c}>
+            <input onchange={updateTerminy} class="date5" type="date" value={terminyData.Term_n_zaslania_n_vrhu_na_stretnutie__c}>
+            <input onchange={updateTerminy} class="date6" type="date" value={terminyData.Uz_vierka_tandardov__c}>
         </div>
     </div>
     <div class="container2">
-        <div class="rows1">
-            <p1>Poschodie</p1>
+
+        <template if:true={etapyData}>
+            <template for:each={etapyData} for:item="etapa">
+
+        <div key={etapa.Id} class="rows1">
+            <p1>{etapa.Name}</p1>
             <h2 class="h1">Ostava dní</h2>
             <h2 class="h2">Termín</h2>
         </div>
 
-        <div class="rows">
+        <div key={etapa.Id} class="rows">
             <h2 class="h3">Uzávierka štandardov</h2>
-            <h2 class="h1">-104</h2>
-            <h2 class="h2">31.3.2022</h2>
+            <h2 class="h1">{etapa.OstavaDniUS__c}</h2>
+            <h2 class="h2">{etapa.UzavierkaStandardov__c}</h2>
         </div>
 
-        <div class="rows">
+        <div key={etapa.Id} class="rows">
             <h2 class="h3">Uzávierka KLZ</h2>
-            <h2 class="h1">-104</h2>
-            <h2 class="h2">31.3.2022</h2>
+            <h2 class="h1">{etapa.OstavaDniUKLZ__c}</h2>
+            <h2 class="h2">{etapa.UzavierkaKLZ__c}</h2>
         </div>
-        <div class="rows">
+        <div key={etapa.Id} class="rows">
             <h2 class="h3">Fixnutie profesií</h2>
-            <h2 class="h1">-104</h2>
-            <h2 class="h2">31.3.2022</h2>
+            <h2 class="h1">{etapa.OstavaDniFP__c}</h2>
+            <h2 class="h2">{etapa.FixnutieProfesii__c}</h2>
         </div>
-        <div class="rows">
+        <div key={etapa.Id} class="rows">
             <h2 class="h3">Fixnutie statiky</h2>
-            <h2 class="h1">-104</h2>
-            <h2 class="h2">31.3.2022</h2>
+            <h2 class="h1">{etapa.OstavaDniFS__c}</h2>
+            <h2 class="h2">{etapa.FixnutieStatiky__c}</h2>
         </div>
-        <div class="rows">
+        <div key={etapa.Id} class="rows">
             <h2 class="h3">Fixnutie murovačiek</h2>
-            <h2 class="h1">-104</h2>
-            <h2 class="h2">31.3.2022</h2>
+            <h2 class="h1">{etapa.OstavaDniFM__c}</h2>
+            <h2 class="h2">{etapa.FixnutieMurovaciek__c}</h2>
         </div>
 
-        <div class="rows">
+        <div key={etapa.Id} class="rows">
             <h2 class="h3">Definitívna uzávierka</h2>
-            <h2 class="h1">-104</h2>
-            <h2 class="h2">31.3.2022</h2>
+            <h2 class="h1">{etapa.OstavaDniDU__c}</h2>
+            <h2 class="h2">{etapa.DefinitivnaUzavierka__c}</h2>
         </div>
+    </template>
+</template>
 
     </div>
 </template>

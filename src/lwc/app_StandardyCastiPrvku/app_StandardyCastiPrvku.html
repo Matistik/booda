@@ -1,0 +1,42 @@
+<!--
+ - Created by mgons on 8/22/2022.
+ -->
+
+<!-- App Standardy Casti Prvku -->
+<template>
+    <template if:true={standardy}>
+        <div class="navigation">
+            <button onclick={goToMojByt} class="button"><i class="arrow left"></i>&nbsp;Môj Byt</button>
+            <button onclick={goToMiestnosti} class="button">/Miestnosti</button>
+            <button onclick={goToPrvky} class="button">/Prvky</button>
+            <button onclick={goToPrvok} class="button">/Prvok</button>
+
+        </div>
+        <template if:true={bytData}>
+            <div class="small-navigation" key={bytData.Id}>
+                <h2 class="small-header header1">Byt {bytData.Ozna_enie__c}</h2>
+                <h2 class="small-header header2">Poschodie {bytData.Poschodie__c}</h2>
+                <h2 class="small-header header3">Izbovosť {bytData.Izbovos__c}</h2>
+            </div>
+        </template>
+
+        <div class="wrapper">
+
+            <p1 class="header" >Časti Prvku</p1>
+<template if:true={productOptions}>
+    <template for:each={productOptions} for:item="option">
+            <div class="rows" key={prvok.Id}  data-id={option.aggregateResult.Name} onclick={renderProductConcreteOptions}>
+                <p1 class="column1">{option.aggregateResult.Name} - Pocet Produktov na Vyber - {option.aggregateResult.expr0}-{option.vybrane}</p1>
+                <p1 class="end"><i class="arrowBlack right"></i></p1>
+            </div>
+
+</template>
+</template>
+        </div>
+    </template>
+    <template if:true={mojByt}>
+        <c-app_-moj-byt flat-i-d={flatID}></c-app_-moj-byt>
+    </template>
+
+
+</template>

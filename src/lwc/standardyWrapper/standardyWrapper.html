@@ -13,7 +13,13 @@
             <c-standardy-produkty-left flat-i-d={flatID} onprodukt={renderProdukty} ></c-standardy-produkty-left>
         </div>
         <div class="right">
-            <c-standardy-produkty-right flat-i-d={flatID} standard-i-d={standardID}></c-standardy-produkty-right>
+            <c-standardy-produkty-right flat-i-d={flatID} prvok-i-d={prvokID} ondelete={deleteSelected} standard-i-d={standardID} onoption={renderProductOptions} selected-products={selectedProducts}></c-standardy-produkty-right>
+        </div>
+        <div class="bottom">
+            <c-standardy-produkty-bottom flat-i-d={flatID} onname={renderConcreteOptions} prvok-i-d={prvokID} ></c-standardy-produkty-bottom>
+        </div>
+        <div class="bottomRight">
+            <c-standardy-produkty-bottom-right onselected={selectedProduct} prvok-i-d={prvokID} ></c-standardy-produkty-bottom-right>
         </div>
     </div>
 </template>

@@ -11,12 +11,21 @@
                 <c-etapy_left onetapa={handleEtapaValue}></c-etapy_left>
             </div>
             <div>
-                <c-etapy_mid ></c-etapy_mid>
+                <c-etapy_mid etapa-i-d={etapaID} ></c-etapy_mid>
             </div>
             <div>
-                <c-etapy_right ></c-etapy_right>
+                <c-etapy_right onbytfrometapy={goToDashboardByt} ></c-etapy_right>
             </div>
         </div>
+    </template>
+
+    <template if:true={dashboardByt}>
+
+
+        <c-tab-navigation flat-i-d={flatID}>
+
+        </c-tab-navigation>
+
     </template>
 
 </template>

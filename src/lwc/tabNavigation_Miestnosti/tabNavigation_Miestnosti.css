@@ -55,4 +55,15 @@
 }
 .text5{
     grid-column: 6/11;
+    border: none;
+    background: #efeff5;
+    resize: none;
+}
+.text6{
+    grid-column: 6/11;
+
+}
+.text5:hover{
+    border: black 2px solid;
+    border-radius: 4px;
 }

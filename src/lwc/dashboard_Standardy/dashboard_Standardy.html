@@ -9,11 +9,13 @@
 
         <div class="rows">
             <h2 class="row1">Štandardy <div></div></h2>
-            <button class="button2" onclick={openpdfModal}>PDF výstup v </button>
+            <button class="button2" onclick={openpdfModal}>Vygenerovať PDF </button>
             <template if:true={openModal}>
                 <c-custom-modal onclose={closepdfModal}>
-
-
+                    <div class="mid">
+                        <h1 >PDF bolo vygenerované, prosím pokračujte kliknutím na link</h1>
+                        <a target="_blank" rel="noopener noreferrer"  href='https://redprxportal--dev1red--c.sandbox.vf.force.com/apex/StandardyPdfPage' >PDF link</a>
+                    </div>
 
                 </c-custom-modal>
             </template>
@@ -38,10 +40,7 @@
         </div>
 
         <div class="rows">
-            <label class="form-control">
-                <input type="checkbox" name="checkbox" />
-                Uzavriet štandardy predčasne
-            </label>
+            <lightning-input  class="form-control" type="checkbox"  label="Uzavriet štandardy predčasne"  ></lightning-input>
         </div>
 
         <div class="rows">

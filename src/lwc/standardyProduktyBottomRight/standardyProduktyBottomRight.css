@@ -1,0 +1,85 @@
+/**
+ * Created by mgons on 8/15/2022.
+ */
+.container{
+    display: grid;
+    background: #efeff5;
+    border-radius: 8px;
+    padding: 5px;
+    height: 45vh;
+    opacity: 100%;
+
+}
+
+
+
+.img{
+    height: 40px;
+    width: 40px;
+    grid-row: 1/4;
+}
+
+.container > div{
+    display: grid;
+    grid-template-columns: repeat(16, 1fr);
+
+}
+.header {
+    font-size: 20px;
+    font-weight: bold;
+    padding-bottom: 5px;
+    grid-row: 1/2;
+    grid-column: 1/7;
+
+}
+.rows-headers{
+    grid-column: 1/16;
+    border-bottom: darkgray 1px solid;
+    padding-bottom: 15px;
+    padding-top: 10px;
+
+}
+
+.rows{
+
+    grid-column: 1/16;
+    border-bottom: darkgray 1px solid;
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+
+.textRow{
+    align-self: center;
+    font-size: small;
+}
+.text1{
+    grid-column: 4/14;
+}
+
+
+.rows:hover{
+    cursor: pointer;
+    background: white;
+    text-decoration: underline;
+}
+.slds-scrollable_y{
+    pointer-events: all;
+    display: grid;
+    grid-template-columns: repeat(16, 1fr);
+    grid-column: 1/17;
+}
+
+.slds-scrollable_y >div{
+    max-height: 35vh;
+    display: grid;
+    grid-template-columns: repeat(16, 1fr);
+    grid-column: 1/16;
+}
+.slds-checkbox{
+
+}
+
+.button20{
+    grid-column: 10/16;
+    height: 40px;
+}

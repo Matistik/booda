@@ -9,12 +9,14 @@ import getKLZOdoslane from '@salesforce/apex/KLZController.getKLZOdoslane';
 export default class AppKlzOdoslane extends LightningElement {
 
     @api flatID;
+    @api caseID
     @track bytData;
     @track getOdoslaneData = [];
 
     @track mojByt = false;
     @track klz = false;
     @track klzOdoslane = true;
+    @track klzOdoslaneInside = false;
 
     goToMojByt(){
         this.mojByt = !this.mojByt;
@@ -23,10 +25,16 @@ export default class AppKlzOdoslane extends LightningElement {
     goToRozpracovane(){
         this.klzOdoslane = !this.klzOdoslane;
         this.klz = !this.klz;
+    }
+
+    goToOdoslaneInside(event){
+        this.klzOdoslaneInside = !this.klzOdoslaneInside
+        this.klzOdoslane = !this.klzOdoslane;
+        this.caseID = event.currentTarget.dataset.id;
 
     }
 
-    renderedCallback() {
+    connectedCallback() {
         this.getKLZOdoslaneData();
         this.getBytData();
     }
@@ -56,5 +64,6 @@ export default class AppKlzOdoslane extends LightningElement {
                 console.error(error);
             })
     }
+
 
 }

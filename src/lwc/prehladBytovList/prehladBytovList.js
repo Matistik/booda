@@ -14,6 +14,7 @@ export default class PrehladBytovList extends LightningElement {
     @api flatID;
     @track byty;
     @api bytVchod;
+    @api etapaID
 
 
     connectedCallback() {
@@ -38,12 +39,12 @@ export default class PrehladBytovList extends LightningElement {
     }
 
     @api getEtapyData(Id){
-        this.bytVchod = Id;
-        console.log("child2 etapa  "+this.bytVchod);
-        getBytyEtapy({etapy : this.bytVchod})
+        this.etapaID = Id;
+
+        getBytyEtapy({etapy : this.etapaID})
             .then(response => {
                 this.byty = response;
-                console.log(JSON.stringify(this.byty))
+               // console.log(JSON.stringify(this.byty))
             })
             .catch(error => {
                 console.error(error);
@@ -56,10 +57,15 @@ export default class PrehladBytovList extends LightningElement {
         getBytyList()
             .then(response => {
                 this.byty = response;
+
             })
             .catch(error => {
                 console.error(error);
             })
+
+
+
+
     }
 
 

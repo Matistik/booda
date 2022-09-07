@@ -5,10 +5,13 @@
 
         <div class="rows">
             <h2 class="row1">Klientské zmeny <div>{klientskeZmenyData.OwnerId}</div></h2>
-            <button class="button2" onclick={openpdfModal}>PDF výstup</button>
+            <button class="button2" onclick={openpdfModal}>Vygenerovať PDF</button>
             <template if:true={openModal}>
                 <c-custom-modal onclose={closepdfModal}>
-
+                    <div class="mid">
+                        <h1 >PDF bolo vygenerované, prosím pokračujte kliknutím na link</h1>
+                        <a target="_blank" rel="noopener noreferrer"  href='https://redprxportal--dev1red--c.sandbox.vf.force.com/apex/PdfKlzPage' >PDF link</a>
+                    </div>
                 </c-custom-modal>
             </template>
         </div>
@@ -18,7 +21,6 @@
             <h2 class="text2">Rozpracované</h2>
             <button class="button2" onclick={renderToKLZ} >Zobrazit zmeny ></button>
         </div>
-
 
         <div  class="rows">
             <h2 class="text1" if:true={countDataUzavrete}>{countDataUzavrete.expr0}</h2>
@@ -32,24 +34,31 @@
         </div>
 
         <div class="rows">
-            <select class="area1" >
-                <option >Bez zmeny</option>
-                <option >Male zmneny</option>
-                <option >Velke zmeny</option>
-            </select>
-            <textarea disabled class="area2">0</textarea>
+
+            <lightning-combobox
+                    if:true={bytData}
+                    class="area1"
+                    name="progress"
+                    value={bytData.Typ_balika_KLZ__c}
+                    options={options}
+                    placeholder="Vyberte typ balika"
+                    onchange={updateKLZByt}
+            >
+            </lightning-combobox>
+
+            <lightning-input disabled class="area2" value="0"></lightning-input>
         </div>
 
         <div class="area1-nadpis">
             <label class="label1">Zasielanie výzvy KLZ najneskôr do</label>
             <label class="label3">Nh nárok</label>
-            <label class="label4">Nh vypočítané</label>
+            <label class="label4">Nh vyčerpané</label>
         </div>
 
         <div class="rows">
-            <input class="area1 date" type="date">
-            <textarea rows="2" class="area3">0</textarea>
-            <textarea rows="2" class="area4">0</textarea>
+            <lightning-input if:true={bytData} disabled class="area1 date" type="date" value={bytData.Zaslanie_v_zvy_KLZ_najnesk_r_do__c}></lightning-input>
+            <lightning-input if:true={bytData} disabled rows="2" class="area3" value={bytData.Nh_Narok__c}></lightning-input>
+            <lightning-input onchange={updateKLZByt} if:true={bytData} type="number" class="area4" value={bytData.Nh_Vycerpane__c}></lightning-input>
         </div>
 
         <div class="area1-nadpis">
@@ -57,18 +66,23 @@
         </div>
 
         <div class="rows">
-            <lightning-input class="form-control" type="checkbox" label="Uzavriet KLZ predčasne" onclick={handleChange}></lightning-input>
-            <template if:false={areButtonVisible}>
-                <button class="odomknute">Odomknuté v</button>
-            </template>
+            <lightning-input if:true={bytData} class="form-control" type="checkbox"  label="Uzavriet KLZ predčasne"  onclick={handleChange} checked={bytData.Predcasne_Uzavretie_KLZ__c}></lightning-input>
 
-            <textarea class="area4">0</textarea>
+
+
+            <lightning-input if:true={bytData}  disabled class="area5" value={bytData.Nh_nad_ramec__c}></lightning-input>
         </div>
-
+<template if:true={areButtonVisible}>
         <div class="rows">
             <p2 class="last">Klientské zmeny boli uzavreté</p2>
         </div>
-
+    </template>
+        <template if:false={areButtonVisible}>
+            <div class="rows">
+                <p2 class="last">Do uzatvorenia klientskych zmien zostava x dni</p2>
+            </div>
+        </template>
     </div>
     </template>
+
 </template>

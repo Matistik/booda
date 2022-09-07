@@ -6,33 +6,36 @@ import {api, LightningElement, track} from 'lwc';
 import getConcreteKLZ from '@salesforce/apex/KLZController.getConcreteKLZ';
 import getKalkulacia from '@salesforce/apex/KalkulaciaController.getKalkulacia';
 import getSumaKalkulacia from '@salesforce/apex/KalkulaciaController.getSumaKalkulacia';
-import CaseStatus_Field from '@salesforce/schema/Case.Status';
-import Description_Field from '@salesforce/schema/Case.Description';
-import Subject_Field from '@salesforce/schema/Case.Subject';
-import Id_Field from '@salesforce/schema/Case.Id';
-
 import updateCaseRecord from '@salesforce/apex/NovaKLZController.updateCaseRecord';
-import {ShowToastEvent} from "lightning/platformShowToastEvent";
-
-
+import deleteKalkulacia from '@salesforce/apex/NovaKLZController.deleteKalkulacia';
 
 export default class TabNavigationKlzPopRight extends LightningElement {
 
     @api flatID;
+    @api prvokID
     @api klzID;
+    @api kalkulaciaID
+
     @track ConcreteKLZData;
     @track sumaKalkulacia;
-
+    @track internePoznamky
+    @track poznamkyPreKlienta
+    @track status
     @track value;
     @track kalkulaciaData;
     @track openModal = false;
+    @track prvokModal = false;
+    @track leftKlzID
+    @track podorysModal = false;
 
-    @track klzRecord = {
-        Status : CaseStatus_Field,
-        Id : Id_Field,
-        Description : Description_Field,
-        Subject : Subject_Field
-    };
+    openPrvokModal(){
+        console.log("som true")
+        this.prvokModal = true;
+    }
+    closePrvokModal(){
+        this.prvokModal = false
+    }
+
 
     openKalModal() {
         this.openModal = true;
@@ -40,13 +43,23 @@ export default class TabNavigationKlzPopRight extends LightningElement {
 
     closeKalModal() {
         this.openModal = false;
+        this.getConcreteKLZ(this.klzID)
+    }
+    openPodorysModal() {
+        this.podorysModal = true;
     }
 
+    closePodorysModal() {
+        this.podorysModal = false;
+
+    }
 
 
 
     connectedCallback() {
         this.getConcreteKLZInit();
+        this.getKalkulacia()
+        this.getSumKalkulacia()
     }
 
 
@@ -69,13 +82,11 @@ export default class TabNavigationKlzPopRight extends LightningElement {
 
      getConcreteKLZInit(){
 
-
-
+        console.log("mamamia "+this.klzID)
         getConcreteKLZ({klzID: this.klzID})
             .then(response => {
                 this.ConcreteKLZData = response;
-                this.value = this.ConcreteKLZData.Status
-                console.log('conn')
+                console.log('conn' + JSON.stringify(this.ConcreteKLZData))
 
             })
             .catch(error => {
@@ -84,24 +95,22 @@ export default class TabNavigationKlzPopRight extends LightningElement {
     }
 
     @api getConcreteKLZ(ahoj){
-
+        this.leftKlzID = ahoj
         this.klzID = ahoj
         getConcreteKLZ({klzID: this.klzID})
             .then(response => {
                 this.ConcreteKLZData = response;
-                this.value = this.ConcreteKLZData.Status
-
-
             })
             .catch(error => {
                 console.log(error);
             })
+        this.getKalkulacia()
+        this.getSumKalkulacia()
     }
 
-    renderedCallback() {
-        this.getKalkulacia();
-        this.getSumKalkulacia();
-    }
+    // renderedCallback() {
+    //
+    // }
 
 
     getKalkulacia(){
@@ -126,45 +135,44 @@ export default class TabNavigationKlzPopRight extends LightningElement {
             })
     }
 
-    handleeChange(event) {
-        //ked sa change tak nech sa aj savne (mozno)
-        this.value = event.detail.value;
-        this.klzRecord.Status = event.detail.value;
-        this.klzRecord.Id = this.klzID;
-    }
-    handleeDescriptionChange(event) {
-        //ked sa change tak nech sa aj savne (mozno)
-        this.klzRecord.Description = event.target.value;
-        window.console.log('Description ==> '+this.klzRecord.Description);
-        this.klzRecord.Id = this.klzID;
-    }
-    handleeSubjectChange(event) {
-        //ked sa change tak nech sa aj savne (mozno)
-        this.klzRecord.Subject = event.target.value;
-        window.console.log('Subject ==> '+this.klzRecord.Subject);
-        this.klzRecord.Id = this.klzID;
-    }
-
 
     handleUpdateKlz() {
-        console.log('nastal update')
-        updateCaseRecord({objCase: this.klzRecord},)
+        console.log('nastal update '+ this.klzID)
+        this.internePoznamky = this.template.querySelector('.poznamky').value
+        this.poznamkyPreKlienta = this.template.querySelector('.poznamky-pre1').value
+        this.status = this.template.querySelector('.dropdown1').value
+
+        updateCaseRecord({id: this.klzID, prvok: this.prvokID, internep: this.internePoznamky,
+            poznamkypk: this.poznamkyPreKlienta, status: this.status},)
             .then(result => {
-                this.klzRecord.Status = this.template.querySelector("lightning-combobox");
-                this.klzRecord.Description = this.template.querySelector(".poznamky-od1");
-                this.klzRecord.Subject = this.template.querySelector(".poznamky-od3");
-
-                {}
-
-                this.dispatchEvent(new ShowToastEvent({
-                    title: 'Success!!',
-                    message: 'Case Updated Successfully!!',
-                    variant: 'success'
-                }),);
+                this.getConcreteKLZInit()
             })
             .catch(error => {
                 console.error(error);
             });
     }
+
+    getPrvok(event){
+        this.prvokID = event.detail.id
+        console.log("prvok id uz tu "+this.prvokID)
+        this.handleUpdateKlz()
+        this.closePrvokModal()
+    }
+
+    deleteKalkulacia(event){
+        let caseId = event.currentTarget.dataset.id
+        this.kalkulaciaID = caseId
+
+
+        deleteKalkulacia({Id: this.kalkulaciaID})
+            .then(result => {
+                this.getConcreteKLZ(this.klzID)
+            })
+            .catch(error => {
+                console.error(error);
+            });
+
+    }
+
 
 }

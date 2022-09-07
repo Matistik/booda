@@ -4,10 +4,12 @@
 
 import {api, LightningElement, track} from 'lwc';
 import getByt from '@salesforce/apex/DashboardController.getByt';
+import getEtapyTerminy from '@salesforce/apex/EtapyATerminyController.getEtapyTerminy';
 
 export default class AppTerminy extends LightningElement {
     @api flatID;
     @track bytData;
+    @track etapyData;
 
     @track mojByt = false;
     @track terminy = true;
@@ -19,6 +21,7 @@ export default class AppTerminy extends LightningElement {
 
     renderedCallback() {
         this.getBytData();
+        this.getEtapyTerminy();
     }
 
     getBytData() {
@@ -33,4 +36,16 @@ export default class AppTerminy extends LightningElement {
                 console.error(error);
             })
     }
+
+    getEtapyTerminy(){
+        console.log("etapa flat id: "+this.flatID)
+        getEtapyTerminy({byt : this.flatID})
+            .then(response => {
+                this.etapyData = response;
+            })
+            .catch(error => {
+                console.error(error);
+            })
+    }
+
 }

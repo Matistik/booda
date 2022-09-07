@@ -7,13 +7,13 @@
 
 
 
-    <div class="container" id="container">
+    <div  class="container" id="container">
 
 
 
 
         <div class="rows-headers">
-            <div class="header">Produkty           </div>
+            <div class="header" if:true={druhName}>Prvok {druhName.Prvok__c} </div>
             <button class="slds-button slds-button_brand button20 slds-button_stretch" onclick={openModal}>
                 <svg class=" button1 slds-button__icon slds-button__icon_left " aria-hidden="true">
                     <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#add"></use>
@@ -21,15 +21,40 @@
             <template if:true={modal}>
                 <c-custom-modal onclose={closeModal}>
 
-                    <h1>Naozaj chcete vybrat tento produkt?</h1>
+                    <h1>Naozaj chcete vybrat tieto Produkty?</h1>
 
-                    <lightning-button label='hej' onclick={saveProduct} ></lightning-button>
-                    <lightning-button label='ne' onclick={closeModal}></lightning-button>
+                    <template if:true={selectedProductsObjects}>
+                        <template for:each={selectedProductsObjects} for:item="object">
+
+                            <div class="rows " key={object.Id}>
+                                <img src={object.Product_Image_Link__c} class="img" alt="">
+                                <h2 class="textRow text1" >{object.Name}</h2>
+                            </div>
+
+                        </template>
+                    </template>
+
+                    <lightning-button label='POTVRDIT' onclick={saveProduct} ></lightning-button>
+                    <lightning-button label='ZRUSIT' onclick={closeModal}></lightning-button>
 
                     <div if:true={saved}>PRODUKT BOL USPESNE ULOZENY!</div>
 
                 </c-custom-modal>
             </template>
+
+            <template if:true={checkModal}>
+                <c-custom-modal onclose={closeCheckModal}>
+
+                    <h1>Naozaj chcete zmenit Produkt?</h1>
+
+                    <lightning-button label='POTVRDIT' onclick={deleteProduct} ></lightning-button>
+                    <lightning-button label='ZRUSIT' onclick={closeCheckModal}></lightning-button>
+
+                    <div if:true={changed}>PRODUKT BOL USPESNE ZMENENY</div>
+
+                </c-custom-modal>
+            </template>
+
 
         </div>
 
@@ -39,14 +64,41 @@
             <template if:true={prvky}>
             <template for:each={prvky} for:item="prvok" >
 
-            <div class="rows " key={prvok.Id} >
-                <img src={prvok.Product__r.Product_Image_Link__c} class="img" alt="">
-                <h2 class="textRow text1" if:true={prvok.Product__r.Name}>{prvok.Uroven__c} - {prvok.Product__r.Name}</h2>
-                <div class="slds-checkbox">
-                    <lightning-input class="slds-p-left_xx-large" type="checkbox" checked={prvok.Vybrany__c} data-id={prvok.Id} onchange={handleChange} label=""></lightning-input>
+            <div class="rows " key={prvok.produktPrvku.Id} data-id={prvok.produktPrvku.Product__r.Id} onclick={renderProductOptions} >
+                <h2 class="textRow text1" if:true={prvok.produktPrvku.Product__r.Name}>{prvok.produktPrvku.Uroven__c} - {prvok.produktPrvku.Product__r.Name}</h2>
+                <lightning-input class="slds-p-left_xx-large checkbox" type="checkbox"  checked={prvok.vybrane} label=""></lightning-input>
 
-                </div>
+                <img src={prvok.produktPrvku.Product__r.Product_Image_Link__c} class="img" data-id={prvok.produktPrvku.Product__r.Id} alt="" onclick={openImgModal}>
 
+
+                <template if:true={imgModal}>
+                    <c-custom-modal if:true={image} onclose={closeImgModal}>
+                        <div class="mid">
+                            <img if:true={image.Product_Image_Link__c} src={image.Product_Image_Link__c} class="img-big" alt="" >
+                        </div>
+
+                    </c-custom-modal>
+                </template>
+
+
+
+                      <svg onclick={openDeleteModal} class="slds-icon slds-icon-text-default delete" aria-hidden="true">
+                            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#delete"></use>
+                      </svg>
+                <template if:true={deleteModal}>
+
+                    <c-custom-modal onclose={closeDeleteModal}>
+
+                        <h1>Naozaj chcete vymazat tento Produkt?</h1>
+
+                        <lightning-button label='POTVRDIT A VYMAZAT' onclick={deleteProduct} ></lightning-button>
+                        <lightning-button label='ZRUSIT' onclick={closeDeleteModal}></lightning-button>
+
+                        <div if:true={deleted}>PRODUKT BOL USPESNE VYMAZANY!</div>
+
+                    </c-custom-modal>
+
+                </template>
             </div>
             </template>
             </template>
